@@ -110,7 +110,7 @@ app.post("/asset", async (req, res) => {
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
                       var slotsJSON = myobject[attributename].slots;
-                    //  console.log(slots);
+                      console.log("YEH SLOT DATA" + slotsJSON);
 
                       var contentJSON = myobject[attributename].content;
 
@@ -118,9 +118,8 @@ app.post("/asset", async (req, res) => {
                         content : {
                           contentJSON
                         },
-                        slots: {
-                          slotsJSON
-                        }
+                        slots: slotsJSON
+                        
                       }   
                       console.log(templateJSON);
 
