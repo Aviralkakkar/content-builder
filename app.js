@@ -113,7 +113,8 @@ app.post("/asset", async (req, res) => {
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
                       console.log("template wale loop me aaya ");
-                      array.push(myobject[attributename].fileProperties.fileName);
+                      console.log("myobject name" +myobject[attributename].fileProperties.name);
+                 //     array.push(myobject[attributename].fileProperties.fileName);
                     }
                else if(assetType=='email')
                     {
