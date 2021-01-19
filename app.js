@@ -86,7 +86,9 @@ app.post("/asset", async (req, res) => {
              "property":"assetType.name",
               "simpleOperator":"equal",
               "value":assetType
-            },    
+            },
+          
+                 },
          json: true
          }, 
          function(error, response, body){
