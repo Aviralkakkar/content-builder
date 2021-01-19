@@ -92,9 +92,9 @@ app.post("/asset", async (req, res) => {
          json: true
          }, 
          function(error, response, body){
-        console.log("yeh response body hai :" +JSON.stringify(response.body));    
-        console.log(JSON.stringify(response.body.count));
-        console.log(JSON.stringify(response.body.items)); 
+      //  console.log("yeh response body hai :" +JSON.stringify(response.body));    
+      //  console.log(JSON.stringify(response.body.count));
+      //  console.log(JSON.stringify(response.body.items)); 
                                                 
           myobject=  response.body.items; 
           array.push(assetType);  
@@ -125,7 +125,7 @@ app.post("/asset", async (req, res) => {
                         slots: slotsJSON
                       
                     } 
-                      console.log(templateJSON);
+                    //  console.log(templateJSON);
                     
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
