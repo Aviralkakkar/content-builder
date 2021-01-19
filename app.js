@@ -121,7 +121,7 @@ app.post("/asset", async (req, res) => {
                         slots: slotsJSON
                  */       
                  //     }   
-                      console.log(templateJSON);
+                 //     console.log(templateJSON);
 
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
