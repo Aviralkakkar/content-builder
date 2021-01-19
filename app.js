@@ -120,7 +120,7 @@ app.post("/asset", async (req, res) => {
                         },
                         slots: slotsJSON
                  */       
-                      }   
+                 //     }   
                       console.log(templateJSON);
 
                     //  console.log("yeh hai content" + q);
