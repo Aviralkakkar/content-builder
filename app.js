@@ -129,7 +129,8 @@ app.post("/asset", async (req, res) => {
                     
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
-                      map[myobject[attributename].id] = myobject[attributename].name;
+                    //  map[myobject[attributename].id] = myobject[attributename].name;
+                        map[myobject[attributename].id] = templateJSON;
                      
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
                   //     array.push(myobject[attributename].fileProperties.fileName);
