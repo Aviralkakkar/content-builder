@@ -109,8 +109,11 @@ app.post("/asset", async (req, res) => {
                     }
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
+                      var slots = myobject[attributename].slots;
+                      console.log(slots);
+
                       var q = myobject[attributename].content;
-                      console.log("yeh hai content" + q);
+                    //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
                       map[myobject[attributename].id] = myobject[attributename].name;
                      
