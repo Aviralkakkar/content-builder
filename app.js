@@ -83,7 +83,7 @@ app.post("/asset", async (req, res) => {
          body:    {
            "query":
             {
-             "property":"assetType.displayName",
+             "property":"assetType.name",
               "simpleOperator":"equal",
               "value":assetType
             },
