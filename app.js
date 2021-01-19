@@ -61,7 +61,7 @@ app.post("/accesstoken", async (req, res) => {
         //---------------------------------------------------------SecondPage-Images------------------------------------------------------------------------------------
 app.post("/asset", async (req, res) => {
                                             
-
+        console.log("template ke liye aagya app.post me");
         var url = require('url');
         var address =  req.url;
         var q = url.parse(address, true);
