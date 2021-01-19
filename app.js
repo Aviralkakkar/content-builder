@@ -111,9 +111,9 @@ app.post("/asset", async (req, res) => {
                     {
                       var slotsJSON = myobject[attributename].slots;
                       console.log("YEH SLOT DATA" + slotsJSON);
-                      console.log("String"+JSON.stringify(slotsJSON));
-                      slotsJSON=JSON.parse(slotsJSON);
-                      var contentJSON = myobject[attributename].content;
+                    //  console.log("String"+JSON.stringify(slotsJSON));
+                    //  slotsJSON=JSON.parse(slotsJSON);
+                    // var contentJSON = myobject[attributename].content;
                     /*
                       var templateJSON = {
                         content : {
