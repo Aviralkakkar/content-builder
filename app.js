@@ -120,10 +120,8 @@ app.post("/asset", async (req, res) => {
                           contentJSON
                         },
                       
-                        slots: {
-                          slotsJSON
-                        }
-
+                        slots: slotsJSON
+                      
                     } 
                       console.log(templateJSON);
                     
