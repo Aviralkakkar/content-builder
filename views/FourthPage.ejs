@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: white">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+  <title>Content Buider</title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/html" href=".views/assets/input.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.sanitized.min.css" integrity="sha512-O9RC97AHIeSWK6mAA/b1GBPzrBsmNBT8nN2yz6vghHn0Eatt4P7ilv4H+uO5mp7WIDh9sKbUoKSg3pGsPM8ShA==" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system_touch.min.css" integrity="sha512-5j2QXzkr/ZIuvsLKYgRr8HEfAx5D+Mg0dFDCSGwKR2GKcdZbJSynKdirYGVGRVWLz9ryxV4/0kfoCGffJD3fQw==" crossorigin="anonymous" />
+    
+    <style>
+          .center {
+            padding-top: 200px;
+        }
+       
+        
+        table.Resulttable td {
+  
+  margin: 12px 12px 12px 12px;
+  padding: 12px 12px 12px 12px;
+}
+
+table.Resulttable {
+  border-collapse: separate;
+  border-spacing: 10px;
+
+}
+        
+   </style>
+
+<script type="text/javascript">
+                                                              
+ async function aFunction() 
+{
+     console.log("heloo");
+     var url="/call";
+     var status=0;
+     document.getElementById('progressheading').innerHTML='Transferring';
+     
+     var img = new Image(); 
+     img.setAttribute("id","img");
+     img.src = '/assets/87 (1).gif';
+     document.getElementById('image').append(img);
+
+  try{
+         var res= await $.ajax
+          ({
+            url: url,
+            data: "hii",
+            type: "POST",
+            headers: 
+                {
+              'Content-type': 'application/x-www-form-urlencoded'
+                },
+              
+          })
+          .then(async function(response)
+          { 
+            document.getElementById('img').style.display='none';
+                var imgDone = new Image(); 
+                imgDone.setAttribute("id","imgDone");
+                imgDone.setAttribute("height","120px");
+                imgDone.setAttribute("width","120px");
+                imgDone.src = '/assets/Done.jpg';
+                document.getElementById('imageDone').append(imgDone);
+                
+                document.getElementById('progressheading').innerHTML='Transferr Completed';
+                console.log(response);
+                var html=('<table id="Resulttable" class="slds-table slds-table--bordered slds-max-medium-table--stacked"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th></tr></thead></table>');
+                document.getElementById("table").innerHTML=html; 
+                var dataTrimmed = response.split("+");
+                 
+                    
+                  for(i in dataTrimmed)
+                  {
+                    
+                      if(dataTrimmed[i]!="")
+                      {
+
+                          var dataParsed=JSON.parse(dataTrimmed[i]);
+                         // var getProgressBar=document.getElementById('progress');
+                         // var getProgressBarSize=getProgressBar.style.width;
+                          //getProgressBarSize = getProgressBarSize.substring(0, getProgressBarSize.length - 1);
+                          var tablerow=('<tr class="slds-line-height_reset"><td style="padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.imagename+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.statuscode+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.message+'</td></tr>');
+                          $('#Resulttable').append(tablerow);
+                          
+                          //getProgressBarSize=getProgressBarSize+dataParsed.dataToWrite.progressStatus;
+                        
+                          /*if(getProgressBarSize<100)
+                          {
+                          
+                          getProgressBar.style.width=getProgressBarSize+'%';
+                          }
+                          else
+                          {
+                            var lastsize=100;
+                            console.log("Sucess");
+                            document.getElementById('progressheading').innerHTML='Transfer Completed';
+                            getProgressBar.style.width=lastsize+'%';
+
+                          }
+                        */
+                      }
+                      
+                    
+                      else
+                      {
+                        console.log("Blank response received");
+                      }
+                   
+                  }
+                  
+                     
+          })
+          console.log("Res"+res);
+      
+    }
+    catch(error)
+     {
+        console.log(error);
+     }
+}
+                                                
+      </script>
+</head>
+<body style="background-color: white">
+
+    <div class="slds-text-heading_large slds-m-bottom_small slds-m-around_small slds-align_absolute-center " id="progressheading" style="font-weight: bolder;">Transferring</div>
+    <div class ="slds-align_absolute-center" id="image"  height="50px" width="50px"></div>
+    <div class ="slds-align_absolute-center" id="imageDone"  height="50px" width="50px"></div>
+     <div class="slds-align_absolute-center" id="table">
+     </div>
+       
+   <script type="text/javascript">
+            aFunction();
+        </script>
+
+   </body>
+   
+   </html>
+  

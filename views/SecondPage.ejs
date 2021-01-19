@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html lang="en" style="background-color: white">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+ 
+  <title>Content Buider</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/html" href=".views/assets/input.css" />
+  <link rel="stylesheet" type="text/html" href="/views/assets/salesforce-lightning-design-system-2.13.7" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.sanitized.min.css" integrity="sha512-O9RC97AHIeSWK6mAA/b1GBPzrBsmNBT8nN2yz6vghHn0Eatt4P7ilv4H+uO5mp7WIDh9sKbUoKSg3pGsPM8ShA==" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system_touch.min.css" integrity="sha512-5j2QXzkr/ZIuvsLKYgRr8HEfAx5D+Mg0dFDCSGwKR2GKcdZbJSynKdirYGVGRVWLz9ryxV4/0kfoCGffJD3fQw==" crossorigin="anonymous" />
+
+  <style>
+    #marketing-asideLeft {
+
+width:30%;
+height: 80%;
+vertical-align:top;
+
+
+}
+#marketing-asideRight {
+
+width:70%;
+height: 100%;
+vertical-align:top;
+}
+</style>
+
+</head>
+
+<body style="background-color: white">
+  <div style="width: 100%;height:80%;" class="slds-p-around_small">
+    <div class="slds-float_left" style="width:15%;height:100%;">
+      <div class="slds-panel slds-size_small slds-panel_docked slds-panel_docked-left slds-is-open" style="position: fixed;" aria-hidden="false">
+        <div class="slds-panel__header">
+            <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Panel Header">CONTENT BUILDER ASSETS</h2>
+         </div>
+               <div class="slds-panel__body">
+
+                   <div class="demo-only" style="width:100%">
+                   <nav class="slds-nav-vertical" aria-label="Sub page">
+                   <div class="slds-nav-vertical__section">
+                           <h2 id="entity-header" class="slds-nav-vertical__title"> </h2>
+                           <ul aria-describedby="entity-header">
+                               <li class="slds-nav-vertical__item">
+                                <button class="slds-nav-vertical__action slds-button" onclick="imagebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Images</button>
+                               </li>
+                               <li class="slds-nav-vertical__item ">
+                                <button class="slds-nav-vertical__action slds-button" onclick="imagebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Emails</button>
+                               </li>
+                               <li class="slds-nav-vertical__item " >
+                                <button class="slds-nav-vertical__action slds-button" onclick="templatebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Templates</button>
+                               </li>
+                               <li class="slds-nav-vertical__item ">
+                                <button class="slds-nav-vertical__action slds-button" onclick="imagebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Documents</button>
+                               </li>
+                               
+                           </ul>
+                   </div>
+                   </nav>
+                  </div>
+           </div> 
+ </div>
+
+    </div>
+
+    <div class="slds-float_right" style="width:80%;height:100%;">
+      <article class="slds-card">
+           
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+           <div class="slds-media__body">
+             
+           </div>
+       </header>
+     <div style="padding: 2px;height:480px;" id="Imagecontainer" >
+
+    </div>
+  
+  </article>
+    </div>
+
+    
+</div>
+<div style="padding-top:480px;" claas="slds-float_right">
+  <button class="slds-button slds-button_brand slds-float_left slds-m-around_small" style="margin-left: 22.5%;" onclick="nextbutton()">
+   <a href="/" style="text-decoration: none;">Back</a> 
+</button>
+  <button class="slds-button slds-button_brand slds-float_right slds-m-around_small"  onclick="nextbutton()">
+    Next
+</button>
+</div>
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" id="answerModal" style="display: none;">
+  <div class="slds-modal__container">
+  <header class="slds-modal__header">
+  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+  <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+  </svg>
+  <span class="slds-assistive-text">Close</span>
+  </button>
+  <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Ae you sure you want to Proceed?</h2>
+  </header>
+  <footer class="slds-modal__footer">
+  <button class="slds-button slds-button_neutral" onclick="nobutton()">No</button>
+  <button class="slds-button slds-button_brand" onclick="yesbutton()">Yes</button>
+  </footer>
+  </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open" id="backdrop" style="display: none;"></div>
+  
+    
+     
+     
+</body>
+<script type="text/javascript"> 
+
+
+//Image Iframe Start
+            function imagebutton()
+           {
+                     if ($('#Imageiframe').length ) 
+                     {
+                   console.log("imagecontent");
+                     } else
+                     {
+                      var head='';
+                      var html = '<html  style="background-color: white"><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous"/><link rel="stylesheet" type="text/html" href=".views/assets/input.css" /><link rel="stylesheet" type="text/html" href="/views/assets/salesforce-lightning-design-system-2.13.7" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.sanitized.min.css" integrity="sha512-O9RC97AHIeSWK6mAA/b1GBPzrBsmNBT8nN2yz6vghHn0Eatt4P7ilv4H+uO5mp7WIDh9sKbUoKSg3pGsPM8ShA==" crossorigin="anonymous"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system_touch.min.css" integrity="sha512-5j2QXzkr/ZIuvsLKYgRr8HEfAx5D+Mg0dFDCSGwKR2GKcdZbJSynKdirYGVGRVWLz9ryxV4/0kfoCGffJD3fQw==" crossorigin="anonymous" /></head><body background><img class="slds-align_absolute-center" style="padding-top:250px;padding-bottom:250px;" id="imageloader" src="/assets/712.gif"><article class="slds-card"><div id="iframeMainDiv"></div></article></body><html>';
+        
+
+                            var iframe = document.createElement('iframe'); 
+                            document.getElementById("Imagecontainer").appendChild(iframe); 
+                            iframe.setAttribute("id","Imageiframe");
+                            iframe.setAttribute("frameBorder","0");
+                            iframe.width = '100%';
+                            iframe.height = '100%';
+                            iframe.contentWindow.document.open();
+                            iframe.contentWindow.document.write(html);
+                            iframe.contentWindow.document.close();
+                            
+
+
+                            var ifame2=document.getElementById("Imageiframe");
+                            var $Imageiframe = $('#Imageiframe');
+                            
+
+
+                            //creating the fieldset
+                            
+                             // $Imageiframe.append(imageLoader);
+                                      console.log("heyyy");
+
+                                      var url="/asset?assetType=image";
+                                      
+
+                                     fetch(url, {  //provide URL of the processing page
+                                              method: "POST",
+
+                                              headers: {
+                                                  "Content-Type": "application/json"
+                                              },
+                                              body: {
+                                                  "assetType":"image",
+
+                                              }
+                                          })
+                                          .then(response => response.json())
+                                          .then(async (body) => 
+                                          {
+                                            var fieldset=document.createElement('fieldset');
+                            fieldset.setAttribute("class","slds-form-element");
+                            $Imageiframe.contents().find("#iframeMainDiv").append(fieldset);
+
+
+                              //creating the form_element_control div
+                            var form_element__control = document.createElement('div');
+                            form_element__control.setAttribute("class","slds-form-element__control");
+                            form_element__control.setAttribute("id","form_element")
+                            $Imageiframe.contents().find("fieldset").append(form_element__control);
+                                                     
+                              var map=body.map;
+                               console.log("map"+map);
+                                console.log("mapstring"+JSON.stringify(map));
+                              var assetType=body.assetType;
+                                                  
+                                              
+                                                 
+
+                              if (assetType=='image') 
+                                  {
+                                    //var div=document.createElement('div');
+                                   //   div.className='slds-size--1-of-8';
+                                   $Imageiframe.contents().find('#imageloader').hide();
+                                  //  $Imageiframe.contents().find("div").append(div); 
+                                 //var ifame2=document.getElementById("Imageiframe");
+                               //  map2={"logodp":"https://image.s11.sfmc-content.com/lib/fe3311717164047e7d1370/m/1/e7a4ab50-b807-49b6-b77a-8aabcf7daf01.png"  };                                                                   
+                                for (const [keyimage, value] of Object.entries(map)) 
+                                     {
+                                // console.log(`${key}: ${value}`);
+                                 
+
+                           
+                                var key = keyimage.replace(/[- ]/g,"");
+                                key=key.replace("(","-");
+                                key=key.replace(")","-");
+                                key=key.replace('.',"-")
+
+                              //  key=key.replace(/()/g,"_");
+                                console.log(key);
+
+                                //key=key.replace("(","");
+                                //key=key.replace(")","");
+
+                                var url= new URL(value);
+                                console.log("m becch m u");
+                                                                         
+                                                                         
+                                url.pathname; // returns "/products/flashplayer/include/marquee/design.swf
+                                var filename = url.pathname.split('/').reverse()[0];
+                                var ext = filename.split('.')[1];
+                                                                          
+                                var slds_visual_picker=document.createElement('div');
+                                slds_visual_picker.setAttribute("class","slds-visual-picker slds-visual-picker_small");
+                               // var id_value='visualpicker'+key;
+                                 var id_value='visualpicker'+key;
+                                slds_visual_picker.setAttribute("id",id_value);
+                                $Imageiframe.contents().find("#form_element").append(slds_visual_picker);
+
+
+                                var checkbox = document.createElement('input');
+                                checkbox.setAttribute("type","checkbox");
+                                
+                                checkbox.setAttribute("id",value);
+                                checkbox.setAttribute("value",ext);
+                                checkbox.setAttribute("name",keyimage);
+                                console.log(id_value);
+                                $Imageiframe.contents().find("#"+id_value).append(checkbox);
+                                
+                                var label=document.createElement('label');
+                                label.setAttribute("for",value);
+                                label.setAttribute("id",'label'+key)
+                               $Imageiframe.contents().find("#"+id_value).append(label);
+
+                                var span1=document.createElement('span');
+                                span1.setAttribute("class","slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center");
+                                span1.setAttribute("id",'span1'+key);
+                                $Imageiframe.contents().find("#label"+key).append(span1);
+
+                                var span1_1 = document.createElement('span');
+                                span1_1.setAttribute("id",'span1_1'+key);
+                                $Imageiframe.contents().find("#span1"+key).append(span1_1);
+
+                                var image=new Image();
+                              image.style.width="140px";
+                              image.style.height="100px";
+                                image.src=value;
+                                $Imageiframe.contents().find("#span1_1"+key).append(image);
+
+                                var span2=document.createElement('span');
+                                span2.setAttribute("class","slds-visual-picker__body");
+                                span2.setAttribute("id",'span2'+key);
+                                $Imageiframe.contents().find("#label"+key).append(span2);
+
+                              console.log("span");
+                                var span2_1 = document.createElement('span');
+                                span2_1.setAttribute("class","slds-text-align_center slds-hyphenate");
+                                span2_1.setAttribute("style","white-space:normal");
+                                span2_1.setAttribute("id",'span2_1'+key);
+                                $Imageiframe.contents().find("#span2"+key).append(span2_1);
+                                $Imageiframe.contents().find('#span2_1'+key).append(keyimage);
+
+                                
+
+
+                                var span3=document.createElement('span');
+                                span3.setAttribute("class","slds-icon_container slds-visual-picker__text-check");
+                                span3.setAttribute("id",'span3'+key);
+                                 $Imageiframe.contents().find("#label"+key).append(span3);
+                               
+                                var svg=document.createElement('svg');
+                                svg.setAttribute("class","slds-icon slds-icon-text-check slds-icon_x-medium");
+                                svg.setAttribute("id","svg"+key);
+                                svg.setAttribute("aria-hidden","true");
+                                 $Imageiframe.contents().find("#span3"+key).append(svg);
+
+                                var image2=new Image();
+                                image2.src='/assets/salesforce-lightning-design-system-2.13.7/assets/icons/utility/check.svg';
+                                console.log($Imageiframe.contents().find("#svg"+key).append(image2));                                       
+                                                                          
+                                                                              
+                                 }
+                                                                  
+                                 }
+
+                                          });
+                              }
+          };
+  //Image Iframe End
+  
+  
+  //Template Iframe Start
+           function templatebutton()
+           {
+                     if ($('Templatecontainer').contents().find('body').children().length > 0) 
+                     {
+                   console.log("templatecontent");
+                     } else
+                     {
+                              var iframe = document.createElement('iframe');
+                              var html = '<body></body>';
+
+                              // div tag in which iframe will be added should have id attribute with value myDIV
+                              document.getElementById("Imagecontainer").appendChild(iframe);
+
+                              // provide height and width to it
+                              iframe.setAttribute("style","height:100%;width:100%;");
+                              iframe.setAttribute("id","Templateiframe");
+                              iframe.contentWindow.document.open();
+                              iframe.contentWindow.document.write(html);
+                              iframe.contentWindow.document.close();
+
+
+
+                              var $Templateiframe = $('#Templateiframe');
+                                      console.log("heyyy");
+
+                                      var url="/asset?asset";
+
+                                      fetch(url, {  //provide URL of the processing page
+                                              method: "POST",
+
+                                              headers: {
+                                                  "Content-Type": "application/json"
+                                              },
+                                              body: {
+                                                  "assetType":"Template",
+
+                                              }
+                                          })
+                                          .then(response => response.json())
+                                          .then((body) => 
+                                          {
+                                                      console.log(JSON.stringify(body.data));
+                                                      var rows =body.data;
+                                                      console.log("rows"+rows);
+
+                                                      var assetType=rows[0];
+                                                  console.log(assetType);
+                                                  for(i=0;i<rows.length;i++)
+                                                  {
+                                                  console.log(rows[i]);
+                                                  };
+
+                                                  if (assetType=='template') 
+                                                      {
+
+                                                                  
+                                                                  for (i=1;i<rows.length;i++)
+                                                                  {
+                                                          //radio button
+                                                                  var radiobox = document.createElement('input');
+                                                                      radiobox.type = 'radio';
+                                                                  //   radiobox.id = 'contact';
+                                                                      radiobox.value = rows[i];
+
+                                                          //list
+                                                                  var ul = document.createElement('ul');
+                                                                  ul.setAttribute('style', 'padding: 0; margin: 0;');
+                                                                  ul.setAttribute('id', 'theList');
+
+                                                             
+                                                                      var li = document.createElement('li');     // create li element.
+                                                                      li.innerHTML = rows[i];      // assigning text to li using array value.
+                                                                      li.setAttribute('style', 'display: block;');    // remove the bullets.
+                                                                      $Templateiframe.contents().find("body").append(radiobox);
+                                                                    console.log(ul);
+                                                                   ul.appendChild(li);     // append li to ul.
+                                                                     $Templateiframe.contents().find("body").append(ul);
+                                                                  };
+
+                                                                      
+                                                                        
+                                                                  
+                                                      }
+
+                                          });
+                              }
+          };
+  //Template Iframe End
+  
+  //nextbutton
+  function nextbutton()
+ 
+  {
+ 
+     document.getElementById('answerModal').style.display='block';
+     document.getElementById('backdrop').style.display='block';                                                                                          
+  
+  };
+  // coverting image in base64
+  
+  //yesbutton
+  function yesbutton()
+  {
+    console.log("Yes clles");
+    var checkedValue = null; 
+                                                             var frame = document.getElementById('Imageiframe');
+
+                                                              var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
+                                                             
+                                                               var imagejsonarray = [];
+                                                               var imagejson={};
+                                                               
+                                                              for (var i = 0; i < checkboxes.length; i++)
+                                                              {
+                                                                 if( checkboxes[i].checked == true)
+                                                                 {
+                                                                
+                                                                  console.log(checkboxes[i].value);
+                                                                  console.log(checkboxes[i].id);
+                                                                  console.log(checkboxes[i].name);
+                                                                
+                                                                 
+                                                              // getDataUrl(checkboxes[i].id,checkboxes[i].name,checkboxes[i].value,imagemap);
+                                                                    var name=checkboxes[i].name;
+                                                                    var url=checkboxes[i].id;
+                                                                  //  imagejson.push({name : url});
+                                                                   //imagejson.append(name,url);
+                                                                   imagejson[name]=checkboxes[i].id;
+                                                                   imagejsonarray.push(imagejson);
+                                                                   
+                                                                
+                                                                 
+                                                                  
+                                                                }
+                                                                  
+                                                              };
+                                                              console.log("form"+imagejson);
+                                                              console.log(imagejsonarray);
+                                                               getDataUrl(imagejson);
+                                       
+                                                             
+console.log("end of ur");
+
+  }
+  
+  function getDataUrl(imagejson) {
+                console.log("inside get data url"+imagejson);
+
+                                      
+                                   //   var url="/convertintobase64?imageURL="+imgURL+"&name="+name+"&assetType="+assetType;
+                                         var url="/convertintobase64?button=Yes";
+                                         var headers = new Headers();
+                                     //   headers.set('Content-Type', 'application/x-www-form-urlencoded');
+                                          var img=JSON.stringify({imagejson});
+                                          console.log(img);
+                                          var img2=JSON.stringify(imagejson);
+                                          
+                                          console.log(img2);
+                                      
+                                                  $.ajax({
+            url: url,
+            data: imagejson,
+            type: "POST",
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (data) {
+        console.log(data);
+      //  document.body.innerHTML   = data;
+     //  document.querySelector('html').innerHTML  = data;
+     document.write(data);
+        }
+        })
+          
+                                                 
+             };
+
+ function nobutton()
+ 
+  {
+ 
+     document.getElementById('answerModal').style.display='none';
+     document.getElementById('backdrop').style.display='none';                                                                                          
+  
+  };
+        
+
+                                                              
+                                                             
+</script>
+
+  
+ 
+
+</html>
+

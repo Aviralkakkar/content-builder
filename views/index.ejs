@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js" ></script>
+    <title>Content Buider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.min.css" integrity="sha512-UV/bdfkf/vUvwZ6/aVq8zas293BNyu43i68QdurkfUmSjGRiCxKISDe29R6VPB3YKfeA/lCjGyfXLBIzlpTg5A==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/html" href=".views/assets/input.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system.sanitized.min.css" integrity="sha512-O9RC97AHIeSWK6mAA/b1GBPzrBsmNBT8nN2yz6vghHn0Eatt4P7ilv4H+uO5mp7WIDh9sKbUoKSg3pGsPM8ShA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.13.7/styles/salesforce-lightning-design-system_touch.min.css" integrity="sha512-5j2QXzkr/ZIuvsLKYgRr8HEfAx5D+Mg0dFDCSGwKR2GKcdZbJSynKdirYGVGRVWLz9ryxV4/0kfoCGffJD3fQw==" crossorigin="anonymous" />
+    </head>
+
+    <body>
+      <form method="POST" action="/accesstoken">
+      <div style="width: 100%;height:80%;" class="slds-p-around_medium">
+        <div class="slds-float_left " style="width:48%;height:100%;">
+          <article class="slds-card ">
+      
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+               <div class="slds-media__body">
+                 <img src="data:image/png;base64,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">
+               </div>
+           </header>
+         <div class="slds-form-element" style="padding: 28px;">
+     
+         <div class="slds-form-element__label"><label for="Source Client Secret">Source Client Secret</label></div>
+         <div class="slds-form-element__control">
+           <input id="ClientSecretSource" name="ClientSecretSource" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Source Client Id</label></div>
+         <div class="slds-form-element__control">
+           <input id="ClientIdSource" name="ClientIdSource" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Source Client Credentails</label></div>
+         <div class="slds-form-element__control">
+           <input id="GrantTypeSource" name="GrantTypeSource" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Source Account Id</label></div>
+         <div class="slds-form-element__control">
+           <input id="AccountIdSource" name="AccountIdSource" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+           
+         </div>
+       
+         
+       </article>
+        </div>
+        <div class="slds-float_right " style="width:48%;height:100%;">
+          <article class="slds-card">
+      
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+               <div class="slds-media__body">
+                 <img src="data:image/png;base64,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">
+               </div>
+           </header>
+         <div style="padding: 28px;">
+     
+         <div class="slds-form-element__label"><label for="username">Destination Client Secret</label></div>
+         <div class="slds-form-element__control">
+           <input id="ClientSecretDestination" name="ClientSecretDestination" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Destination Client Id</label></div>
+         <div class="slds-form-element__control">
+           <input id="ClientIdDestination" name="ClientIdDestination" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Destination Client Credentails</label></div>
+         <div class="slds-form-element__control">
+           <input id="GrantTypeDestination" name="GrantTypeDestination" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+         <div class="slds-form-element__label"><label for="username">Destination Account Id</label></div>
+         <div class="slds-form-element__control">
+           <input id="AccountIdDestination" name="AccountIdDestination" class="slds-input username mt8 mb8" aria-describedby="username-errors" autofocus="autofocus" type="text" value="">
+         </div>
+           
+         </div>
+       
+       </article>
+        </div>
+      </div>
+      <button style="margin-top: 2%;" class="slds-align_absolute-center slds-button slds-button_brand">
+        Submit
+      </button>
+    </form>
+    </body>
+</html>
+
