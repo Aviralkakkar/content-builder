@@ -86,12 +86,7 @@ app.post("/asset", async (req, res) => {
              "property":"assetType.name",
               "simpleOperator":"equal",
               "value":assetType
-            },
-             "fields": [
-              "name",
-              "fileProperties"
-                       ]
-                 },
+            },    
          json: true
          }, 
          function(error, response, body){
@@ -113,7 +108,7 @@ app.post("/asset", async (req, res) => {
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
                       console.log("template wale loop me aaya ");
-                      map[myobject[attributename].id] = myobject[attributename].fileProperties.fileName;
+                      map[myobject[attributename].id] = myobject[attributename].name;
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
                   //     array.push(myobject[attributename].fileProperties.fileName);
                     }
