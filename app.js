@@ -113,7 +113,7 @@ app.post("/asset", async (req, res) => {
                       console.log("YEH SLOT DATA" + slotsJSON);
 
                       var contentJSON = myobject[attributename].content;
-
+                    /*
                       var templateJSON = {
                         content : {
                           contentJSON
@@ -123,7 +123,7 @@ app.post("/asset", async (req, res) => {
 
                     } 
                       console.log(templateJSON);
-
+                    */
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
                       map[myobject[attributename].id] = myobject[attributename].name;
