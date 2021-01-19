@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
   //---------------------------------------------------------SecondPage-Images------------------------------------------------------------------------------------
 app.post("/accesstoken", async (req, res) => {
   //---------------------------------------------------------Get Access Token------------------------------------------------------------------------------------
-        console.log(req.body);
-        console.log("near");
-        console.log(req);
+     //   console.log(req.body);
+     //   console.log("near");
+     //   console.log(req);
         const clientidSource = req.body.ClientIdSource;
         const clientsecretSource = req.body.ClientSecretSource;
         const granttypeSource = req.body.GrantTypeSource;
@@ -70,7 +70,7 @@ app.post("/asset", async (req, res) => {
 
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
-        var assetType = qdata.assetType;
+        var assetType = qdata.asset;
         console.log("assetType"+assetType);
          var array = [];
           var map={};
