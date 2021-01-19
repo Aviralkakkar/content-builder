@@ -70,7 +70,7 @@ app.post("/asset", async (req, res) => {
 
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
-        var assetType = qdata.asset;
+        var assetType = qdata.assetType;
         console.log("assetType"+assetType);
          var array = [];
           var map={};
