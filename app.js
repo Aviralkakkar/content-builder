@@ -95,7 +95,7 @@ app.post("/asset", async (req, res) => {
          json: true
          }, 
          function(error, response, body){
-        console.log(JSON.stringify(response.body));    
+        console.log("yeh response body hai :" +JSON.stringify(response.body));    
         console.log(JSON.stringify(response.body.count));
         console.log(JSON.stringify(response.body.items)); 
                                                 
@@ -112,6 +112,7 @@ app.post("/asset", async (req, res) => {
                     }
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
+                      console.log("template wale loop me aaya ");
                       array.push(myobject[attributename].fileProperties.fileName);
                     }
                else if(assetType=='email')
