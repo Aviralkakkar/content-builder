@@ -109,10 +109,11 @@ app.post("/asset", async (req, res) => {
                     }
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
-                      console.log("template wale loop me aaya ");
-                      map[myobject[attributename].id] = myobject[attributename].name;
                       var q = myobject[attributename].content;
                       console.log("yeh hai content" + q);
+                      console.log("template wale loop me aaya ");
+                      map[myobject[attributename].id] = myobject[attributename].name;
+                     
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
                   //     array.push(myobject[attributename].fileProperties.fileName);
                     }
@@ -126,7 +127,7 @@ app.post("/asset", async (req, res) => {
                     }
              }
                                                 
-            console.log("yeh hai map " + map);
+            console.log("yeh hai map " + JSON.stringify(map));
             console.log("array"+array);
   
                                                 // res.render("SecondPage.ejs",{data:array});
