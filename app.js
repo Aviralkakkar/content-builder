@@ -114,12 +114,12 @@ app.post("/asset", async (req, res) => {
 
                       var contentJSON = myobject[attributename].content;
 
-                      var templateJSON = {
+                 /*     var templateJSON = {
                         content : {
                           contentJSON
                         },
                         slots: slotsJSON
-                        
+                 */       
                       }   
                       console.log(templateJSON);
 
