@@ -113,8 +113,9 @@ app.post("/asset", async (req, res) => {
                else if(myobject[attributename].assetType.displayName =='Template')
                     {
                       console.log("template wale loop me aaya ");
+                      map[myobject[attributename].id] = myobject[attributename].fileProperties.fileName;
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
-                 //     array.push(myobject[attributename].fileProperties.fileName);
+                  //     array.push(myobject[attributename].fileProperties.fileName);
                     }
                else if(assetType=='email')
                     {
@@ -126,7 +127,7 @@ app.post("/asset", async (req, res) => {
                     }
              }
                                                 
-            console.log(map);
+            console.log("yeh hai map " + map);
             console.log("array"+array);
   
                                                 // res.render("SecondPage.ejs",{data:array});
