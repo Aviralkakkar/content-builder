@@ -457,8 +457,9 @@ vertical-align:top;
                                                                 
                                                               //    console.log(checkboxes[i].value);
                                                                   console.log("yeh checkbox id hai: " + checkboxes[i].id);
-                                                                  console.log("yeh checkbox ki asset Id: " + JSON.stringify(checkboxes[i].name[assetId]));
-                                                                
+                                                              //    console.log("yeh checkbox ki asset Id: " + JSON.stringify(checkboxes[i].name));
+                                                                  var dataJSON = JSON.stringify(checkboxes[i].name);
+                                                                  console.log("yeh hai dataJSON :" + dataJSON);
                                                               // getDataUrl(checkboxes[i].id,checkboxes[i].name,checkboxes[i].value,imagemap);
                                                                     var name=checkboxes[i].id;
                                                                     var url=checkboxes[i].name;
