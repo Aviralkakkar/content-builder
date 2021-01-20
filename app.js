@@ -204,6 +204,8 @@ app.post("/asset", async (req, res) => {
             console.log("images"+JSON.stringify(images));
             for(var myobject in images)
             {
+              console.log(images[myobject]);
+              console.log(JSON.stringify(images[myobject]));
                 var imageURL= images[myobject];
                 var imageName=myobject;
                 console.log("ImageName"+imageName);
