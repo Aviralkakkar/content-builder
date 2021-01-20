@@ -82,7 +82,7 @@ vertical-align:top;
            </div>
        </header>
      <div style="padding: 2px;height:480px;" id="Imagecontainer" >
-        hey
+        
     </div>
   
   </article>
@@ -373,18 +373,21 @@ vertical-align:top;
                                                   console.log("yeh elements " + i + ":")
                                                   console.log(map[i]);
                                                   };
-                                                  for (const [keyimage, value] of Object.entries(map)) 
+                                                  if(assetType=='template')
                                                   {
-                                                    console.log("yeh keys hai : " + keyimage);
-                                                    console.log("yeh values hai : " + value);
-                                                    console.log("yeh value name hai : " + value.name);
-                                                    console.log("yeh value content hai : " + value.content);
-                                                    console.log("yeh value slot hai : " + value.slots);
-                                                    console.log("yeh value assetId hai : " + value.assetId);
-
+                                                    for (const [keyimage, value] of Object.entries(map)) 
+                                                    {
+                                                      console.log("yeh keys hai : " + keyimage);
+                                                      console.log("yeh values hai : " + value);
+                                                      console.log("yeh value name hai : " + value.name);
+                                                      console.log("yeh value content hai : " + value.content);
+                                                      console.log("yeh value slot hai : " + value.slots);
+                                                      console.log("yeh value assetId hai : " + value.assetId);
+                                                      document.getElementById("Imagecontainer").innerHTML = keyimage
+                                                    }
                                                   }
-
-                                                  if (assetType=='template') 
+                                                 
+                                    /*              if (assetType=='template') 
                                                       {
        
                                                                   for (i=1;i<rows.length;i++)
@@ -414,6 +417,7 @@ vertical-align:top;
                                                                         
                                                                   
                                                       }
+                                                      */
 
                                           });
                               }
