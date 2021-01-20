@@ -400,7 +400,8 @@ vertical-align:top;
                                                                   //   radiobox.id = 'contact';
                                                                       radiobox.id = keyimage;
                                                                       radiobox.value = value;
-                                                                      console.log("yeh hai radiobox ki value" + radiobox.value.name.templateName);
+                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.value));
+                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.value.name));
 
                                                           //create
                                                           //list
@@ -471,7 +472,6 @@ vertical-align:top;
                                                                    imagejsonarray.push(imagejson);
                                                                    
                                                                 }
-                                                                  
                                                               };  
                                                               console.log("form"+JSON.stringify(imagejson));
                                                               console.log("yeh imagejson array hai " + JSON.stringify(imagejsonarray));
