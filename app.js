@@ -120,7 +120,8 @@ app.post("/asset", async (req, res) => {
                       var templateJSON = {
                         name : templateName,
                         content : contentJSON,
-                        slots: slotsJSON
+                        slots: slotsJSON, 
+                        assetId: assetId      
                     } 
                     //  console.log(templateJSON);
                     
