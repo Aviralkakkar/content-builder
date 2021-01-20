@@ -354,10 +354,10 @@ vertical-align:top;
                                             for (var count in map) {
                                                                     len++;
                                                                    }
-
-                                                      console.log("yeh hai map ka size" + len );
-                                                      console.log("map ----------"+map);
-                                                      console.log("mapstring"+JSON.stringify(map));
+                                                      console.log("yeh hai asset type : " +body.assetType);
+                                                      console.log("yeh hai map ka size : " + len );
+                                                  //    console.log("map ----------"+map);
+                                                  //    console.log("mapstring"+JSON.stringify(map));
                                                       var assetType=body.assetType;
 
                                                                
@@ -366,10 +366,11 @@ vertical-align:top;
                                                   //    console.log("rows"+rows);
 
                                                       var assetType=rows[0];
-                                                  console.log(assetType);
-                                                  for(i=0;i<rows.length;i++)
+                                                  //console.log(assetType);
+                                                  for(i=0;i<len;i++)
                                                   {
-                                                  console.log(rows[i]);
+                                                  console.log("yeh elements " + i + ":")
+                                                  console.log(map[i]);
                                                   };
 
                                                   if (assetType=='template') 
