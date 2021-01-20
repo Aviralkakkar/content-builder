@@ -349,6 +349,11 @@ vertical-align:top;
                                           .then(response => response.json())
                                           .then((body) => 
                                           {
+                                                      var map=body.map;
+                                                      console.log("map ----------"+map);
+                                                      console.log("mapstring"+JSON.stringify(map));
+                                                      var assetType=body.assetType;
+                                                               
                                                       console.log(JSON.stringify(body.data));
                                                       var rows =body.data;
                                                       console.log("rows"+rows);

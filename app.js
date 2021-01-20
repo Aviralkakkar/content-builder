@@ -124,6 +124,7 @@ app.post("/asset", async (req, res) => {
                         assetId: assetId      
                     } 
                     //  console.log(templateJSON);
+                    var asset='template';
                     
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
