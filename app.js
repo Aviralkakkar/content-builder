@@ -115,7 +115,7 @@ app.post("/asset", async (req, res) => {
                     //  console.log("String"+JSON.stringify(slotsJSON));
                     //  slotsJSON=JSON.parse(slotsJSON);
                       var contentJSON = myobject[attributename].content;
-                      var assetId = myobject[attributename].content;
+                      var assetId = myobject[attributename].assetType.id;
 
                       var templateJSON = {
                         name : templateName,
