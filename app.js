@@ -118,10 +118,10 @@ app.post("/asset", async (req, res) => {
                       var assetId = myobject[attributename].assetType.id;
 
                       var templateJSON = {
-                        name : templateName,
-                        content : contentJSON,
-                        slots: slotsJSON, 
-                        assetId: assetId      
+                        name : {templateName},
+                        content : {contentJSON},
+                        slots: {slotsJSON}, 
+                        assetId: {assetId}      
                     } 
                     //  console.log(templateJSON);
                     var asset='template';
