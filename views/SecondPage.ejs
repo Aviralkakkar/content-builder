@@ -350,7 +350,12 @@ vertical-align:top;
                                           .then((body) => 
                                           {
                                                       var map=body.map;
-                                                      console.log("yeh hai map ka size" + map.length );
+                                                      var len = 0;
+                                            for (var count in map) {
+                                                                    len++;
+                                                                   }
+
+                                                      console.log("yeh hai map ka size" + len );
                                                       console.log("map ----------"+map);
                                                       console.log("mapstring"+JSON.stringify(map));
                                                       var assetType=body.assetType;
