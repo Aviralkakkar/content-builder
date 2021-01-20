@@ -399,9 +399,10 @@ vertical-align:top;
                                                                       radiobox.type = 'checkbox';
                                                                   //   radiobox.id = 'contact';
                                                                       radiobox.id = keyimage;
-                                                                      radiobox.value = value;
-                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.value));
-                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.value.name));
+                                                                      radiobox.name = value;
+
+                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name));
+                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name.name));
 
                                                           //create
                                                           //list
