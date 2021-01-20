@@ -116,8 +116,7 @@ app.post("/asset", async (req, res) => {
                     //  slotsJSON=JSON.parse(slotsJSON);
                       var contentJSON = myobject[attributename].content;
                       var assetId = myobject[attributename].content;
-                      console.log(assetId);
-                    
+
                       var templateJSON = {
                         name : templateName,
                         content : contentJSON,
@@ -127,8 +126,10 @@ app.post("/asset", async (req, res) => {
                     
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
+                      console.log("yeh hai asset id : " + assetId);
                     //  map[myobject[attributename].id] = myobject[attributename].name;
                         map[myobject[attributename].id] = templateJSON;
+
                      
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
                   //     array.push(myobject[attributename].fileProperties.fileName);
