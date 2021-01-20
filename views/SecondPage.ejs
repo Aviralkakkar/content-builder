@@ -350,13 +350,15 @@ vertical-align:top;
                                           .then((body) => 
                                           {
                                                       var map=body.map;
+                                                      console.log("yeh hai map ka size" + map.size );
                                                       console.log("map ----------"+map);
                                                       console.log("mapstring"+JSON.stringify(map));
                                                       var assetType=body.assetType;
+
                                                                
-                                                      console.log(JSON.stringify(body.data));
-                                                      var rows =body.data;
-                                                      console.log("rows"+rows);
+                                                  //    console.log(JSON.stringify(body.data));
+                                                  //    var rows =body.data;
+                                                  //    console.log("rows"+rows);
 
                                                       var assetType=rows[0];
                                                   console.log(assetType);
