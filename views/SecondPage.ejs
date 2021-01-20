@@ -373,7 +373,7 @@ vertical-align:top;
                                                   console.log("yeh elements " + i + ":")
                                                   console.log(map[i]);
                                                   };
-                                                  if(assetType=='template')
+                          /*                        if(assetType=='template')
                                                   {
                                                     for (const [keyimage, value] of Object.entries(map)) 
                                                     {
@@ -386,17 +386,17 @@ vertical-align:top;
                                                       document.getElementById("Imagecontainer").innerHTML = keyimage
                                                     }
                                                   }
-                                                 
-                                    /*              if (assetType=='template') 
+                          */                       
+                                                  if (assetType=='template') 
                                                       {
        
-                                                                  for (i=1;i<rows.length;i++)
+                                                              for (const [keyimage, value] of Object.entries(map)) 
                                                                   {
                                                           //radio button
                                                                   var radiobox = document.createElement('input');
                                                                       radiobox.type = 'radio';
                                                                   //   radiobox.id = 'contact';
-                                                                      radiobox.value = rows[i];
+                                                                      radiobox.value = keyimage;
 
                                                           //list
                                                                   var ul = document.createElement('ul');
@@ -405,7 +405,7 @@ vertical-align:top;
 
                                                              
                                                                       var li = document.createElement('li');     // create li element.
-                                                                      li.innerHTML = rows[i];      // assigning text to li using array value.
+                                                                      li.innerHTML = keyimage;      // assigning text to li using array value.
                                                                       li.setAttribute('style', 'display: block;');    // remove the bullets.
                                                                       $Templateiframe.contents().find("body").append(radiobox);
                                                                     console.log(ul);
@@ -417,7 +417,7 @@ vertical-align:top;
                                                                         
                                                                   
                                                       }
-                                                      */
+                                                      
 
                                           });
                               }
