@@ -125,7 +125,7 @@ app.post("/asset", async (req, res) => {
                     } 
                     //  console.log(templateJSON);
                     var asset='template';
-                    console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name));
+                    console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
                     
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
