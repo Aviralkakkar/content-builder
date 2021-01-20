@@ -457,19 +457,18 @@ vertical-align:top;
                                                                 
                                                               //    console.log(checkboxes[i].value);
                                                                   console.log("yeh checkbox id hai: " + checkboxes[i].id);
-                                                                  console.log("yeh checkbox name urf value hai: " + checkboxes[i].name.content);
+                                                                  console.log("yeh checkbox name urf value hai: " + checkboxes[i].name.slots);
                                                                 
                                                               // getDataUrl(checkboxes[i].id,checkboxes[i].name,checkboxes[i].value,imagemap);
                                                                     var name=checkboxes[i].id;
                                                                     var url=checkboxes[i].name;
                                                                   //  imagejson.push({name : url});
                                                                    //imagejson.append(name,url);
-                                                                   imagejson[name]=checkboxes[i].url;
+                                                                   imagejson[name]=checkboxes[i].name;
                                                                    imagejsonarray.push(imagejson);
                                                                    
                                                                 
-                                                                 
-                                                                  
+                                        
                                                                 }
                                                                   
                                                               };  
