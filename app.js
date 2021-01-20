@@ -115,15 +115,13 @@ app.post("/asset", async (req, res) => {
                     //  console.log("String"+JSON.stringify(slotsJSON));
                     //  slotsJSON=JSON.parse(slotsJSON);
                       var contentJSON = myobject[attributename].content;
+                      var assetId = myobject[attributename].content;
+                      console.log(assetId);
                     
                       var templateJSON = {
                         name : templateName,
-                        content : {
-                          contentJSON
-                        },
-                      
+                        content : contentJSON,
                         slots: slotsJSON
-                      
                     } 
                     //  console.log(templateJSON);
                     
@@ -145,8 +143,8 @@ app.post("/asset", async (req, res) => {
                     }
              }
                                                 
-            console.log("yeh hai map " + JSON.stringify(map));
-            console.log("array"+array);
+        //    console.log("yeh hai map " + JSON.stringify(map));
+        //    console.log("array"+array);
   
                                                 // res.render("SecondPage.ejs",{data:array});
                                                 //     console.log("completed");
