@@ -396,7 +396,10 @@ vertical-align:top;
                                                                   var radiobox = document.createElement('input');
                                                                       radiobox.type = 'checkbox';
                                                                   //   radiobox.id = 'contact';
-                                                                      radiobox.value = keyimage;
+                                                                      radiobox.id = keyimage;
+                                                                      radiobox.name = value;
+                                                                      
+                                                                      
                                                           //create
                                                           //list
                                                                   var ul = document.createElement('ul');
@@ -452,11 +455,10 @@ vertical-align:top;
                                                                  if( checkboxes[i].checked == true)
                                                                  {
                                                                 
-                                                                  console.log(checkboxes[i].value);
-                                                                  console.log(checkboxes[i].id);
-                                                                  console.log(checkboxes[i].name);
+                                                              //    console.log(checkboxes[i].value);
+                                                                  console.log("yeh checkbox id hai: " + checkboxes[i].id);
+                                                                  console.log("yeh checkbox name urf value hai: " + checkboxes[i].name);
                                                                 
-                                                                 
                                                               // getDataUrl(checkboxes[i].id,checkboxes[i].name,checkboxes[i].value,imagemap);
                                                                     var name=checkboxes[i].name;
                                                                     var url=checkboxes[i].id;
