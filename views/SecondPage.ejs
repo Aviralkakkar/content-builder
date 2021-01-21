@@ -490,9 +490,12 @@ vertical-align:top;
                                                                         .then(response => response.json())
                                                                         .then((body) => 
                                                                         {
+                                                                          var assetType=body.assetType;
+                                                                          console.log("yeh hai assettype body ka" + body.assetType);
                                                                           if (assetType=='template') 
                                                                                 {
                                                                                     var temp = 0;
+
                                                                                     for (const [keyimage, value] of Object.entries(map)) 
                                                                                         {
                                                                                           while(checkedTemplateArray)
