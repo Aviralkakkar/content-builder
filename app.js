@@ -217,7 +217,10 @@ app.post("/asset", async (req, res) => {
                {
                  console.log("yeh key hai" + i);
              //    console.log("yeh loop lagaya name.templateName" + imageURL[i].name.templateName);
-                 console.log("yeh loop lagaya name me" + imageURL[i].templateName);
+                 console.log("yeh loop lagaya aur name Nikale" + imageURL[i].templateName);
+                 console.log("yeh loop lagaya aur slots Nikale" + imageURL[i].slotsJSON);
+                 console.log("yeh loop lagaya aur content Nikala" + imageURL[i].contentJSON);
+                 console.log("yeh loop lagaya aur assetId Nikli" + imageURL[i].assetId);
                }
 
                 if(base64!=null)
