@@ -495,12 +495,14 @@ vertical-align:top;
                                                                           console.log("yeh hai assettype body ka" + body.assetType);
                                                                           if (assetType=='template') 
                                                                                 {
-                                                                                    var temp = 0;
+                                                                                    
 
                                                                                     for (const [keyimage, value] of Object.entries(map)) 
                                                                                         {
+                                                                                          var temp = 0;
                                                                                           while(checkedTemplateArray)
-                                                                                          {
+                                                                                          {    
+                                                                                              console.log(checkedTemplateArray[temp]);                                                                           
                                                                                               if(checkedTemplateArray[temp] == keyimage)
                                                                                               {
                                                                                                 var templateName = value.name.templateName;
