@@ -502,11 +502,16 @@ vertical-align:top;
                                                                                           var temp = 0;
                                                                                           while(checkedTemplateArray[temp])
                                                                                           {    
-                                                                                              console.log(checkedTemplateArray[temp]);                                                                           
+                                                                                            //  console.log(checkedTemplateArray[temp]);                                                                           
                                                                                               if(checkedTemplateArray[temp] == keyimage)
                                                                                               {
                                                                                                 var templateName = value.name.templateName;
+                                                                                                var assetId = value.assetId.assetId;
                                                                                                 console.log("yeh template name hai" + templateName);
+                                                                                                console.log("yeh template Id hai" + keyimage);
+                                                                                                console.log("yeh template assetId hai" + assetId);
+
+
                                                                                                 temp++;
                                                                                               }
                                                                                               else
@@ -514,8 +519,8 @@ vertical-align:top;
                                                                                                 temp++;
                                                                                               }
                                                                                           }
-                                                                                          var templateName = value.name.templateName;
-                                                                                          console.log("Yes button api me hai abhi")
+                                                                                     //     var templateName = value.name.templateName;
+                                                                                     //     console.log("Yes button api me hai abhi")
                                                                                         }
                                                                                       }
                                                                         });
