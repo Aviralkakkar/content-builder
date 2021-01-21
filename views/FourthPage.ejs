@@ -72,7 +72,7 @@ table.Resulttable {
                 document.getElementById('imageDone').append(imgDone);
                 
                 document.getElementById('progressheading').innerHTML='Transferr Completed';
-                console.log(response);
+  //              console.log(response);
                 var html=('<table id="Resulttable" class="slds-table slds-table--bordered slds-max-medium-table--stacked"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th></tr></thead></table>');
                 document.getElementById("table").innerHTML=html; 
                 var dataTrimmed = response.split("+");
@@ -119,7 +119,7 @@ table.Resulttable {
                   
                      
           })
-          console.log("Res"+res);
+//          console.log("Res"+res);
       
     }
     catch(error)
