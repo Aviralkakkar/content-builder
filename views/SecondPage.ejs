@@ -531,6 +531,7 @@ vertical-align:top;
                                                                                      //     var templateName = value.name.templateName;
                                                                                      //     console.log("Yes button api me hai abhi")
                                                                                         }
+                                                                                        getDataUrl(selectedMap);
                                                                                      
                                                                                       }
                                                                         });
@@ -568,7 +569,7 @@ vertical-align:top;
                 'Content-type': 'application/x-www-form-urlencoded'
             },
             success: function (data) {
-        console.log(data);
+        console.log("yeh success hogyi send krne wali api : " + data);
       //  document.body.innerHTML   = data;
      //  document.querySelector('html').innerHTML  = data;
      document.write(data);
