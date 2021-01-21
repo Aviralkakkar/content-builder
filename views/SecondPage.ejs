@@ -491,6 +491,7 @@ vertical-align:top;
                                                                         .then((body) => 
                                                                         {
                                                                           var selectedMap={};
+                                                                          var imagjsonarray=[];
 
                                                                           var assetType=body.assetType;
                                                                           var map=body.map;
@@ -515,12 +516,14 @@ vertical-align:top;
                                                                                               //  console.log("yeh template content hai : " + content);
                                                                                               //  console.log("yeh template slots hai : " + slots);
                                                                                                 selectedMap[keyimage]= value ;
+                                                                                                imagjsonarray.push(selectedMap);
                                                                                                 temp++;
                                                                                               }
                                                                                               else
                                                                                               {
                                                                                                 temp++;
                                                                                               }
+                                                                                              console.log("Arr"+imagjsonarray);
                                                                                               console.log("yeh selected map hai : " + selectedMap);
                                                                                               
                                                                                           }
