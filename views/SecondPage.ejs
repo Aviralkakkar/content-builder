@@ -490,13 +490,13 @@ vertical-align:top;
                                                                         .then(response => response.json())
                                                                         .then((body) => 
                                                                         {
+                                                                          var selectedMap={};
+
                                                                           var assetType=body.assetType;
                                                                           var map=body.map;
                                                                           console.log("yeh hai assettype body ka" + body.assetType);
                                                                           if (assetType=='template') 
                                                                                 {
-                                                                                    
-
                                                                                     for (const [keyimage, value] of Object.entries(map)) 
                                                                                         {
                                                                                           var temp = 0;
@@ -512,9 +512,9 @@ vertical-align:top;
                                                                                                 console.log("yeh template name hai : " + templateName);
                                                                                                 console.log("yeh template Id hai : " + keyimage);
                                                                                                 console.log("yeh template assetId hai : " + assetId);
-                                                                                                console.log("yeh template content hai : " + content);
-                                                                                                console.log("yeh template slots hai : " + slots);
-
+                                                                                              //  console.log("yeh template content hai : " + content);
+                                                                                              //  console.log("yeh template slots hai : " + slots);
+                                                                                                selectedMap[keyimage]= value ;
 
                                                                                                 temp++;
                                                                                               }
@@ -526,6 +526,7 @@ vertical-align:top;
                                                                                      //     var templateName = value.name.templateName;
                                                                                      //     console.log("Yes button api me hai abhi")
                                                                                         }
+                                                                                      console.log(selectedMap);
                                                                                       }
                                                                         });
                                                                         
