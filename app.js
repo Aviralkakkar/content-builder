@@ -215,7 +215,7 @@ app.post("/asset", async (req, res) => {
                // var base64=await getbase64(imageURL);
                for(var i in imageURL)
                {
-                 console.log(i);
+                 console.log("yeh key hai" + i);
                  console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
                }
 
