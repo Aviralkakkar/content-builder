@@ -207,11 +207,17 @@ app.post("/asset", async (req, res) => {
             {
               console.log(images[myobject]);
               console.log(JSON.stringify(images[myobject]));
-                var imageURL= JSON.stringify(images[myobject]);
+                
+               var imageURL= JSON.stringify(images[myobject]);
                 var imageName=myobject;
                 console.log("ImageName"+imageName);
-                console.log("Template Name--->"+imageURL);
+                console.log("Template Name--->"+imageURL.name.templateName);
                // var base64=await getbase64(imageURL);
+               for(var i in imageURL)
+               {
+                 console.log(i);
+                 console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
+               }
 
                 if(base64!=null)
                 {
