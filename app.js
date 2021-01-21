@@ -175,7 +175,7 @@ app.post("/asset", async (req, res) => {
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         var button=qdata.button;
         console.log(button);
-        console.log(reqYes.body);
+//        console.log(reqYes.body);
         
                                                 
         var imagemap=qdata.imagemap;
@@ -205,17 +205,17 @@ app.post("/asset", async (req, res) => {
           //  console.log("images"+JSON.stringify(images));
             for(var myobject in images)
             {
-              console.log(images[myobject]);
+  //            console.log(images[myobject]);
             //  console.log(JSON.stringify(images[myobject]));
                 
                var imageURL= images[myobject];
                 var imageName=myobject;
-                console.log("ImageName"+imageName);
-                console.log("Template Name--->"+imageURL);
+  //              console.log("ImageName"+imageName);
+  //              console.log("Template Name--->"+imageURL);
                // var base64=await getbase64(imageURL);
                for(var i in imageURL)
                {
-                 console.log("yeh key hai" + i);
+             //    console.log("yeh key hai" + i);
              //    console.log("yeh loop lagaya name.templateName" + imageURL[i].name.templateName);
                  console.log("yeh loop lagaya aur name Nikale" + imageURL[i].templateName);
                  console.log("yeh loop lagaya aur slots Nikale" + imageURL[i].slotsJSON);
