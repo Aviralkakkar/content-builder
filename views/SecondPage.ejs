@@ -396,7 +396,8 @@ vertical-align:top;
                                                                     var templateName = value.name.templateName;
                                                                     console.log("yeh template name hai start me he : " + templateName);
                                                                   var radiobox = document.createElement('input');
-                                                                      radiobox.type = 'checkbox';
+                              
+                                                                  radiobox.type = 'checkbox';
                                                                   //   radiobox.id = 'contact';
                                                                       radiobox.id = keyimage;
                                                                       radiobox.name = value;
@@ -453,33 +454,59 @@ vertical-align:top;
                                                              
                                                                var imagejsonarray = [];
                                                                var imagejson={};
+                                                               var checkedTemplateArray = [];
+
+                                                               for (var i = 0; i < checkboxes.length; i++)
+                                                               {
+                                                                  if( checkboxes[i].checked == true)
+                                                                  {
+                                                               //   console.log(checkboxes[i].value);
+                                                                    console.log("yeh checkbox id hai: " + checkboxes[i].id);
+                                                                    checkedTemplateArray.push(checkboxes[i].id);
+                                                                    var name=checkboxes[i].id;
+                                                                    var url=checkboxes[i].name;
+                                                                    imagejson[name]=checkboxes[i].name;
+                                                                    imagejsonarray.push(imagejson);
+                                                                    
+                                                                 }
+                                                               };  
+                                                               console.log("yeh hai checked checkboxes ki array :" + checkedTemplateArray);
+
+                                                               var url="/asset?assetType=Template";
+
+                                                                    fetch(url, {  //provide URL of the processing page
+                                                                            method: "POST",
+
+                                                                            headers: {
+                                                                                "Content-Type": "application/json"
+                                                                            },
+                                                                            body: {
+                                                                                "assetType":"Template",
+
+                                                                            }
+                                                                        })
+                                                                        .then(response => response.json())
+                                                                        .then((body) => 
+                                                                        {
+                                                                          if (assetType=='template') 
+                                                                                {
+       
+                                                                                    for (const [keyimage, value] of Object.entries(map)) 
+                                                                                        {
+                                                                                          var templateName = value.name.templateName;
+                                                                                          console.log("Yes button api me hai abhi")
+                                                                                        }
+                                                                                      }
+                                                                        });
+                                                                        
                                                                
-                                                              for (var i = 0; i < checkboxes.length; i++)
-                                                              {
-                                                                 if( checkboxes[i].checked == true)
-                                                                 {
-                                                                
-                                                              //    console.log(checkboxes[i].value);
-                                                                  console.log("yeh checkbox id hai: " + checkboxes[i].id);
-                                                              //    console.log("yeh checkbox ki asset Id: " + JSON.stringify(checkboxes[i].name));
-                                           //                       var dataJSON = JSON.stringify(checkboxes[i].value.name.templateName);
-                                                                  console.log("yeh hai dataJSON :" + dataJSON);
-                                                              // getDataUrl(checkboxes[i].id,checkboxes[i].name,checkboxes[i].value,imagemap);
-                                                                   var name=checkboxes[i].id;
-                                                                   var url=checkboxes[i].name;
-                                                                  //  imagejson.push({name : url});
-                                                                   //imagejson.append(name,url);
-                                                                   imagejson[name]=checkboxes[i].name;
-                                                                   imagejsonarray.push(imagejson);
-                                                                   
-                                                                }
-                                                              };  
+                                                            
                                                               console.log("form"+JSON.stringify(imagejson));
                                                               console.log("yeh imagejson array hai " + JSON.stringify(imagejsonarray));
                                                                getDataUrl(imagejson);
                                        
                                                              
-console.log("end of ur");
+                                            console.log("end of ur");
 
   }
   
