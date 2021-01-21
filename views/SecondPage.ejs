@@ -507,9 +507,13 @@ vertical-align:top;
                                                                                               {
                                                                                                 var templateName = value.name.templateName;
                                                                                                 var assetId = value.assetId.assetId;
-                                                                                                console.log("yeh template name hai" + templateName);
-                                                                                                console.log("yeh template Id hai" + keyimage);
-                                                                                                console.log("yeh template assetId hai" + assetId);
+                                                                                                var content = value.content.contentJSON;
+                                                                                                var slots = value.slots.slotsJSON;
+                                                                                                console.log("yeh template name hai : " + templateName);
+                                                                                                console.log("yeh template Id hai : " + keyimage);
+                                                                                                console.log("yeh template assetId hai : " + assetId);
+                                                                                                console.log("yeh template content hai : " + content);
+                                                                                                console.log("yeh template slots hai : " + slots);
 
 
                                                                                                 temp++;
