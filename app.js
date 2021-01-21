@@ -216,7 +216,7 @@ app.post("/asset", async (req, res) => {
                for(var i in imageURL)
                {
                  console.log("yeh key hai" + i);
-                // console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
+                 console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
                }
 
                 if(base64!=null)
