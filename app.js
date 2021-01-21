@@ -66,7 +66,7 @@ app.post("/asset", async (req, res) => {
         var address =  req.url;
         var q = url.parse(address, true);
 
-        console.log(req);
+//        console.log(req);
 
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
