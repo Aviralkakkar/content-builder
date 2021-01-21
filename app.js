@@ -202,11 +202,11 @@ app.post("/asset", async (req, res) => {
             
             console.log("status"+progressStatus);
          
-            console.log("images"+JSON.stringify(images));
+          //  console.log("images"+JSON.stringify(images));
             for(var myobject in images)
             {
               console.log(images[myobject]);
-              console.log(JSON.stringify(images[myobject]));
+            //  console.log(JSON.stringify(images[myobject]));
                 
                var imageURL= JSON.stringify(images[myobject]);
                 var imageName=myobject;
@@ -216,7 +216,7 @@ app.post("/asset", async (req, res) => {
                for(var i in imageURL)
                {
                  console.log("yeh key hai" + i);
-                 console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
+                // console.log("yeh loop lagaya elements ke liye" + imageURL[i]);
                }
 
                 if(base64!=null)
