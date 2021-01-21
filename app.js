@@ -192,6 +192,7 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         {
+          //isme upar wali call krlenge yaha se id aur name bhejke
         // console.log(reqYes.body);
         // console.log("imagses2"+JSON.stringify(images2 ));
         // var images=reqYes.body;
