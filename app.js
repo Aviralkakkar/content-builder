@@ -171,7 +171,7 @@ app.post("/asset", async (req, res) => {
         var q = url.parse(address, true);
         console.log(address);
 
-        console.log("body"+JSON.stringify(reqYes.body));
+     //   console.log("body"+JSON.stringify(reqYes.body));
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         var button=qdata.button;
         console.log(button);
