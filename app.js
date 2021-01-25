@@ -218,6 +218,18 @@ app.post("/asset", async (req, res) => {
               {
                  if(myobject[attributename].assetType.displayName =='Template')
                       {
+                        var temp = 0;
+                        while(images[temp])
+                        {
+                          console.log(images[temp]);
+                        }
+
+
+
+
+
+
+
                         var templateName = myobject[attributename].name;
                         console.log("yeh call ke andar jo api hit krwai uska template name " + templateName);
                         var slotsJSON = myobject[attributename].slots;
