@@ -238,7 +238,7 @@ app.post("/asset", async (req, res) => {
             console.log("status"+progressStatus);
          
           //  console.log("images"+JSON.stringify(images));
-            for(var myobject in images)
+    /*        for(var myobject in images)
             {
               
             //  console.log(images[myobject]);
@@ -248,7 +248,7 @@ app.post("/asset", async (req, res) => {
               var imageName=myobject;
               console.log("ImageName"+imageName); 
               console.log("Template Name = " + imageURL);
-              
+    */          
 
         //        console.log("Template Name--->"+images[myobject].name.templateName);
         //        console.log("Template slots--->"+imageURL.name.templateName);
@@ -316,7 +316,7 @@ app.post("/asset", async (req, res) => {
                   }
           //   }
     
-        }
+    //    }
             
         
             await resCall.end();
