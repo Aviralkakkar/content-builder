@@ -272,9 +272,9 @@ app.post("/asset", async (req, res) => {
                     console.log("Response"+acesstoken);
                     if(acesstoken!=null)
                     {
-                    console.log("Before"+acesstoken);
+          //          console.log("Before"+acesstoken);
                     var imageinsert=await getimageinserted(imageURL,imageName,acesstoken,base64);
-                    console.log("After"+acesstoken);
+          //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
                         if(imageinsert.message=='Failed')
                         {
