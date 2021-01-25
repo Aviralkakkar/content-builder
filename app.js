@@ -178,7 +178,7 @@ app.post("/asset", async (req, res) => {
         var assetType = qdata.assetType; 
         console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
         console.log(button);
-        console.log("yeh req yes ki body hai : " + reqYes.body);  
+        console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
         
                                                 
         var imagemap=qdata.imagemap;
@@ -235,8 +235,8 @@ app.post("/asset", async (req, res) => {
  
                       //  console.log(templateJSON);
                       var asset='template';
-                      console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
-                      console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +templateJSON.name.templateName);
+                //      console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
+                //      console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +templateJSON.name.templateName);
    
                       //  console.log("yeh hai content" + q);
                         console.log("template wale loop me aaya ");
