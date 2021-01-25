@@ -214,7 +214,7 @@ app.post("/asset", async (req, res) => {
               var imageURL= images[myobject];
               var imageName=myobject;
               console.log("ImageName"+imageName); 
-              console.log("Template Name = " + imageURL.name);
+              console.log("Template Name = " + imageURL);
               console.log("Template Name = " + imageURL.value);
 
 
