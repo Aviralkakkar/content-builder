@@ -230,6 +230,7 @@ app.post("/asset", async (req, res) => {
            }, 
            function(error, response, body){
             myobjectBody=  response.body.items; 
+            console.log(JSON.stringify(myobjectBody));
            // array.push(assetType);  
 
            for(var attributename in myobjectBody)
