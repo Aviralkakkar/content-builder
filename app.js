@@ -198,6 +198,7 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         {
+          var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
           var templateIdArray = [];
           for(var myobject in images)
             {
@@ -211,7 +212,57 @@ app.post("/asset", async (req, res) => {
         //      console.log("Template Name = " + imageURL);
             }
             console.log("yeh template Id ki array " + templateIdArray);
-        // console.log(reqYes.body);
+
+
+           var request = require('request');
+           request.post({
+           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
+           url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
+           body:    {
+             "query":
+              {
+               "property":"assetType.name",
+                "simpleOperator":"equal",
+                "value":assetType
+              },
+            
+                   },
+           json: true
+           }, 
+           function(error, response, body){
+            myobject=  response.body.items; 
+            array.push(assetType);  
+            for(var attributename in myobject)
+              {
+                 if(myobject[attributename].assetType.displayName =='Template')
+                      {
+                        var temp = 0;
+                        while(templateIdArray[temp])
+                        {
+                          console.log( "while ke andar aagya" + myobject[attributename]);
+                          if( templateIdArray[temp] == myobject[attributename] )
+                          {
+                            console.log( "while if ke andar aagya" + templateIdArray[temp]);
+                            console.log( "while if ke andar aagya" + myobject[attributename]);
+                          }
+                           
+                        }
+                      }
+              }
+           });
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            // console.log(reqYes.body);
         // console.log("imagses2"+JSON.stringify(images2 ));
         // var images=reqYes.body;
             var countkey = Object.keys(images).length;
@@ -252,7 +303,7 @@ app.post("/asset", async (req, res) => {
   */
         //        if(base64!=null)
        //         {
-                    var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
+                    
                     console.log("Response"+acesstoken);
                     if(acesstoken!=null)
                     {
