@@ -132,7 +132,7 @@ app.post("/asset", async (req, res) => {
                       console.log("template wale loop me aaya ");
                       console.log("yeh hai asset id : " + assetId);
                     //  map[myobject[attributename].id] = myobject[attributename].name;
-                        map[myobject[attributename].id] = templateJSON;
+                        map[myobject[attributename].id] = templateJSON.name.templateName;
 
                      
                   //    console.log("myobject name" + myobject[attributename].fileProperties.name);
@@ -175,8 +175,10 @@ app.post("/asset", async (req, res) => {
         console.log("body"+JSON.stringify(reqYes.body));
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         var button=qdata.button;
+        var assetType = qdata.assetType; 
+        console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
         console.log(button);
-        console.log(reqYes.body);
+        console.log(reqYes.body);  
         
                                                 
         var imagemap=qdata.imagemap;

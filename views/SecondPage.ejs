@@ -401,8 +401,8 @@ vertical-align:top;
                                                                   //   radiobox.id = 'contact';
                                                                       radiobox.id = keyimage;
                                                                       radiobox.name = value;
-                                                                      console.log("yeh hai radiobox ki id" + JSON.stringify(radiobox.id));
-                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name));
+                                                                      console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
+                                                                      console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
                                                                       console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name.name));
 
                                                           //create
@@ -474,7 +474,7 @@ vertical-align:top;
                                                                console.log("yeh hai checked checkboxes ki array ka first element:" + checkedTemplateArray[0]);
 
 
-                                                               var url="/asset?assetType=Template";
+                                                              var url="/asset?assetType=Template";
 
                                                                     fetch(url, {  //provide URL of the processing page
                                                                             method: "POST",
@@ -506,11 +506,11 @@ vertical-align:top;
                                                                                             //  console.log(checkedTemplateArray[temp]);                                                                           
                                                                                               if(checkedTemplateArray[temp] == keyimage)
                                                                                               {
-                                                                                                var templateName = value.name.templateName;
-                                                                                                var assetId = value.assetId.assetId;
-                                                                                                var content = value.content.contentJSON;
-                                                                                                var slots = value.slots.slotsJSON;
-                                                                                                console.log("yeh template name hai : " + templateName);
+                                                                                        //        var templateName = value.name.templateName;
+                                                                                        //        var assetId = value.assetId.assetId;
+                                                                                        //        var content = value.content.contentJSON;
+                                                                                        //        var slots = value.slots.slotsJSON;
+                                                                                                console.log("yeh template name hai : " + value);
                                                                                                 console.log("yeh template Id hai : " + keyimage);
                                                                                                 console.log("yeh template assetId hai : " + assetId);
                                                                                               //  console.log("yeh template content hai : " + content);
@@ -552,7 +552,7 @@ vertical-align:top;
 
                                       
                                    //   var url="/convertintobase64?imageURL="+imgURL+"&name="+name+"&assetType="+assetType;
-                                         var url="/convertintobase64?button=Yes";
+                                         var url="/convertintobase64?button=Yes&assetType=template";
                                          var headers = new Headers();
                                      //   headers.set('Content-Type', 'application/x-www-form-urlencoded');
                                           var img=JSON.stringify({imagejson});
