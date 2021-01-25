@@ -198,7 +198,7 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         {
-          var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
+          var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
           var templateIdArray = [];
           for(var myobject in images)
             {
@@ -215,7 +215,7 @@ app.post("/asset", async (req, res) => {
 
            var request = require('request');
            request.post({
-           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
+           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
            url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
            body:    {
              "query":
@@ -313,7 +313,7 @@ app.post("/asset", async (req, res) => {
   */
         //        if(base64!=null)
        //         {
-                    
+        var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
                     console.log("Response"+acesstoken);
                     if(acesstoken!=null)
                     {
