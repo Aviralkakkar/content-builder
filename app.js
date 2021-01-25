@@ -126,7 +126,8 @@ app.post("/asset", async (req, res) => {
                     //  console.log(templateJSON);
                     var asset='template';
                     console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
-                    
+                    console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +JSON.stringify(templateJSON.name.templateName));
+ 
                     //  console.log("yeh hai content" + q);
                       console.log("template wale loop me aaya ");
                       console.log("yeh hai asset id : " + assetId);
@@ -215,7 +216,7 @@ app.post("/asset", async (req, res) => {
         //        console.log("Template slots--->"+imageURL.name.templateName);
         //        console.log("Template Name--->"+imageURL.name.templateName);
 
-                console.log("template asset Id ---> " + imageURL.assetId.assetId);
+                console.log("template asset Id ---> " + images[myobject].assetId.assetId);
                // var base64=await getbase64(imageURL);
   /*             for(var i in imageURL)
                {
