@@ -230,7 +230,30 @@ app.post("/asset", async (req, res) => {
            }, 
            function(error, response, body){
             myobjectBody=  response.body.items; 
-            array.push(assetType);  
+           // array.push(assetType);  
+
+           for(var attributename in myobjectBody)
+           {
+              if(myobjectBody[attributename].assetType.displayName =='Template')
+                   {
+                     var temp = 0;
+                     while(templateIdArray[temp])
+                     {
+                       console.log( "while ke andar aagya" + myobject[attributename].id);
+                       if( templateIdArray[temp] == myobject[attributename] )
+                       {
+                         console.log( "while if ke andar aagya" + templateIdArray[temp]);
+                         console.log( "while if ke andar aagya" + myobject[attributename]);
+                         temp++;
+                       }
+                       else 
+                       {
+                         temp++;
+                       }
+                        
+                     }
+                   }
+           }
            
            });
            
