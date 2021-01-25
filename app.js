@@ -198,8 +198,19 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         {
-         
-          
+          var templateIdArray = [];
+          for(var myobject in images)
+            {
+              templateIdArray.push(myobject);
+            //  console.log(images[myobject]);
+            //  console.log(JSON.stringify(images[myobject]));
+                
+        //      var imageURL= images[myobject];
+        //      var imageName=myobject;
+        //      console.log("ImageName"+imageName); 
+        //      console.log("Template Name = " + imageURL);
+            }
+            console.log("yeh template Id ki array " + templateIdArray);
         // console.log(reqYes.body);
         // console.log("imagses2"+JSON.stringify(images2 ));
         // var images=reqYes.body;
