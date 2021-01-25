@@ -245,7 +245,7 @@ app.post("/asset", async (req, res) => {
                             console.log( "while if ke andar aagya" + templateIdArray[temp]);
                             console.log( "while if ke andar aagya" + myobject[attributename]);
                           }
-                           
+                           temp++;
                         }
                       }
               }
