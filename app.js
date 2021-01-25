@@ -237,7 +237,7 @@ app.post("/asset", async (req, res) => {
               if(myobjectBody[attributename].assetType.displayName =='Template')
                    {
                      var temp = 0;
-                     console.log("yeh myobjectbody ki id :" + myobjectBody[attributename].id);
+                     console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
                      console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
                      console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
                      while(templateIdArray[temp])
