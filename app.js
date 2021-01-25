@@ -178,7 +178,7 @@ app.post("/asset", async (req, res) => {
         var assetType = qdata.assetType; 
     //    console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
     //    console.log(button);
-    //    console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
+        console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
         
                                                 
         var imagemap=qdata.imagemap;
@@ -190,9 +190,9 @@ app.post("/asset", async (req, res) => {
                         if(button=='Yes')
                         {
         
-                        resYes.redirect("FourthPage.ejs"); 
+                          resYes.redirect("FourthPage.ejs"); 
                 
-                         } 
+                        } 
                     
 
         
@@ -224,7 +224,7 @@ app.post("/asset", async (req, res) => {
                         var temp = 0;
                         while(images[temp])
                         {
-//                          console.log(images[temp]);
+                           console.log(images[temp]);
                         }
 
 
