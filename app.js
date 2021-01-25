@@ -125,12 +125,12 @@ app.post("/asset", async (req, res) => {
                     } 
                     //  console.log(templateJSON);
                     var asset='template';
-                    console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
-                    console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +templateJSON.name.templateName);
+            //        console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
+            //        console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +templateJSON.name.templateName);
  
                     //  console.log("yeh hai content" + q);
-                      console.log("template wale loop me aaya ");
-                      console.log("yeh hai asset id : " + assetId);
+            //          console.log("template wale loop me aaya ");
+            //          console.log("yeh hai asset id : " + assetId);
                     //  map[myobject[attributename].id] = myobject[attributename].name;
                         map[myobject[attributename].id] = templateJSON.name.templateName;
 
@@ -170,15 +170,15 @@ app.post("/asset", async (req, res) => {
         var url = require('url');
         var address =  reqYes.url;
         var q = url.parse(address, true);
-        console.log(address);
+      //  console.log(address);
 
-        console.log("body"+JSON.stringify(reqYes.body));
+    //    console.log("body"+JSON.stringify(reqYes.body));
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         var button=qdata.button;
         var assetType = qdata.assetType; 
-        console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
-        console.log(button);
-        console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
+    //    console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
+    //    console.log(button);
+    //    console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
         
                                                 
         var imagemap=qdata.imagemap;
