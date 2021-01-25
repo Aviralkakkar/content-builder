@@ -198,74 +198,7 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         {
-          var acesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
-          var request = require('request');
-           request.post({
-           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
-           url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
-           body:    {
-             "query":
-              {
-               "property":"assetType.name",
-                "simpleOperator":"equal",
-                "value":assetType
-              },
-            
-                   },
-           json: true
-           }, 
-           function(error, response, body){
-            myobject=  response.body.items; 
-            array.push(assetType);  
-            for(var attributename in myobject)
-              {
-                 if(myobject[attributename].assetType.displayName =='Template')
-                      {
-                        var temp = 0;
-             //           while(images[temp])
-              //          {
-                  //         console.log(images[temp]);
-               //         }
-
-
-
-
-
-
-
-                        var templateName = myobject[attributename].name;
-                        console.log("yeh call ke andar jo api hit krwai uska template name " + templateName);
-                        var slotsJSON = myobject[attributename].slots;
-                        console.log("yeh call ke andar jo api hit krwai uska slot " + slotsJSON);
-
-                      //  console.log("YEH SLOT DATA" + JSON.stringify(slotsJSON));
-                      //  console.log("String"+JSON.stringify(slotsJSON));
-                      //  slotsJSON=JSON.parse(slotsJSON);
-                        var contentJSON = myobject[attributename].content;
-                    //    console.log("yeh call ke andar jo api hit krwai uska content " + contentJSON);
-
-                        
-                        var assetId = myobject[attributename].assetType.id;
-                        console.log("yeh call ke andar jo api hit krwai uska assetId " + assetId);
- 
-                      //  console.log(templateJSON);
-                      var asset='template';
-                //      console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
-                //      console.log("YEH TEMPLATE JSON KA NAME WITHOUT STRINGIFY :  " +templateJSON.name.templateName);
-   
-                      //  console.log("yeh hai content" + q);
-                        console.log("template wale loop me aaya ");
-                        console.log("yeh hai asset id : " + assetId);
-                      //  map[myobject[attributename].id] = myobject[attributename].name;
-          //                map[myobject[attributename].id] = templateJSON.name.templateName;
-  
-                       
-                    //    console.log("myobject name" + myobject[attributename].fileProperties.name);
-                    //     array.push(myobject[attributename].fileProperties.fileName);
-                      }
-
-                }
-              });      
+         
           
         // console.log(reqYes.body);
         // console.log("imagses2"+JSON.stringify(images2 ));
