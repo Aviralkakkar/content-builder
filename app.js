@@ -211,14 +211,29 @@ app.post("/asset", async (req, res) => {
             //  console.log(images[myobject]);
             //  console.log(JSON.stringify(images[myobject]));
                 
-               var imageURL= images[myobject];
-                var imageName=myobject;
-                console.log("ImageName"+imageName);
-                console.log("Template Name--->"+images[myobject].name.templateName);
+              var imageURL= images[myobject];
+              var imageName=myobject;
+              console.log("ImageName"+imageName); 
+              console.log("Template Name = " + imageURL.name);
+              console.log("Template Name = " + imageURL.value);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //        console.log("Template Name--->"+images[myobject].name.templateName);
         //        console.log("Template slots--->"+imageURL.name.templateName);
         //        console.log("Template Name--->"+imageURL.name.templateName);
 
-                console.log("template asset Id ---> " + images[myobject].assetId.assetId);
+        //        console.log("template asset Id ---> " + images[myobject].assetId.assetId);
                // var base64=await getbase64(imageURL);
   /*             for(var i in imageURL)
                {
