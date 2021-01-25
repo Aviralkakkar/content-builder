@@ -238,8 +238,8 @@ app.post("/asset", async (req, res) => {
                    {
                      var temp = 0;
                      console.log("yeh myobjectbody ki id :" + myobjectBody[attributename].id);
-                     console.log("templateIdArray ki id : " + templateIdArray[0]);
-                     console.log("templateIdArray ki id : " + templateIdArray[1]);
+                     console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
+                     console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
                      while(templateIdArray[temp])
                      {
                      //  console.log( "while ke andar aagya" + myobjectBody[attributename].id);
