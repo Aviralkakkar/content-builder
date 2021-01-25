@@ -393,8 +393,8 @@ vertical-align:top;
                                                               for (const [keyimage, value] of Object.entries(map)) 
                                                                   {
                                                           //radio button
-                                                                    var templateName = value.name.templateName;
-                                                                    console.log("yeh template name hai start me he : " + templateName);
+                                                              //      var templateName = value.name.templateName;
+                                                              //      console.log("yeh template name hai start me he : " + templateName);
                                                                   var radiobox = document.createElement('input');
                               
                                                                   radiobox.type = 'checkbox';
@@ -403,7 +403,7 @@ vertical-align:top;
                                                                       radiobox.name = value;
                                                                       console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
                                                                       console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
-                                                                      console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name.name));
+                                                                  //    console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name.name));
 
                                                           //create
                                                           //list
