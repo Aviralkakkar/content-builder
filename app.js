@@ -237,12 +237,12 @@ app.post("/asset", async (req, res) => {
               if(myobjectBody[attributename].assetType.displayName =='Template')
                    {
                      var temp = 0;
-                     console.log(myobjectBody[attributename]);
+                     console.log(myobjectBody[attributename].id);
                      console.log(templateIdArray[temp]);
                      while(templateIdArray[temp])
                      {
-                       console.log( "while ke andar aagya" + myobjectBody[attributename].keyimage);
-                       if( templateIdArray[temp] == myobjectBody[attributename] )
+                       console.log( "while ke andar aagya" + myobjectBody[attributename].id);
+                       if( templateIdArray[temp] == myobjectBody[attributename].id )
                        {
                          console.log( "while if ke andar aagya" + templateIdArray[temp]);
                          console.log( "while if ke andar aagya" + myobjectBody[attributename]);
