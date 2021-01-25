@@ -66,12 +66,12 @@ app.post("/asset", async (req, res) => {
         var address =  req.url;
         var q = url.parse(address, true);
 
-        console.log(req);
+//        console.log(req);
 
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
         var assetType = qdata.assetType;
-        console.log("assetType"+assetType);
+//        console.log("assetType"+assetType);
          var array = [];
           var map={};
       
@@ -224,7 +224,7 @@ app.post("/asset", async (req, res) => {
                         var temp = 0;
                         while(images[temp])
                         {
-                          console.log(images[temp]);
+//                          console.log(images[temp]);
                         }
 
 
