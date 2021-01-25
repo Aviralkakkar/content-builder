@@ -227,8 +227,12 @@ app.post("/asset", async (req, res) => {
                       //  console.log("String"+JSON.stringify(slotsJSON));
                       //  slotsJSON=JSON.parse(slotsJSON);
                         var contentJSON = myobject[attributename].content;
+                        console.log("yeh call ke andar jo api hit krwai uska content " + contentJSON);
+
+                        
                         var assetId = myobject[attributename].assetType.id;
-  
+                        console.log("yeh call ke andar jo api hit krwai uska assetId " + assetId);
+ 
                       //  console.log(templateJSON);
                       var asset='template';
                       console.log("YEH TEMPLATE JSON KA NAME + " +JSON.stringify(templateJSON.name.templateName));
