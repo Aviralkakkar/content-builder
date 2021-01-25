@@ -205,7 +205,7 @@ app.post("/asset", async (req, res) => {
           //  console.log("images"+JSON.stringify(images));
             for(var myobject in images)
             {
-              console.log(images[myobject]);
+            //  console.log(images[myobject]);
             //  console.log(JSON.stringify(images[myobject]));
                 
                var imageURL= images[myobject];
@@ -213,16 +213,16 @@ app.post("/asset", async (req, res) => {
                 console.log("ImageName"+imageName);
                 console.log("Template Name--->"+imageURL);
                // var base64=await getbase64(imageURL);
-               for(var i in imageURL)
+  /*             for(var i in imageURL)
                {
                  console.log("yeh key hai" + i);
              //     console.log("yeh loop lagaya name.templateName" + imageURL[i].name.templateName);
                  console.log("yeh loop lagaya aur name Nikale" + imageURL[i].templateName);
                  //    console.log("yeh loop lagaya aur slots Nikale" + imageURL[i].slotsJSON);
                  //    console.log("yeh loop lagaya aur content Nikala" + imageURL[i].contentJSON);
-                     console.log("yeh loop lagaya aur assetId Nikli" + imageURL[i].assetId);
+                 console.log("yeh loop lagaya aur assetId Nikli" + imageURL[i].assetId);
                }
-
+  */
                 if(base64!=null)
                 {
                     var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
