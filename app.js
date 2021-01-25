@@ -246,7 +246,13 @@ app.post("/asset", async (req, res) => {
                        if( templateIdArray[temp] == myobjectBody[attributename].id )
                        {
                          console.log( "while if ke andar aagya" + templateIdArray[temp]);
-                         console.log( "while if ke andar aagya" + myobjectBody[attributename]);
+                         console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
+                         var templateName = myobjectBody[attributename].name;
+                         console.log("--------- : " + templateName);
+                         var slotsJSON = myobjectBody[attributename].slots;
+                         var contentJSON = myobjectBody[attributename].content;
+                         var assetId = myobjectBody[attributename].assetType.id;
+                         console.log("--------- >>> " + assetId);
                          temp++;
                        }
                        else 
