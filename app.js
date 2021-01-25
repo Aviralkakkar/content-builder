@@ -182,10 +182,10 @@ app.post("/asset", async (req, res) => {
         
                                                 
         var imagemap=qdata.imagemap;
-        images=JSON.stringify(reqYes.body);
+        images=reqYes.body;
       //  console.log("yeh images ka first element name" + images[0]).name;
-        console.log("yeh images ka first element value" + images.id);
-      //  console.log("yeh images ka first element id" + images[0]).id;]
+        console.log("yeh images ka first element id" + images.id);
+        console.log("yeh images ka first element value" + images.value);
       
                         if(button=='Yes')
                         {
