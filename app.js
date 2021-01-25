@@ -239,7 +239,7 @@ app.post("/asset", async (req, res) => {
                      var temp = 0;
                      while(templateIdArray[temp])
                      {
-                       console.log( "while ke andar aagya" + myobject[attributename].id);
+                       console.log( "while ke andar aagya" + myobject[attributename].keyimage);
                        if( templateIdArray[temp] == myobject[attributename] )
                        {
                          console.log( "while if ke andar aagya" + templateIdArray[temp]);
