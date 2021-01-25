@@ -213,7 +213,26 @@ app.post("/asset", async (req, res) => {
             }
             console.log("yeh template Id ki array " + templateIdArray);
 
-
+            var request = require('request');
+           request.post({
+           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
+           url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
+           body:    {
+             "query":
+              {
+               "property":"assetType.name",
+                "simpleOperator":"equal",
+                "value":assetType
+              },
+            
+                   },
+           json: true
+           }, 
+           function(error, response, body){
+            myobjectBody=  response.body.items; 
+            array.push(assetType);  
+           
+           });
            
           
         
