@@ -183,6 +183,7 @@ app.post("/asset", async (req, res) => {
                                                 
         var imagemap=qdata.imagemap;
         images=reqYes.body;
+        console.log(images[0]);
       
                         if(button=='Yes')
                         {
@@ -303,8 +304,8 @@ app.post("/asset", async (req, res) => {
                  console.log("yeh loop lagaya aur assetId Nikli" + imageURL[i].assetId);
                }
   */
-                if(base64!=null)
-                {
+        //        if(base64!=null)
+       //         {
                     var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
                     console.log("Response"+acesstoken);
                     if(acesstoken!=null)
@@ -351,7 +352,7 @@ app.post("/asset", async (req, res) => {
                                 console.log("Response Written");
                         }
                   }
-             }
+          //   }
     
         }
             
