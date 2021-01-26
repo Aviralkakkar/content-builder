@@ -232,6 +232,7 @@ app.post("/asset", async (req, res) => {
             console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
            var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
+
            for(var attributename in myobjectBody)
            {
               if(myobjectBody[attributename].assetType.displayName =='Template')
@@ -391,7 +392,7 @@ app.post("/asset", async (req, res) => {
 
  //get acesstoken
 
- async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTypeDestination,AccountIdDestination,status)
+ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTypeDestination,AccountIdDestination)
 {
 
 try{
