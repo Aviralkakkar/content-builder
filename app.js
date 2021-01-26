@@ -263,7 +263,7 @@ app.post("/asset", async (req, res) => {
           //          console.log("Before"+acesstoken);
        //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 
-                    var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
+                    var imageinsert= getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
           //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
                         if(imageinsert.message=='Failed')
@@ -456,7 +456,7 @@ catch(err){
 }
 
 //image inserte
-async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+ function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 {
  // console.log("Imgeurl"+imageURL);
  // console.log(imageName);
