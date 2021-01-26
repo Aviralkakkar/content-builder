@@ -199,6 +199,8 @@ app.post("/asset", async (req, res) => {
         app.post("/call", async (reqCall,resCall)=>
         {
           var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
+          var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
+
           var templateIdArray = [];
           for(var myobject in images)
             {
@@ -231,7 +233,7 @@ app.post("/asset", async (req, res) => {
             myobjectBody=  response.body.items; 
             console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
-           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
+      //     var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
 
            for(var attributename in myobjectBody)
            {
@@ -261,7 +263,7 @@ app.post("/asset", async (req, res) => {
           //          console.log("Before"+acesstoken);
        //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 
-                    var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,acesstoken,assetTypeID);
+                    var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
           //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
                         if(imageinsert.message=='Failed')
