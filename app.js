@@ -231,7 +231,7 @@ app.post("/asset", async (req, res) => {
             myobjectBody=  response.body.items; 
             console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
-
+           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
            for(var attributename in myobjectBody)
            {
               if(myobjectBody[attributename].assetType.displayName =='Template')
@@ -251,8 +251,62 @@ app.post("/asset", async (req, res) => {
                          console.log("--------- : " + templateName);
                          var slotsJSON = myobjectBody[attributename].slots;
                          var contentJSON = myobjectBody[attributename].content;
-                         var assetId = myobjectBody[attributename].assetType.id;
+                         var assetTypeID = myobjectBody[attributename].assetType.id;
                          console.log("--------- >>> " + assetId);
+
+                         console.log("Response"+acesstoken);
+                    if(acesstoken!=null)
+                    {
+          //          console.log("Before"+acesstoken);
+       //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+
+                    var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,acesstoken,assetTypeID);
+          //          console.log("After"+acesstoken);
+                    console.log(imageinsert.message);
+                        if(imageinsert.message=='Failed')
+                        {
+                            var dataToWrite=
+                            {
+                            "imagename":imageName,
+                            "message":imageinsert.message,
+                            "statuscode":"400",
+                            "progressStatus":progressStatus
+
+                            }
+                        await resCall.write(JSON.stringify({
+                        dataToWrite
+                
+                        
+                    }));
+                    await resCall.write("+");
+                    console.log("Response Written");
+                    //  console.log("Res"+JSON.stringify(resCall));
+
+                         }
+                         else
+                        {
+                                var dataToWrite=
+                                {
+                                "imagename":imageName,
+                                "message":imageinsert.message,
+                                "statuscode":"200",
+                                "progressStatus":progressStatus
+                                }
+                                await  resCall.write(JSON.stringify({
+                                dataToWrite
+                            
+                            
+                                }));
+                                await resCall.write("+");
+                                console.log("Response Written");
+                        }
+                  }
+
+                  
+            await resCall.end();
+            console.log("status 200");
+            // res.send(200);     
+
                          temp++;
                        }
                        else 
@@ -318,61 +372,15 @@ app.post("/asset", async (req, res) => {
                }
   */
         //        if(base64!=null)
-       //         {
-        var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
-                    console.log("Response"+acesstoken);
-                    if(acesstoken!=null)
-                    {
-          //          console.log("Before"+acesstoken);
-                    var imageinsert=await getimageinserted(imageURL,imageName,acesstoken,base64);
-          //          console.log("After"+acesstoken);
-                    console.log(imageinsert.message);
-                        if(imageinsert.message=='Failed')
-                        {
-                            var dataToWrite=
-                            {
-                            "imagename":imageName,
-                            "message":imageinsert.message,
-                            "statuscode":"400",
-                            "progressStatus":progressStatus
+        
+                    
 
-                            }
-                        await resCall.write(JSON.stringify({
-                        dataToWrite
-                
-                        
-                    }));
-                    await resCall.write("+");
-                    console.log("Response Written");
-                    //  console.log("Res"+JSON.stringify(resCall));
-                         }
-
-                      else
-                        {
-                                var dataToWrite=
-                                {
-                                "imagename":imageName,
-                                "message":imageinsert.message,
-                                "statuscode":"200",
-                                "progressStatus":progressStatus
-                                }
-                                await  resCall.write(JSON.stringify({
-                                dataToWrite
-                            
-                            
-                                }));
-                                await resCall.write("+");
-                                console.log("Response Written");
-                        }
-                  }
+                      
           //   }
     
     //    }
             
-        
-            await resCall.end();
-            console.log("status 200");
-            // res.send(200);       
+          
 
         });
                         
@@ -445,28 +453,30 @@ catch(err){
 }
 
 //image inserte
-async function getimageinserted(imageURL,imageName,acesstoken,base64)
+async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 {
-  console.log("Imgeurl"+imageURL);
-  console.log(imageName);
+ // console.log("Imgeurl"+imageURL);
+ // console.log(imageName);
   var ext = path.extname(imageURL);
   var assetType = ext.substring(1);
-  console.log(ext);
+ // console.log(ext);
   var assetTypes = { ai: 16, psd: 17, pdd: 18, eps: 19, gif: 20, jpe: 21, jpeg: 22, jpg: 23, jp2: 24, jpx: 25, pict: 26, pct: 27, png: 28, tif: 29, tiff: 30, tga: 31, bmp: 32, wmf: 33, vsd: 34, pnm: 35, pgm: 36, pbm: 37, ppm: 38, svg: 39, "3fr": 40, ari: 41, arw: 42, bay: 43, cap: 44, crw: 45, cr2: 46, dcr: 47, dcs: 48, dng: 49, drf: 50, eip: 51, erf: 52, fff: 53, iiq: 54, k25: 55, kdc: 56, mef: 57, mos: 58, mrw: 59, nef: 60, nrw: 61, orf: 62, pef: 63, ptx: 64, pxn: 65, raf: 66, raw: 67, rw2: 68, rwl: 69, rwz: 70, srf: 71, sr2: 72, srw: 73, x3f: 74, "3gp": 75, "3gpp": 76, "3g2": 77, "3gp2": 78, asf: 79, avi: 80, m2ts: 81, mts: 82, dif: 83, dv: 84, mkv: 85, mpg: 86, f4v: 87, flv: 88, mjpg: 89, mjpeg: 90, mxf: 91, mpeg: 92, mp4: 93, m4v: 94, mp4v: 95, mov: 96, swf: 97, wmv: 98, rm: 99, ogv: 100, indd: 101, indt: 102, incx: 103, wwcx: 104, doc: 105, docx: 106, dot: 107, dotx: 108, mdb: 109, mpp: 110, ics: 111, xls: 112, xlsx: 113, xlk: 114, xlsm: 115, xlt: 116, xltm: 117, csv: 118, tsv: 119, tab: 120, pps: 121, ppsx: 122, ppt: 123, pptx: 124, pot: 125, thmx: 126, pdf: 127, ps: 128, qxd: 129, rtf: 130, sxc: 131, sxi: 132, sxw: 133, odt: 134, ods: 135, ots: 136, odp: 137, otp: 138, epub: 139, dvi: 140, key: 141, keynote: 142, pez: 143, aac: 144, m4a: 145, au: 146, aif: 147, aiff: 148, aifc: 149, mp3: 150, wav: 151, wma: 152, midi: 153, oga: 154, ogg: 155, ra: 156, vox: 157, voc: 158, "7z": 159, arj: 160, bz2: 161, cab: 162, gz: 163, gzip: 164, iso: 165, lha: 166, sit: 167, tgz: 168, jar: 169, rar: 170, tar: 171, zip: 172, gpg: 173, htm: 174, html: 175, xhtml: 176, xht: 177, css: 178, less: 179, sass: 180, js: 181, json: 182, atom: 183, rss: 184, xml: 185, xsl: 186, xslt: 187, md: 188, markdown: 189, as: 190, fla: 191, eml: 192, text: 193, txt: 194, freeformblock: 195, textblock: 196, htmlblock: 197, textplusimageblock: 198, imageblock: 199, abtestblock: 200, dynamicblock: 201, stylingblock: 202, einsteincontentblock: 203, webpage: 205, webtemplate: 206, templatebasedemail: 207, htmlemail: 208, textonlyemail: 209, socialshareblock: 210, socialfollowblock: 211, buttonblock: 212, layoutblock: 213, defaulttemplate: 214, smartcaptureblock: 215, smartcaptureformfieldblock: 216, smartcapturesubmitoptionsblock: 217, slotpropertiesblock: 218, externalcontentblock: 219, codesnippetblock: 220, rssfeedblock: 221, formstylingblock: 222, referenceblock: 223, imagecarouselblock: 224, customblock: 225, liveimageblock: 226, livesettingblock: 227, contentmap: 228, jsonmessage: 230 };
   var assetTypeID = assetTypes[assetType];
-  console.log(assetType);
-  console.log(assetTypeID);
- console.log("acesstokeninimageinserted"+acesstoken);
-  
+  //console.log(assetType);
+ // console.log(assetTypeID);
+ //console.log("acesstokeninimageinserted"+acesstoken);
+  console.log("Image Insert ke functon ke andar aagya hai bhaisahab");
   var  data=
   {
-    "name": imageName,
+    "name": templateName,
+    "content": templateContent,
+    "slots" : templateSlots,
     "assetType": 
     {
       "name": assetType,
       "id": assetTypeID
     },
-    "file": base64
+    
   }
   
   var headers = 
