@@ -234,7 +234,7 @@ app.post("/asset", async (req, res) => {
             myobjectBody=  response.body.items; 
         //    console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
-      //     var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
+           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
 
            for(var attributename in myobjectBody)
            {
