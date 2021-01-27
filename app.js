@@ -256,7 +256,7 @@ app.post("/asset", async (req, res) => {
                          var slotsJSON = myobjectBody[attributename].slots;
                          var contentJSON = myobjectBody[attributename].content;
                          var assetTypeID = myobjectBody[attributename].assetType.id;
-                         console.log("--------- >>> " + assetId);
+                         console.log("--------- >>> " + assetTypeID);
 
                          console.log("Response"+acesstoken);
                     if(acesstoken!=null)
