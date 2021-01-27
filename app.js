@@ -198,6 +198,8 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         { 
+          (async() => {
+
           console.log("yeh hai reqcall" + reqCall);
           var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
           var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
@@ -263,12 +265,12 @@ app.post("/asset", async (req, res) => {
                     {
           //          console.log("Before"+acesstoken);
        //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
-                      (async() => {
+                      
                         var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
                         // your code
                         // ...
-                        console.log("yeh image insert msg hai" + imageinsert.message);
-                    })();
+                        
+                    
                     
           //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
@@ -393,7 +395,7 @@ app.post("/asset", async (req, res) => {
 
         });
                         
-                        
+      })();                   
     });
 });
 
