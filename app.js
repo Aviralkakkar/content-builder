@@ -198,8 +198,6 @@ app.post("/asset", async (req, res) => {
         
         app.post("/call", async (reqCall,resCall)=>
         { 
-          (async() => {
-
           console.log("yeh hai reqcall" + reqCall);
           var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
           var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
@@ -269,9 +267,7 @@ app.post("/asset", async (req, res) => {
                         var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
                         // your code
                         // ...
-                        
-                    
-                    
+  
           //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
                         if(imageinsert.message=='Failed')
@@ -395,7 +391,7 @@ app.post("/asset", async (req, res) => {
 
         });
                         
-      })();                   
+                        
     });
 });
 
