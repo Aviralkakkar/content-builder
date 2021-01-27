@@ -269,7 +269,7 @@ app.post("/asset", async (req, res) => {
                         // ...
   
           //          console.log("After"+acesstoken);
-                    console.log(imageinsert.message);
+                    console.log("yeh imageinsert.message" + imageinsert.message);
                         if(imageinsert.message=='Failed')
                         {
                             var dataToWrite=
@@ -294,7 +294,7 @@ app.post("/asset", async (req, res) => {
                         {
                                 var dataToWrite=
                                 {
-                                "imagename":imageName,
+                                "imagename":templateName,
                                 "message":imageinsert.message,
                                 "statuscode":"200",
                                 "progressStatus":progressStatus
