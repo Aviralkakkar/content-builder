@@ -230,7 +230,7 @@ app.post("/asset", async (req, res) => {
                    },
            json: true
            }, 
-           function(error, response, body){
+           async function(error, response, body){
             myobjectBody=  response.body.items; 
             console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
