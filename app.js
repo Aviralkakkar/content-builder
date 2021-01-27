@@ -274,7 +274,7 @@ app.post("/asset", async (req, res) => {
                         {
                             var dataToWrite=
                             {
-                            "imagename":imageName,
+                            "imagename":templateName,
                             "message":imageinsert.message,
                             "statuscode":"400",
                             "progressStatus":progressStatus
