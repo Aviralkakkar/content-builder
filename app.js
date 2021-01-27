@@ -201,7 +201,7 @@ app.post("/asset", async (req, res) => {
           console.log("yeh hai reqcall" + reqCall);
           var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
           var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
-
+          console.log("yeh destination access token hai " + access_tokenDestination );
           var templateIdArray = [];
           for(var myobject in images)
             {
@@ -232,7 +232,7 @@ app.post("/asset", async (req, res) => {
            }, 
            async function(error, response, body){
             myobjectBody=  response.body.items; 
-            console.log("yeh hai templates" + JSON.stringify(myobjectBody));
+        //    console.log("yeh hai templates" + JSON.stringify(myobjectBody));
            // array.push(assetType);  
       //     var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
 
