@@ -197,9 +197,10 @@ app.post("/asset", async (req, res) => {
 
         
         app.post("/call", async (reqCall,resCall)=>
-        {
-          var accesstoken=  getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
-          var access_tokenDestination=  getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
+        { 
+          console.log("yeh hai reqcall" + reqCall);
+          var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
+          var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
 
           var templateIdArray = [];
           for(var myobject in images)
@@ -263,7 +264,7 @@ app.post("/asset", async (req, res) => {
           //          console.log("Before"+acesstoken);
        //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 
-                    var imageinsert= getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
+                    var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
           //          console.log("After"+acesstoken);
                     console.log(imageinsert.message);
                         if(imageinsert.message=='Failed')
@@ -276,12 +277,12 @@ app.post("/asset", async (req, res) => {
                             "progressStatus":progressStatus
 
                             }
-                         resCall.write(JSON.stringify({
+                        await resCall.write(JSON.stringify({
                         dataToWrite
                 
                         
                     }));
-                     resCall.write("+");
+                    await resCall.write("+");
                     console.log("Response Written");
                     //  console.log("Res"+JSON.stringify(resCall));
 
@@ -295,18 +296,18 @@ app.post("/asset", async (req, res) => {
                                 "statuscode":"200",
                                 "progressStatus":progressStatus
                                 }
-                                  resCall.write(JSON.stringify({
+                                await  resCall.write(JSON.stringify({
                                 dataToWrite
                             
                             
                                 }));
-                                 resCall.write("+");
+                                await resCall.write("+");
                                 console.log("Response Written");
                         }
                   }
 
                   
-             resCall.end();
+            await resCall.end();
             console.log("status 200");
             // res.send(200);     
 
@@ -394,7 +395,7 @@ app.post("/asset", async (req, res) => {
 
  //get acesstoken
 
-  function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTypeDestination,AccountIdDestination)
+ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTypeDestination,AccountIdDestination)
 {
 
 try{
@@ -456,7 +457,7 @@ catch(err){
 }
 */
 //image inserte
- function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
 {
  // console.log("Imgeurl"+imageURL);
  // console.log(imageName);
