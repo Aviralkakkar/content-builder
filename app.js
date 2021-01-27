@@ -499,7 +499,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
       .then(
         (response)=>
         {
-              console.log(response);
+              console.log("yeh response hai insert ke baad" + response);
               console.log(response.data);
               console.log("Processing Image Insertion" );
             //  var sucess="sucess";
