@@ -483,7 +483,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
   {
     "name": templateName,
     "content": templateContent,
-    "slots" : {templateSlots},
+    "slots" : templateSlots,
     "assetType": 
     {
       "name": "template",
