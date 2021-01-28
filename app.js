@@ -473,6 +473,12 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
  // console.log(assetTypeID);
  //console.log("acesstokeninimageinserted"+acesstoken);
   console.log("Image Insert ke functon ke andar aagya hai bhaisahab");
+  console.log("template name ---> " + templateName);
+  console.log("template content ---> " + templateContent);
+  console.log("template slots ---> " + templateSlots);
+  console.log("acess token---> " + acesstoken);
+  console.log("assetTypeID ---> " + assetTypeID);
+ 
   var  data=
   {
     "name": templateName,
