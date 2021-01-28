@@ -308,14 +308,14 @@ app.post("/asset", async (req, res) => {
                                 console.log("Response Written");
                         }
                   }
-
+                  temp++;
+                         console.log("yeh temp hai------ " +temp);
                   
             await resCall.end();
             console.log("status 200");
             // res.send(200);     
 
-                         temp++;
-                         console.log("yeh temp hai------ " +temp);
+                         
                        }
                        else 
                        {
