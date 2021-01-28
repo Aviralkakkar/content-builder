@@ -483,7 +483,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
   {
     "name": templateName,
     "content": templateContent,
-    "slots" : templateSlots,
+    "slots" : {templateSlots},
     "assetType": 
     {
       "name": "template",
@@ -521,6 +521,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (error)=>
         {
+          reject(error);
           console.log("Err-------------->"+error);
           //var err="error";
          // var errres=error.data;
