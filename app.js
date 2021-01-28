@@ -506,7 +506,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
       .then(
         (response)=>
         {
-          //    console.log("yeh response hai insert ke baad" + response);
+            console.log("yeh response hai insert ke baad" + response);
           //    console.log(response.data);
               console.log("Processing Image Insertion" );
             //  var sucess="sucess";
@@ -538,7 +538,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (body) =>
         {
-          console.log("Body"+body);
+        //  console.log("Body"+body);
 
         }
    
@@ -549,7 +549,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
 }
 
 catch(err){
-      console.log("Error"+err);
+      console.log("Error-->>-->>-->>"+err);
 
     }              
 }
