@@ -521,7 +521,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (error)=>
         {
-          error;
+          reject(error);
           console.log("Err-------------->"+error);
           //var err="error";
          // var errres=error.data;
