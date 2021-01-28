@@ -241,6 +241,7 @@ app.post("/asset", async (req, res) => {
               if(myobjectBody[attributename].assetType.displayName =='Template')
                    {
                      var temp = 0;
+
                      console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
                      console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
                      console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
@@ -270,7 +271,7 @@ app.post("/asset", async (req, res) => {
   
           //          console.log("After"+acesstoken);
                     console.log("yeh imageinsert.message" + imageinsert.message);
-                        if(imageinsert.message=='Failed')
+      /*                  if(imageinsert.message=='Failed')
                         {
                             var dataToWrite=
                             {
@@ -307,13 +308,14 @@ app.post("/asset", async (req, res) => {
                                 console.log("Response Written");
                         }
                   }
+      */             
                   temp++;
                          console.log("yeh temp hai------ " +temp);
                   
-            await resCall.end();
+            //await resCall.end();
             console.log("status 200");
             // res.send(200);     
-
+                }
                          
                        }
                        else 
