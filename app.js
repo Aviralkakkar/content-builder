@@ -315,6 +315,7 @@ app.post("/asset", async (req, res) => {
             // res.send(200);     
 
                          temp++;
+                         console.log("yeh temp hai------ " +temp);
                        }
                        else 
                        {
@@ -505,8 +506,8 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
       .then(
         (response)=>
         {
-              console.log("yeh response hai insert ke baad" + response);
-              console.log(response.data);
+          //    console.log("yeh response hai insert ke baad" + response);
+          //    console.log(response.data);
               console.log("Processing Image Insertion" );
             //  var sucess="sucess";
              // var res=response.data;
