@@ -542,7 +542,10 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
 
         }
    
-      )                   
+      )  
+      .catch((error) => {
+        console.log("yeh promise ki Error hai", error);
+    })                 
       console.log("Req"+req) 
   });
  
