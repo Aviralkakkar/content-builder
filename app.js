@@ -317,14 +317,16 @@ app.post("/asset", async (req, res) => {
 
                          
                        }
+                       
                        else 
                        {
                          temp++;
                        }
                         
                      }
+                     await resCall.end();
                    }
-            await resCall.end();
+           
           //  console.log("status 200");
 
            }
