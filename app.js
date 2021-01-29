@@ -285,7 +285,7 @@ app.post("/asset", async (req, res) => {
                         dataToWrite
                                    
                     }));
-            //        await resCall.write("+");
+                    await resCall.write("+");
                     console.log("Response Written");
                     //  console.log("Res"+JSON.stringify(resCall));
 
