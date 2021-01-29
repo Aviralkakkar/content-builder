@@ -301,8 +301,7 @@ app.post("/asset", async (req, res) => {
                                 }
                                 await  resCall.write(JSON.stringify({
                                 dataToWrite
-                            
-                            
+
                                 }));
                                 await resCall.write("+");
                                 console.log("Response Written");
