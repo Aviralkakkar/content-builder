@@ -514,7 +514,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
              // var res=response.data;
               var data=
               {
-                message:"sucess",
+                message:"success",
                 res:response.data,
                 status:response.statusCode,
                 hi:"hii"
