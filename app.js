@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
   //---------------------------------------------------------SecondPage-Images------------------------------------------------------------------------------------
 app.post("/accesstoken", async (req, res) => {
   //---------------------------------------------------------Get Access Token------------------------------------------------------------------------------------
-     //   console.log(req.body);
+       console.log(req.body);
      //   console.log("near");
      //   console.log(req);
         const clientidSource = req.body.ClientIdSource;
@@ -324,11 +324,8 @@ app.post("/asset", async (req, res) => {
                        }
                         
                      }
-                       //  console.log("status 200");
-                       
-                     
+                       //  console.log("status 200");           
                    }
-
            }
            await resCall.end();
            });
