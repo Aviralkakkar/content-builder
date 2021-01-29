@@ -324,11 +324,11 @@ app.post("/asset", async (req, res) => {
                        }
                         
                      }
-                     await resCall.end();
+                     
                    }
            
           //  console.log("status 200");
-
+          await resCall.end();
            }
            
            });
