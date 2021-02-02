@@ -356,6 +356,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
               {
                 message:"success",
                 res:response.data,
+                
                 status:response.statusCode,
                 hi:"hii"
               }
@@ -363,7 +364,12 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (error)=>
         {
+          (error)=>
+        {
+         // reject(error);
           console.log("Err-------------->"+error);
+          //var err="error";
+         // var errres=error.data;
           var data=
           {
             message:"Failed",
@@ -376,6 +382,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (body) =>
         {
+        //  console.log("Body"+body);
 
         }
    
@@ -383,7 +390,6 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
       .catch((error) => {
         console.log("yeh promise ki Error hai", error);
     })                 
-      console.log("Req"+req) 
   });
  
 }
