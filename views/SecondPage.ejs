@@ -463,9 +463,9 @@ vertical-align:top;
                                                                //   console.log(checkboxes[i].value);
                                                                     console.log("yeh checkbox id hai: " + checkboxes[i].id);
                                                                     checkedTemplateArray.push(checkboxes[i].id);
-                                                                    var name=checkboxes[i].id;
+                                                                    var id=checkboxes[i].id;
                                                                     var url=checkboxes[i].name;
-                                                                    imagejson[name]=checkboxes[i].name;
+                                                                    imagejson[id]=checkboxes[i].name;
                                                                     imagejsonarray.push(imagejson);
                                                                     
                                                                  }
@@ -473,7 +473,7 @@ vertical-align:top;
                                                                console.log("yeh hai checked checkboxes ki array :" + checkedTemplateArray);
                                                                console.log("yeh hai checked checkboxes ki array ka first element:" + checkedTemplateArray[0]);
 
-
+                                       /*                       
                                                               var url="/asset?assetType=Template";
 
                                                                     fetch(url, {  //provide URL of the processing page
@@ -544,7 +544,8 @@ vertical-align:top;
                                        
                                                              
                                             console.log("end of ur");
-
+                                  */      
+                                  getDataUrl(imagejson);                                
   }
   
   function getDataUrl(imagejson) {
