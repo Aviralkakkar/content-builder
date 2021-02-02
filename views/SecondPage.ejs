@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" style="background-color: white">
 
@@ -307,168 +305,278 @@ vertical-align:top;
   //Image Iframe End
   
   
-  //Template Iframe Start  
-function templatebutton()
-  {
-    if ($('Templatecontainer').contents().find('body').children().length > 0) 
-      {
-        console.log("templatecontent");
-      } 
-    else
-      {
-        var iframe = document.createElement('iframe');
-        var html = '<body> </body>';
+  //Template Iframe Start
+           function templatebutton()
+           {
+                     if ($('Templatecontainer').contents().find('body').children().length > 0) 
+                        {
+                          console.log("templatecontent");
+                        } 
+                     else
+                     {
+                          var iframe = document.createElement('iframe');
+                          var html = '<body> </body>';
 
-        // div tag in which iframe will be added should have id attribute with value myDIV
-        document.getElementById("Imagecontainer").appendChild(iframe);
+                          // div tag in which iframe will be added should have id attribute with value myDIV
+                          document.getElementById("Imagecontainer").appendChild(iframe);
 
-        // provide height and width to it
-        iframe.setAttribute("style","height:100%;width:100%;");
-        iframe.setAttribute("id","Templateiframe");
-        iframe.contentWindow.document.open();
-        iframe.contentWindow.document.write(html);
-        iframe.contentWindow.document.close();
+                          // provide height and width to it
+                          iframe.setAttribute("style","height:100%;width:100%;");
+                          iframe.setAttribute("id","Templateiframe");
+                          iframe.contentWindow.document.open();
+                          iframe.contentWindow.document.write(html);
+                          iframe.contentWindow.document.close();
 
-        var $Templateiframe = $('#Templateiframe');
+                          var $Templateiframe = $('#Templateiframe');
 
-        var url="/asset?assetType=Template";
-        fetch(url, {  //provide URL of the processing page
-                      method: "POST",
-                      headers: 
-                       {
-                         "Content-Type": "application/json"
-                       },
-                      body: 
-                       {
-                         "assetType":"Template",
-                       }
-                    })
-                    .then(response => response.json())
-                    .then((body) => 
-                       {
-                         console.log(body);
-                          var map=body.map;
-                          var len = 0;
-                          for (var count in map) 
-                            {
-                              len++;
-                            }
-                          console.log("yeh hai asset type : " +body.assetType);
-                          console.log("yeh hai map ka size : " + len );
+                          var url="/asset?assetType=Template";
+                          fetch(url, {  //provide URL of the processing page
+                                          method: "POST",
+                                          headers: 
+                                          {
+                                              "Content-Type": "application/json"
+                                          },
+                                          body: 
+                                          {
+                                              "assetType":"Template",
+                                          }
+                                      })
+                                          .then(response => response.json())
+                                          .then((body) => 
+                                          {
+                                               var map=body.map;
+                                               var len = 0;
+                                               for (var count in map) 
+                                               {
+                                                    len++;
+                                               }
+                                                console.log("yeh hai asset type : " +body.assetType);
+                                                console.log("yeh hai map ka size : " + len );
                                                 
-                          var assetType=body.assetType;
+                                                var assetType=body.assetType;
 
-                          for(i=0;i<len;i++)
-                            {
-                              console.log("yeh elements " + i + ":")
-                              console.log(map[i]);
-                            };
+                                                               
+                                                  //    console.log(JSON.stringify(body.data));
+                                                  //    var rows =body.data;
+                                                  //    console.log("rows"+rows);
 
-                          if (assetType=='template') 
-                            {
-                              for (const [keyimage, value] of Object.entries(map)) 
-                                {
-                                  var radiobox = document.createElement('input');
-                                  radiobox.type = 'checkbox';
-                                  radiobox.id = keyimage;
-                                  radiobox.name = value;
-                                  console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
-                                  console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
-                                                          
-                                  //create
-                                  //list
-                                  var ul = document.createElement('ul');
-                                  ul.setAttribute('style', 'padding: 0; margin: 0;');
-                                  ul.setAttribute('id', 'theList');
+                                                  //    var assetType=rows[0];
+                                                  //console.log(assetType);
+                                                  for(i=0;i<len;i++)
+                                                  {
+                                                  console.log("yeh elements " + i + ":")
+                                                  console.log(map[i]);
+                                                  };
+                          /*                        if(assetType=='template')
+                                                  {
+                                                    for (const [keyimage, value] of Object.entries(map)) 
+                                                    {
+                                                      console.log("yeh keys hai : " + keyimage);
+                                                      console.log("yeh values hai : " + value);
+                                                      console.log("yeh value name hai : " + value.name);
+                                                      console.log("yeh value content hai : " + value.content);
+                                                      console.log("yeh value slot hai : " + value.slots);
+                                                      console.log("yeh value assetId hai : " + value.assetId);
+                                                      document.getElementById("Imagecontainer").innerHTML = keyimage
+                                                    }
+                                                  }
+                          */                       
+                                                  if (assetType=='template') 
+                                                      {
+       
+                                                              for (const [keyimage, value] of Object.entries(map)) 
+                                                                  {
+                                                          //radio button
+                                                              //      var templateName = value.name.templateName;
+                                                              //      console.log("yeh template name hai start me he : " + templateName);
+                                                                  var radiobox = document.createElement('input');
+                              
+                                                                  radiobox.type = 'checkbox';
+                                                                  //   radiobox.id = 'contact';
+                                                                      radiobox.id = keyimage;
+                                                                      radiobox.name = value;
+                                                                      console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
+                                                                      console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
+                                                                  //    console.log("yeh hai radiobox ki value" + JSON.stringify(radiobox.name.name));
+
+                                                          //create
+                                                          //list
+                                                                  var ul = document.createElement('ul');
+                                                                  ul.setAttribute('style', 'padding: 0; margin: 0;');
+                                                                  ul.setAttribute('id', 'theList');
+
+                                                             
+                                                                      var li = document.createElement('li');     // create li element.
+                                                                      li.innerHTML = keyimage;      // assigning text to li using array value.
+                                                                      li.setAttribute('style', 'display: block;');    // remove the bullets.
+                                                                      $Templateiframe.contents().find("body").append(radiobox);
+                                                                    console.log(ul);
+                                                                    ul.appendChild(li);     // append li to ul.
+                                                                     $Templateiframe.contents().find("body").append(ul);
+                                                                  };
+
                                                                       
-                                  var li = document.createElement('li');     // create li element.
-                                  li.innerHTML = keyimage;      // assigning text to li using array value.
-                                  li.setAttribute('style', 'display: block;');    // remove the bullets.
-                                  $Templateiframe.contents().find("body").append(radiobox);
-                                  console.log(ul);
-                                  ul.appendChild(li);     // append li to ul.
-                                  $Templateiframe.contents().find("body").append(ul);
-                                }; 
-                            }
-                        });
-      }
-  };
+                                                                        
+                                                                  
+                                                      }
+                                                      
+
+                                          });
+                              }
+          };
   //Template Iframe End
   
   //nextbutton
-function nextbutton()
+  function nextbutton()
+ 
   {
-    document.getElementById('answerModal').style.display='block';
-    document.getElementById('backdrop').style.display='block';                                                                                          
+ 
+     document.getElementById('answerModal').style.display='block';
+     document.getElementById('backdrop').style.display='block';                                                                                          
+  
   };
   // coverting image in base64
   
   //yesbutton
-function yesbutton()
+  function yesbutton()
   {
     console.log("Yes clles");
     var checkedValue = null; 
-    var frame = document.getElementById('Templateiframe');
-    // getting all checked Templates checkbox
-    var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
-    var imagejsonarray = [];
-    var imagejson={};
-    var checkedTemplateArray = [];
-    for (var i = 0; i < checkboxes.length; i++)
-      {
-        if( checkboxes[i].checked == true)
-          {
-            //   console.log(checkboxes[i].value);
-            console.log("yeh checkbox id hai: " + checkboxes[i].id);
-            checkedTemplateArray.push(checkboxes[i].id);
-            var id=checkboxes[i].id;
-            var url=checkboxes[i].name;
-            imagejson[id]=checkboxes[i].name;
-            imagejsonarray.push(imagejson);                                                          
-          }
-      };  
-            console.log("yeh hai checked checkboxes ki array :" + checkedTemplateArray);
-            console.log("yeh hai checked checkboxes ki array ka first element:" + checkedTemplateArray[0]);
+                                                             var frame = document.getElementById('Templateiframe');
 
-            // method is called with selected elements to send the information to the server side 
-            getDataUrl(imagejson);                                
+                                                              var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
+                                                             
+                                                               var imagejsonarray = [];
+                                                               var imagejson={};
+                                                               var checkedTemplateArray = [];
+
+                                                               for (var i = 0; i < checkboxes.length; i++)
+                                                               {
+                                                                  if( checkboxes[i].checked == true)
+                                                                  {
+                                                               //   console.log(checkboxes[i].value);
+                                                                    console.log("yeh checkbox id hai: " + checkboxes[i].id);
+                                                                    checkedTemplateArray.push(checkboxes[i].id);
+                                                                    var id=checkboxes[i].id;
+                                                                    var url=checkboxes[i].name;
+                                                                    imagejson[id]=checkboxes[i].name;
+                                                                    imagejsonarray.push(imagejson);
+                                                                    
+                                                                 }
+                                                               };  
+                                                               console.log("yeh hai checked checkboxes ki array :" + checkedTemplateArray);
+                                                               console.log("yeh hai checked checkboxes ki array ka first element:" + checkedTemplateArray[0]);
+
+                                       /*                       
+                                                              var url="/asset?assetType=Template";
+
+                                                                    fetch(url, {  //provide URL of the processing page
+                                                                            method: "POST",
+
+                                                                            headers: {
+                                                                                "Content-Type": "application/json"
+                                                                            },
+                                                                            body: {
+                                                                                "assetType":"Template",
+
+                                                                            }
+                                                                        })
+                                                                        .then(response => response.json())
+                                                                        .then((body) => 
+                                                                        {
+                                                                          var selectedMap={};
+                                                                          var imagjsonarray=[];
+
+                                                                          var assetType=body.assetType;
+                                                                          var map=body.map;
+                                                                          console.log("yeh hai assettype body ka" + body.assetType);
+                                                                          if (assetType=='template') 
+                                                                                {
+                                                                                    for (const [keyimage, value] of Object.entries(map)) 
+                                                                                        {
+                                                                                          var temp = 0;
+                                                                                          while(checkedTemplateArray[temp])
+                                                                                          {    
+                                                                                            //  console.log(checkedTemplateArray[temp]);                                                                           
+                                                                                              if(checkedTemplateArray[temp] == keyimage)
+                                                                                              {
+                                                                                        //        var templateName = value.name.templateName;
+                                                                                        //        var assetId = value.assetId.assetId;
+                                                                                        //        var content = value.content.contentJSON;
+                                                                                        //        var slots = value.slots.slotsJSON;
+                                                                                                console.log("yeh template name hai : " + value);
+                                                                                                console.log("yeh template Id hai : " + keyimage);
+                                                                                        //        console.log("yeh template assetId hai : " + assetId);
+                                                                                              //  console.log("yeh template content hai : " + content);
+                                                                                              //  console.log("yeh template slots hai : " + slots);
+                                                                                                selectedMap[keyimage]= value ;
+                                                                                                imagjsonarray.push(selectedMap);
+                                                                                                temp++;
+                                                                                              }
+                                                                                              else
+                                                                                              {
+                                                                                                temp++;
+                                                                                              }
+                                                                                              console.log("Arr"+imagjsonarray);
+                                                                                              console.log("yeh selected map hai : " + selectedMap);
+                                                                                              
+                                                                                          }
+                                                                                          console.log("yeh selected map hai : " + selectedMap);
+                                                                                     //     var templateName = value.name.templateName;
+                                                                                     //     console.log("Yes button api me hai abhi")
+                                                                                        }
+                                                                                        getDataUrl(selectedMap);
+                                                                                     
+                                                                                      }
+                                                                        });
+                                                                        
+                                                               
+                                                            
+                                                              console.log("form"+JSON.stringify(imagejson));
+                                                              console.log("yeh imagejson array hai " + JSON.stringify(imagejsonarray));
+                                                            //   getDataUrl(selectedMap);
+                                       
+                                                             
+                                            console.log("end of ur");
+                                  */      
+                                  getDataUrl(imagejson);                                
   }
   
-function getDataUrl(imagejson) 
- {
-  console.log("inside get data url"+imagejson);   
-  //   var url="/convertintobase64?imageURL="+imgURL+"&name="+name+"&assetType="+assetType;
-  var url="/convertintobase64?button=Yes&assetType=Template";
-  var headers = new Headers();
-  //   headers.set('Content-Type', 'application/x-www-form-urlencoded');
-  var img=JSON.stringify({imagejson});
-  console.log(img);
-  var img2=JSON.stringify(imagejson);
-  console.log(img2);
-  
-  // Data sent to the server side
-  $.ajax({
+  function getDataUrl(imagejson) {
+                console.log("inside get data url"+imagejson);
+
+                                      
+                                   //   var url="/convertintobase64?imageURL="+imgURL+"&name="+name+"&assetType="+assetType;
+                                         var url="/convertintobase64?button=Yes&assetType=Template";
+                                         var headers = new Headers();
+                                     //   headers.set('Content-Type', 'application/x-www-form-urlencoded');
+                                          var img=JSON.stringify({imagejson});
+                                          console.log(img);
+                                          var img2=JSON.stringify(imagejson);
+                                          
+                                          console.log(img2);
+                                      
+                                                  $.ajax({
             url: url,
             data: imagejson,
             type: "POST",
-            headers: 
-            {
-              'Content-type': 'application/x-www-form-urlencoded'
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded'
             },
-            success: function (data) 
-            {
-            console.log(" Data sent to server successfully hogyi send krne wali api : " + data);
-            //  document.body.innerHTML   = data;
-            //  document.querySelector('html').innerHTML  = data;
-            document.write(data);
-            }
+            success: function (data) {
+        console.log("yeh success hogyi send krne wali api : " + data);
+      //  document.body.innerHTML   = data;
+     //  document.querySelector('html').innerHTML  = data;
+     document.write(data);
+        }
         })
           
                                                  
-  };
+             };
 
-function nobutton()
- {
+ function nobutton()
+ 
+  {
  
      document.getElementById('answerModal').style.display='none';
      document.getElementById('backdrop').style.display='none';                                                                                          
