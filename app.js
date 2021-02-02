@@ -138,143 +138,237 @@ app.post("/asset", async (req, res) => {
         //---------------------------------------------------------SecondPage-Images------------------------------------------------------------------------------------
         //---------------------------------------------------------Get source Access Token------------------------------------------------------------------------------------
 
+    
+
 app.post("/convertintobase64", (reqYes, resYes) => {
 
-  var url = require('url');
-  var address =  reqYes.url;
-  var q = url.parse(address, true);
-  var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
-  var button=qdata.button;
-  var assetType = qdata.assetType; // Fetching assetType from the passed url from the client
+        var url = require('url');
+        var address =  reqYes.url;
+        var q = url.parse(address, true);
+      //  console.log(address);
 
-  console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
+    //    console.log("body"+JSON.stringify(reqYes.body));
+        var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
+        var button=qdata.button;
+        var assetType = qdata.assetType; 
+    //    console.log("yeh assetType hai jo url me se fetch kai hai :" + assetType ); 
+    //    console.log(button);
+        console.log("yeh req yes ki body hai : " + JSON.stringify(reqYes.body));  
         
-  images=reqYes.body;
-  console.log("yeh images ka first element id" + images.id);
-  console.log("yeh images ka first element value" + images.value);
+                                                
+        var imagemap=qdata.imagemap;
+        images=reqYes.body;
+      //  console.log("yeh images ka first element name" + images[0]).name;
+        console.log("yeh images ka first element id" + images.id);
+        console.log("yeh images ka first element value" + images.value);
       
-  if(button=='Yes')
-    {
-      resYes.redirect("FourthPage.ejs"); 
-    } 
+                        if(button=='Yes')
+                        {
+        
+                          resYes.redirect("FourthPage.ejs"); 
+                
+                        } 
                     
-app.post("/call", async (reqCall,resCall)=>
-  { 
-    console.log("yeh hai reqcall" + reqCall);
-    var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
-    var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
-    console.log("yeh destination access token hai " + access_tokenDestination );
-    var templateIdArray = [];
-    for(var myobject in images)
-      {
-        templateIdArray.push(myobject); // Putting Id of all the selected templates in template array
-      }
-    console.log("This is template Array ----> " + templateIdArray);
 
-    // Fetching all the templates in an org
-    var request = require('request');
-    request.post({
-    headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
-    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
-    body:    {
-              "query":
-                {
-                 "property":"assetType.name",
-                 "simpleOperator":"equal",
-                 "value":assetType
-                },
-             },
-    json: true
-    }, 
-        async function(error, response, body)
-        {
-          myobjectBody=  response.body.items; 
-          var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
-          
-          // iterating over the templates in an org
-          for(var attributename in myobjectBody)
+        
+        app.post("/call", async (reqCall,resCall)=>
+        { 
+          console.log("yeh hai reqcall" + reqCall);
+          var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
+          var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
+          console.log("yeh destination access token hai " + access_tokenDestination );
+          var templateIdArray = [];
+          for(var myobject in images)
             {
+              templateIdArray.push(myobject);
+            //  console.log(images[myobject]);
+            //  console.log(JSON.stringify(images[myobject]));
+                
+        //      var imageURL= images[myobject];
+        //      var imageName=myobject;
+        //      console.log("ImageName"+imageName); 
+        //      console.log("Template Name = " + imageURL);
+            }
+            console.log("yeh template Id ki array " + templateIdArray);
+
+           var request = require('request');
+           request.post({
+           headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
+           url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
+           body:    {
+             "query":
+              {
+               "property":"assetType.name",
+                "simpleOperator":"equal",
+                "value":assetType
+              },
+                   },
+           json: true
+           }, 
+           async function(error, response, body){
+            myobjectBody=  response.body.items; 
+        //    console.log("yeh hai templates" + JSON.stringify(myobjectBody));
+           // array.push(assetType);  
+           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
+
+           for(var attributename in myobjectBody)
+           {
               if(myobjectBody[attributename].assetType.displayName =='Template')
-                {
-                  var temp = 0;
-                  console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
-                  console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
-                  console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
-                  
-                  // checking condition for selected array 
-                  while(templateIdArray[temp])
+                   {
+                     var temp = 0;
+
+                     console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
+                     console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
+                     console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
+                     while(templateIdArray[temp])
+                     {
+                     //  console.log( "while ke andar aagya" + myobjectBody[attributename].id);
+                       if( templateIdArray[temp] == myobjectBody[attributename].id )
+                       {
+                         console.log( "while if ke andar aagya" + templateIdArray[temp]);
+                         console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
+                         var templateName = myobjectBody[attributename].name;
+                         console.log("--------- : " + templateName);
+                         var slotsJSON = myobjectBody[attributename].slots;
+                         var contentJSON = myobjectBody[attributename].content;
+                         var assetTypeID = myobjectBody[attributename].assetType.id;
+                         console.log("--------- >>> " + assetTypeID);
+
+                         console.log("Response"+acesstoken);
+                    if(acesstoken!=null)
                     {
-                      // comparing selected template id and templates present in an org to fetch all its detail
-                      if( templateIdArray[temp] == myobjectBody[attributename].id )
-                      {
-                        console.log( "while if ke andar aagya" + templateIdArray[temp]);
-                        console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
-                        var templateName = myobjectBody[attributename].name;
-                        console.log("----> " + templateName);
-                        var slotsJSON = myobjectBody[attributename].slots;
-                        var contentJSON = myobjectBody[attributename].content;
-                        var assetTypeID = myobjectBody[attributename].assetType.id;
- 
-                        if(acesstoken!=null)
-                          {
-                            // invoked method to insert the template in destination org
-                            var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);       
-                            console.log("yeh imageinsert.message" + imageinsert.message);
-                            if(imageinsert.message=='Failed')
-                              {
-                                var dataToWrite=
-                                  {
-                                    "imagename":templateName,
-                                    "message":imageinsert.message,
-                                    "status code":"400",
-                                    "progressStatus":progressStatus       
-                                  }
-                            await resCall.write(JSON.stringify({
-                              dataToWrite            
-                            }));
-                            await resCall.write("+");
-                            console.log("Response Written"); 
-                          }
-                        else
-                          {
+          //          console.log("Before"+acesstoken);
+       //   async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+                      
+                        var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);
+                        // your code
+                        // ...
+  
+          //          console.log("After"+acesstoken);
+                    console.log("yeh imageinsert.message" + imageinsert.message);
+                        if(imageinsert.message=='Failed')
+                        {
                             var dataToWrite=
-                              {
+                            {
+                            "imagename":templateName,
+                            "message":imageinsert.message,
+                            "statuscode":"400",
+                            "progressStatus":progressStatus
+
+                            }
+                        await resCall.write(JSON.stringify({
+                        dataToWrite
+                                   
+                    }));
+                    await resCall.write("+");
+                    console.log("Response Written");
+                    //  console.log("Res"+JSON.stringify(resCall));
+
+                         }
+                         else
+                        {
+                                var dataToWrite=
+                                {
                                 "imagename":templateName,
                                 "message":imageinsert.message,
                                 "statuscode":"200",
                                 "progressStatus":progressStatus
-                              }
-                            await  resCall.write(JSON.stringify({
-                              dataToWrite
-                            }));
-                            await resCall.write("+");
-                            console.log("Response Written");
-                          }
+                                }
+                                await  resCall.write(JSON.stringify({
+                                dataToWrite
+
+                                }));
+                                await resCall.write("+");
+                                console.log("Response Written");
                         }
-                        temp++;
-                        console.log("yeh temp hai----> " +temp);
-                        console.log("status 200");
-                        // res.send(200);         
+                  }
+                  temp++;
+                         console.log("yeh temp hai------ " +temp);
+                  
+        //    await resCall.end();
+            console.log("status 200");
+            // res.send(200);     
+
+                         
                        }
                        
                        else 
                        {
                          temp++;
                        }
-  
-                     }      
+                        
+                     }
+                       //  console.log("status 200");           
                    }
-                }
-            await resCall.end();
-            });
+           }
+           await resCall.end();
+           });
            
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            // console.log(reqYes.body);
+        // console.log("imagses2"+JSON.stringify(images2 ));
+        // var images=reqYes.body;
             var countkey = Object.keys(images).length;
-            console.log("Size"+countkey);                                
+            console.log("Size"+countkey);
+                                            
             var progressStatus=(100/countkey);                          
+            
             console.log("status"+progressStatus);
          
+          //  console.log("images"+JSON.stringify(images));
+    /*        for(var myobject in images)
+            {
+              
+            //  console.log(images[myobject]);
+            //  console.log(JSON.stringify(images[myobject]));
+                
+              var imageURL= images[myobject];
+              var imageName=myobject;
+              console.log("ImageName"+imageName); 
+              console.log("Template Name = " + imageURL);
+    */          
+
+        //        console.log("Template Name--->"+images[myobject].name.templateName);
+        //        console.log("Template slots--->"+imageURL.name.templateName);
+        //        console.log("Template Name--->"+imageURL.name.templateName);
+
+        //        console.log("template asset Id ---> " + images[myobject].assetId.assetId);
+               // var base64=await getbase64(imageURL);
+  /*             for(var i in imageURL)
+               {
+                 console.log("yeh key hai" + i);
+             //     console.log("yeh loop lagaya name.templateName" + imageURL[i].name.templateName);
+                 console.log("yeh loop lagaya aur name Nikale" + imageURL[i].templateName);
+                 //    console.log("yeh loop lagaya aur slots Nikale" + imageURL[i].slotsJSON);
+                 //    console.log("yeh loop lagaya aur content Nikala" + imageURL[i].contentJSON);
+                 console.log("yeh loop lagaya aur assetId Nikli" + imageURL[i].assetId);
+               }
+  */
+        //        if(base64!=null)
+        
+                    
+
+                      
+          //   }
+    
+    //    }
+            
+          
+
         });
-                                       
+                        
+                        
     });
 });
 
