@@ -363,10 +363,7 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (error)=>
         {
-         // reject(error);
           console.log("Err-------------->"+error);
-          //var err="error";
-         // var errres=error.data;
           var data=
           {
             message:"Failed",
@@ -379,7 +376,6 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (body) =>
         {
-        //  console.log("Body"+body);
 
         }
    
