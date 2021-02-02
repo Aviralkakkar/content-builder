@@ -107,6 +107,7 @@ app.post("/asset", async (req, res) => {
                   {
                     console.log("temmmmmmmmmmmmmm ke andar");
                     var templateName = myobject[attributename].name;
+                    console.log(templateName)
                     var slotsJSON = myobject[attributename].slots;
                     var contentJSON = myobject[attributename].content;
                     var assetId = myobject[attributename].assetType.id;
@@ -130,7 +131,7 @@ app.post("/asset", async (req, res) => {
                     array.push(myobject[attributename].fileProperties.publishedURL);
                   }
               }
-            
+            console.log("MAP : " + JSON.stringify(map));
             // Returned map and assetType as a response to the client
             res.json({map:map,assetType:asset});
 
