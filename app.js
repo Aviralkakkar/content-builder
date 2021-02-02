@@ -364,32 +364,31 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
         },
         (error)=>
         {
-          (error)=>
-        {
-         // reject(error);
-          console.log("Err-------------->"+error);
-          //var err="error";
-         // var errres=error.data;
-          var data=
-          {
-            message:"Failed",
-            errres:error.data,
-            status:error.ErrorCode,
-            hi:"hii"
-          }
-          resolve(data);
-   
-        },
-        (body) =>
-        {
-        //  console.log("Body"+body);
-
-        }
-   
-      )  
+          // reject(error);
+           console.log("Err-------------->"+error);
+           //var err="error";
+          // var errres=error.data;
+           var data=
+           {
+             message:"Failed",
+             errres:error.data,
+             status:error.ErrorCode,
+             hi:"hii"
+           }
+           resolve(data);
+    
+         },
+         (body) =>
+         {
+         //  console.log("Body"+body);
+ 
+         }
+    
+       )  
       .catch((error) => {
         console.log("yeh promise ki Error hai", error);
     })                 
+      console.log("Req"+req) 
   });
  
 }
