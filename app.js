@@ -90,6 +90,7 @@ app.post("/asset", async (req, res) => {
          }, 
          function(error, response, body)
           {
+            console.log("yeh aagaya hai template fetchi ke response me");
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
             myobject=  response.body.items; 
             array.push(assetType);  
@@ -104,6 +105,7 @@ app.post("/asset", async (req, res) => {
                   }
                 else if(myobject[attributename].assetType.displayName =='Template')
                   {
+                    console.log("temmmmmmmmmmmmmm ke andar");
                     var templateName = myobject[attributename].name;
                     var slotsJSON = myobject[attributename].slots;
                     var contentJSON = myobject[attributename].content;

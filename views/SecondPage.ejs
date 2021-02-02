@@ -346,6 +346,7 @@ function templatebutton()
                     .then(response => response.json())
                     .then((body) => 
                        {
+                         console.log(body);
                           var map=body.map;
                           var len = 0;
                           for (var count in map) 
