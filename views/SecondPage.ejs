@@ -82,6 +82,7 @@ vertical-align:top;
            </div>
        </header>
      <div style="padding: 2px;height:480px;" id="Imagecontainer" >
+      <div style="padding: 2px;height:480px;" id="Emailcontainer" >
         
     </div>
   
@@ -404,11 +405,11 @@ function templatebutton()
  //   else
  //     {
         console.log("Email button is clicked");
-        var iframe = document.createElement('Emailiframe');
+        var iframe = document.createElement('iframe');
         var html = '<body> </body>';
 
         // div tag in which iframe will be added should have id attribute with value myDIV
-        document.getElementById("Imagecontainer").appendChild(iframe);
+        document.getElementById("Emailcontainer").appendChild(iframe);
 
         // provide height and width to it
         iframe.setAttribute("style","height:100%;width:100%;");
