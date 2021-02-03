@@ -188,7 +188,7 @@ app.post("/call", async (reqCall,resCall)=>
     body:    {
               "query":
                 {
-                 "property":"assetType.name",
+                 "property":"assetType.displayName",
                  "simpleOperator":"equal",
                  "value":assetType
                 }
