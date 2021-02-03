@@ -208,7 +208,7 @@ app.post("/call", async (reqCall,resCall)=>
           for(var attributename in myobjectBody)
             {
               console.log("displayName------------->" + myobjectBody[attributename].assetType.displayName);
-              if(myobjectBody[attributename].assetType.displayName =='Email')
+              if(myobjectBody[attributename].assetType.displayName =='Template-Based Email' || 'Text Only Email' || 'HTML Email')
                 {
                   var temp = 0;
                   console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
