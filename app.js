@@ -169,10 +169,10 @@ app.post("/convertintobase64", (reqYes, resYes) => {
                     
 app.post("/call", async (reqCall,resCall)=>
   { 
-    console.log("yeh hai reqcall" + reqCall);
+ //   console.log("yeh hai reqcall" + reqCall);
     var accesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
     var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
-    console.log("yeh destination access token hai " + access_tokenDestination );
+  //  console.log("yeh destination access token hai " + access_tokenDestination );
     var templateIdArray = [];
     for(var myobject in images)
       {
@@ -198,11 +198,13 @@ app.post("/call", async (reqCall,resCall)=>
       async function(error, response, body)
         {
           myobjectBody=  response.body.items; 
+          console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
           
           // iterating over the templates in an org
           for(var attributename in myobjectBody)
             {
+              console.log("displayName------------->" + myobjectBody[attributename].assetType.displayName);
               if(myobjectBody[attributename].assetType.displayName =='Email')
                 {
                   var temp = 0;
@@ -219,12 +221,13 @@ app.post("/call", async (reqCall,resCall)=>
                         console.log( "while if ke andar aagya" + templateIdArray[temp]);
                         console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
                         var templateName = myobjectBody[attributename].name;
-                        console.log("----> " + templateName);
+                        console.log("Email Name----> " + templateName);
                       //  var slotsJSON = myobjectBody[attributename].slots;
                           var views =  myobjectBody[attributename].views;
                       //  var contentJSON = myobjectBody[attributename].content;
                         var assetTypeID = myobjectBody[attributename].assetType.id;
                         var assetTypeName = myobjectBody[attributename].assetType.name;
+                        console.log("Yeh hai assetTypeName" + assetTypeName);
                         var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
  
                         if(acesstoken!=null)
