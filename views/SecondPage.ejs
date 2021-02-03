@@ -503,36 +503,41 @@ function yesbutton()
     console.log("Yes clles");
     var checkedValue = null; 
     var frame = document.getElementById('Templateiframe');
-    // getting all checked Templates checkbox
-    var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
-    var imagejsonarray = [];
-    var imagejson={};
-    var checkedTemplateArray = [];
+    var frameEmail = document.getElementById('Emailiframe');
+    // getting all checked Templates checkbox  
+  //  var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
+    var checkboxes = frameEmail.contentWindow.document.getElementsByTagName('input');
+  //  var imagejsonarray = [];
+      var emailjsonarray = [];
+  //  var imagejson={};
+      var emailjson ={};
+  //    var checkedTemplateArray = [];
+      var checkedEmailArray = [];
     for (var i = 0; i < checkboxes.length; i++)
       {
         if( checkboxes[i].checked == true)
           {
             //   console.log(checkboxes[i].value);
             console.log("yeh checkbox id hai: " + checkboxes[i].id);
-            checkedTemplateArray.push(checkboxes[i].id);
+            checkedEmailArray.push(checkboxes[i].id);
             var id=checkboxes[i].id;
             var url=checkboxes[i].name;
-            imagejson[id]=checkboxes[i].name;
-            imagejsonarray.push(imagejson);                                                          
+            emailjson[id]=checkboxes[i].name;
+            emailjsonarray.push(emailjson);                                                          
           }
       };  
-            console.log("yeh hai checked checkboxes ki array :" + checkedTemplateArray);
-            console.log("yeh hai checked checkboxes ki array ka first element:" + checkedTemplateArray[0]);
+            console.log("yeh hai checked checkboxes ki array :" + checkedEmailArray);
+            console.log("yeh hai checked checkboxes ki array ka first element:" + checkedEmailArray[0]);
 
             // method is called with selected elements to send the information to the server side 
-            getDataUrl(imagejson);                                
+            getDataUrl(emailjson);                                
   }
   
 function getDataUrl(imagejson) 
  {
   console.log("inside get data url"+imagejson);   
   //   var url="/convertintobase64?imageURL="+imgURL+"&name="+name+"&assetType="+assetType;
-  var url="/convertintobase64?button=Yes&assetType=Template";
+  var url="/convertintobase64?button=Yes&assetType=Email";
   var headers = new Headers();
   //   headers.set('Content-Type', 'application/x-www-form-urlencoded');
   var img=JSON.stringify({imagejson});
@@ -567,7 +572,7 @@ function nobutton()
      document.getElementById('answerModal').style.display='none';
      document.getElementById('backdrop').style.display='none';                                                                                          
   
-  };
+ };
         
 
                                                               

@@ -203,7 +203,7 @@ app.post("/call", async (reqCall,resCall)=>
           // iterating over the templates in an org
           for(var attributename in myobjectBody)
             {
-              if(myobjectBody[attributename].assetType.displayName =='Template')
+              if(myobjectBody[attributename].assetType.displayName =='Email')
                 {
                   var temp = 0;
                   console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
