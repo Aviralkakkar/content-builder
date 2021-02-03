@@ -200,6 +200,8 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("yeh body hai----------> " + body)
           myobjectBody=  response.body.items; 
           console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
+          console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL withoit stringify --> " + myobjectBody);
+
           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
           
           // iterating over the templates in an org
