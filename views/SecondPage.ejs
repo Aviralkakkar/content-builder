@@ -55,7 +55,7 @@ vertical-align:top;
                                 <button class="slds-nav-vertical__action slds-button" onclick="imagebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Images</button>
                                </li>
                                <li class="slds-nav-vertical__item ">
-                                <button class="slds-nav-vertical__action slds-button" onclick="imagebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Emails</button>
+                                <button class="slds-nav-vertical__action slds-button" onclick="emailbutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Emails</button>
                                </li>
                                <li class="slds-nav-vertical__item " >
                                 <button class="slds-nav-vertical__action slds-button" onclick="templatebutton()" style="padding-top:0px;padding-bottom:0px;padding-left:4px;">Templates</button>
@@ -395,8 +395,99 @@ function templatebutton()
   };
   //Template Iframe End
   
+  function emailbutton()
+  {
+    if ($('#emailiframe').length ) 
+    {
+      console.log("emailcontent");
+    }
+    else
+      {
+        console.log("Email button is clicked");
+        var iframe = document.createElement('Emailiframe');
+        var html = '<body> </body>';
+
+        // div tag in which iframe will be added should have id attribute with value myDIV
+        document.getElementById("Imagecontainer").appendChild(iframe);
+
+        // provide height and width to it
+        iframe.setAttribute("style","height:100%;width:100%;");
+        iframe.setAttribute("id","Emailiframe");
+        iframe.contentWindow.document.open();
+        iframe.contentWindow.document.write(html);
+        iframe.contentWindow.document.close();
+
+        var $Emailiframe = $('#Emailiframe');
+
+        var url="/asset?assetType=email";
+        fetch(url, {  //provide URL of the processing page
+                      method: "POST",
+                      headers: 
+                       {
+                         "Content-Type": "application/json"
+                       },
+                      body: 
+                       {
+                         "assetType":"email",
+                       }
+                    })
+                    .then(response => response.json())
+                    .then((body) => 
+                       {
+                        console.log("reponse aaya app.js se jisse checkbox show krwane hai");
+                        /*          console.log(body);
+                          var map=body.map;
+                          var len = 0;
+                          for (var count in map) 
+                            {
+                              len++;
+                            }
+                          console.log("yeh hai asset type : " +body.assetType);
+                          console.log("yeh hai map ka size : " + len );
+                                                
+                          var assetType=body.assetType;
+
+                          for(i=0;i<len;i++)
+                            {
+                              console.log("yeh elements " + i + ":")
+                              console.log(map[i]);
+                            };
+               */
+                          if (assetType=='email') 
+                            {
+                              for (const [keyimage, value] of Object.entries(map)) 
+                                {
+                                  var radiobox = document.createElement('input');
+                                  radiobox.type = 'checkbox';
+                                  radiobox.id = keyimage;
+                                  radiobox.name = value;
+                                  console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
+                                  console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
+                                                          
+                                  //create
+                                  //list
+                                  var ul = document.createElement('ul');
+                                  ul.setAttribute('style', 'padding: 0; margin: 0;');
+                                  ul.setAttribute('id', 'theList');
+                                                                      
+                                  var li = document.createElement('li');     // create li element.
+                                  li.innerHTML = keyimage;      // assigning text to li using array value.
+                                  li.setAttribute('style', 'display: block;');    // remove the bullets.
+                                  $Templateiframe.contents().find("body").append(radiobox);
+                                  console.log(ul);
+                                  ul.appendChild(li);     // append li to ul.
+                                  $Templateiframe.contents().find("body").append(ul);
+                                }; 
+                            }
+                        });
+      }
+  };
+  //Email Iframe End
+
+  
+  
   //nextbutton
-function nextbutton()
+  function nextbutton()
   {
     document.getElementById('answerModal').style.display='block';
     document.getElementById('backdrop').style.display='block';                                                                                          
