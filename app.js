@@ -220,14 +220,19 @@ app.post("/call", async (reqCall,resCall)=>
                         console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
                         var templateName = myobjectBody[attributename].name;
                         console.log("----> " + templateName);
-                        var slotsJSON = myobjectBody[attributename].slots;
-                        var contentJSON = myobjectBody[attributename].content;
+                      //  var slotsJSON = myobjectBody[attributename].slots;
+                          var views =  myobjectBody[attributename].views;
+                      //  var contentJSON = myobjectBody[attributename].content;
                         var assetTypeID = myobjectBody[attributename].assetType.id;
+                        var assetTypeName = myobjectBody[attributename].assetType.name;
+                        var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
  
                         if(acesstoken!=null)
                           {
                             // invoked method to insert the template in destination org
-                            var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID);       
+                          //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
+                        var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
+                        var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
                             console.log("yeh imageinsert.message" + imageinsert.message);
                             if(imageinsert.message=='Failed')
                               {
@@ -320,7 +325,8 @@ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTy
   }
 
 // method to insert the template
-async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+//async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
     console.log("Inside Image Insert ");
     console.log("template name ---> " + templateName);
@@ -330,12 +336,15 @@ async function getimageinserted(templateName,templateContent,templateSlots,acess
     var  data=
       {
         "name": templateName,
-        "content": templateContent,
-        "slots" : templateSlots,
+        "views": views,
+
+      //  "content": templateContent,
+      //  "slots" : templateSlots,
         "assetType": 
-          {
-            "name": "template",
-            "id": assetTypeID
+          {     
+            "id": assetTypeID,
+            "name": assetTypeName,
+            "displayName": assetTypedisplayName
           },
       }
   
