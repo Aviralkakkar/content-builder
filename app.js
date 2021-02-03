@@ -197,6 +197,7 @@ app.post("/call", async (reqCall,resCall)=>
     }, 
       async function(error, response, body)
         {
+          console.log("yeh body hai----------> " + body)
           myobjectBody=  response.body.items; 
           console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
