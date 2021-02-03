@@ -94,6 +94,7 @@ app.post("/asset", async (req, res) => {
             console.log("yeh aagaya hai email fetch ke response me");
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
             myobject=  response.body.items; 
+            console.log(JSON.stringify(myobject));
             array.push(assetType);  
             for(var attributename in myobject)
               { 
