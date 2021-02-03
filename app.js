@@ -68,7 +68,7 @@ app.post("/asset", async (req, res) => {
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
         var assetType = qdata.assetType;
-        console.log("yeh hai asset type"); 
+        console.log("yeh hai asset type" + assetType); 
         var array = [];
         var map={};
         // get access token and fetch all the templates through post api
@@ -97,6 +97,7 @@ app.post("/asset", async (req, res) => {
             array.push(assetType);  
             for(var attributename in myobject)
               { 
+                console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
                 if(myobject[attributename].assetType.displayName =='Template-Based Email' || 'Text Only Email' || 'HTML Email')
                   {          
                     var emailName=myobject[attributename].name;
