@@ -191,7 +191,7 @@ app.post("/call", async (reqCall,resCall)=>
                  "property":"assetType.name",
                  "simpleOperator":"equal",
                  "value":assetType
-                },
+                }
              },
     json: true
     }, 
