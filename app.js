@@ -190,7 +190,7 @@ app.post("/call", async (reqCall,resCall)=>
                 {
                  "property":"assetType.displayName",
                  "simpleOperator":"equal",
-                 "value":assetType
+                 "value":"email"
                 }
              },
     json: true
