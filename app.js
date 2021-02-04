@@ -267,7 +267,7 @@ app.post("/call", async (reqCall,resCall)=>
           for(var attributename in myobjectBody)
             {
               console.log("yeh hai display name" + myobjectBody[attributename].assetType.displayName);
-              if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== "true")
+              if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== true)
                 {
                   var temp = 0;
                   console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
