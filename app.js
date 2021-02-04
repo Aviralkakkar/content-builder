@@ -67,8 +67,12 @@ app.post("/asset", async (req, res) => {
         var q = url.parse(address, true);
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
-        var assetType = qdata.assetType;
-        console.log("yeh hai asset type" + assetType); 
+        var assetTypeAll = qdata.assetTypeAll;
+        var assetTypeLayout = qdata.assetTypelayout;
+        var assetTypeSmartcapture = qdata.assetTypesmartcapture;
+        console.log("yeh hai asset type all : " + assetTypeAll); 
+        console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
+        console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
         var array = [];
         var map={};
         // get access token and fetch all the templates through post api
@@ -79,14 +83,35 @@ app.post("/asset", async (req, res) => {
         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
         url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
         body:    
-          {
-           "query":
-            {
-             "property":"assetType.displayName",
-              "simpleOperator":"equal",
-              "value":assetType
-            }, 
-          },
+        {
+          "query":
+             {
+                 "leftOperand":
+                 {
+                    "property":"assetType.displayName",
+                     "simpleOperator":"equal",
+                     "value":assetTypeAll   
+                 },
+                 "logicalOperator":"OR",
+                 "rightOperand":
+                 {
+                     "leftOperand":
+                 {
+                    "property":"assetType.name",
+                     "simpleOperator":"equal",
+                     "value":assetTypeLayout   
+                 },
+                 "logicalOperator":"OR",
+                 "rightOperand":
+                 {
+                     "property":"assetType.name",
+                     "simpleOperator":"equal",
+                     "value":assetTypeSmartcapture
+                 }
+         
+                 }
+             }
+         },
          json: true
          }, 
          function(error, response, body)
@@ -96,10 +121,12 @@ app.post("/asset", async (req, res) => {
             myobject=  response.body.items; 
             console.log(JSON.stringify(myobject));
             array.push(assetType);  
+
+            var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
             for(var attributename in myobject)
               { 
                 console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
-                if(myobject[attributename].assetType.displayName =='Template-Based Email' || 'Text Only Email' || 'HTML Email')
+                if(array.includes(assetTypeDisplayNameArray)== "true")
                   {          
                     var emailName=myobject[attributename].name;
                     console.log("Yeh Email name hai");
@@ -112,7 +139,7 @@ app.post("/asset", async (req, res) => {
                   {
                     console.log("temmmmmmmmmmmmmm ke andar");
                     var templateName = myobject[attributename].name;
-                    console.log(templateName)
+                    console.log(templateName);
                     var slotsJSON = myobject[attributename].slots;
                     var contentJSON = myobject[attributename].content;
                     var assetId = myobject[attributename].assetType.id;
