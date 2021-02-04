@@ -394,7 +394,7 @@ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTy
 
 // method to insert the template
 //async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
-async function getcontentblockinserted(contentBlockName,contentBlockContent,contentBlockslots,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName);
+async function getcontentblockinserted(contentBlockName,contentBlockContent,contentBlockslots,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
     console.log("Inside Image Insert ");
