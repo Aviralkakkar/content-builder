@@ -126,13 +126,13 @@ app.post("/asset", async (req, res) => {
             for(var attributename in myobject)
               { 
                 console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
-                if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== "true")
+                if(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName)== "true")
                   {       
                     console.log("Loop me aagya jahan displayName check krwainge content ka ");
                   //  var emailName=myobject[attributename].name;
                   //  console.log("Yeh Email name hai");
                   //  emailName = path.parse(emailName).name;
-                  console.log("yeh email ki id hai" + myobject[attributename].id) ;
+                    console.log("yeh email ki id hai" + myobject[attributename].id) ;
                     map[myobject[attributename].id] = myobject[attributename].name;
                     
                     var asset ='block' ;
@@ -184,8 +184,13 @@ app.post("/convertintobase64", (reqYes, resYes) => {
   var q = url.parse(address, true);
   var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
   var button=qdata.button;
-  var assetType = qdata.assetType; // Fetching assetType from the passed url from the client
-
+//  var assetType = qdata.assetType; // Fetching assetType from the passed url from the client
+        var assetTypeAll = qdata.assetTypeAll;
+        var assetTypeLayout = qdata.assetTypelayout;
+        var assetTypeSmartcapture = qdata.assetTypesmartcapture;
+        console.log("yeh hai asset type all : " + assetTypeAll); 
+        console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
+        console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
   console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
         
   images=reqYes.body;
@@ -212,17 +217,39 @@ app.post("/call", async (reqCall,resCall)=>
 
     // Fetching all the templates in an org
     var request = require('request');
-    request.post({
-    headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
-    url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
-    body:    {
-              "query":
-                {
-                 "property":"assetType.displayName",
-                 "simpleOperator":"equal",
-                 "value":"email"
-                }
-             },
+        request.post({
+        headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
+        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
+        body:    
+        {
+          "query":
+             {
+                 "leftOperand":
+                 {
+                    "property":"assetType.displayName",
+                     "simpleOperator":"equal",
+                     "value":assetTypeAll   
+                 },
+                 "logicalOperator":"OR",
+                 "rightOperand":
+                 {
+                     "leftOperand":
+                 {
+                    "property":"assetType.name",
+                     "simpleOperator":"equal",
+                     "value":assetTypeLayout   
+                 },
+                 "logicalOperator":"OR",
+                 "rightOperand":
+                 {
+                     "property":"assetType.name",
+                     "simpleOperator":"equal",
+                     "value":assetTypeSmartcapture
+                 }
+         
+                 }
+             }
+         },
     json: true
     }, 
       async function(error, response, body)
@@ -233,12 +260,12 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL withoit stringify --> " + myobjectBody);
 
           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
-          
+          var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
           // iterating over the templates in an org
           for(var attributename in myobjectBody)
             {
-              console.log("displayName------------->" + myobjectBody[attributename].assetType.displayName);
-              if(myobjectBody[attributename].assetType.displayName =='Template-Based Email' || 'Text Only Email' || 'HTML Email')
+              console.log("yeh hai display name" + myobjectBody[attributename].assetType.displayName);
+              if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== "true")
                 {
                   var temp = 0;
                   console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
