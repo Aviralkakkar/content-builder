@@ -128,7 +128,7 @@ app.post("/asset", async (req, res) => {
               { 
                 console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
                 console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
-                if(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName)== "true")
+                if(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName)== true)
                   {       
                     console.log("Loop me aagya jahan displayName check krwainge content ka ");
                   //  var emailName=myobject[attributename].name;
