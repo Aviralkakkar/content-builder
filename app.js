@@ -120,7 +120,7 @@ app.post("/asset", async (req, res) => {
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
             myobject=  response.body.items; 
             console.log(JSON.stringify(myobject));
-            array.push(assetType);  
+          //  array.push(assetType);  
 
             var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
             for(var attributename in myobject)
