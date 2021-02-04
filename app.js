@@ -67,6 +67,7 @@ app.post("/asset", async (req, res) => {
         var q = url.parse(address, true);
         var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
+        var assetType = "demo";
         var assetTypeAll = qdata.assetTypeAll;
         var assetTypeLayout = qdata.assetTypelayout;
         var assetTypeSmartcapture = qdata.assetTypesmartcapture;
