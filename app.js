@@ -404,7 +404,7 @@ async function getcontentblockinserted(contentBlockName,contentBlockContent,cont
  
     var  data=
       {
-        "name": templateName,
+        "name": contentBlockName,
       //  "views": views,
 
       //  "content": templateContent,
