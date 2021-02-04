@@ -527,7 +527,7 @@ function templatebutton()
                         var map=body.map;
                        
                           var assetType=body.assetType;
-                          if (assetType=='email') 
+                          if (assetType=='block') 
                             {
                               for (const [keyimage, value] of Object.entries(map)) 
                                 {
@@ -586,7 +586,7 @@ function yesbutton()
       {
         if( checkboxes[i].checked == true)
           {
-            //   console.log(checkboxes[i].value);
+            //  console.log(checkboxes[i].value);
             console.log("yeh checkbox id hai: " + checkboxes[i].id);
             checkedEmailArray.push(checkboxes[i].id);
             var id=checkboxes[i].id;

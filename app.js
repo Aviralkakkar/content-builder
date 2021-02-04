@@ -126,14 +126,17 @@ app.post("/asset", async (req, res) => {
             for(var attributename in myobject)
               { 
                 console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
-                if(array.includes(assetTypeDisplayNameArray)== "true")
-                  {          
-                    var emailName=myobject[attributename].name;
-                    console.log("Yeh Email name hai");
+                if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== "true")
+                  {       
+                    console.log("Loop me aagya jahan displayName check krwainge content ka ");
+                  //  var emailName=myobject[attributename].name;
+                  //  console.log("Yeh Email name hai");
                   //  emailName = path.parse(emailName).name;
                   console.log("yeh email ki id hai" + myobject[attributename].id) ;
                     map[myobject[attributename].id] = myobject[attributename].name;
-                    var asset='email';
+                    
+                    var asset ='block' ;
+                    
                   }
                 else if(myobject[attributename].assetType.displayName =='Template')
                   {
