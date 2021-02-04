@@ -321,7 +321,7 @@ app.post("/call", async (reqCall,resCall)=>
                           {
                             var dataToWrite=
                               {
-                                "imagename":templateName,
+                                "imagename":contentBlockName,
                                 "message":imageinsert.message,
                                 "statuscode":"200",
                                 "progressStatus":progressStatus
