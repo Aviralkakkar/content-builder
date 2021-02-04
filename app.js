@@ -220,7 +220,7 @@ app.post("/call", async (reqCall,resCall)=>
     // Fetching all the templates in an org
     var request = require('request');
         request.post({
-        headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
+        headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
         url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
         body:    
         {
