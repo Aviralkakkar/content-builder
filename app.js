@@ -127,6 +127,7 @@ app.post("/asset", async (req, res) => {
             for(var attributename in myobject)
               { 
                 console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
+                console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
                 if(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName)== "true")
                   {       
                     console.log("Loop me aagya jahan displayName check krwainge content ka ");
