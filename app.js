@@ -61,63 +61,36 @@ app.post("/accesstoken", async (req, res) => {
         //---------------------------------------------------------SecondPage-Images------------------------------------------------------------------------------------
 app.post("/asset", async (req, res) => {
                                             
-        console.log("Entered app.post for templates");
-        var url = require('url');
-        var address =  req.url;
-        var q = url.parse(address, true);
-        var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
+        console.log("Entered app.post for Query");
+    //    var url = require('url');
+    //    var address =  req.url;
+    //    var q = url.parse(address, true);
+    //    var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
-        var assetType = "demo";
-        var assetTypeAll = qdata.assetTypeAll;
-        var assetTypeLayout = qdata.assetTypelayout;
-        var assetTypeSmartcapture = qdata.assetTypesmartcapture;
-        console.log("yeh hai asset type all : " + assetTypeAll); 
-        console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
-        console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
+    //    var assetType = "demo";
+    //    var assetTypeAll = qdata.assetTypeAll;
+    //    var assetTypeLayout = qdata.assetTypelayout;
+    //    var assetTypeSmartcapture = qdata.assetTypesmartcapture;
+    //    console.log("yeh hai asset type all : " + assetTypeAll); 
+    //    console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
+    //    console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
         var array = [];
         var map={};
         // get access token and fetch all the templates through post api
         var acesstoken= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource); 
         
         var request = require('request');
-        request.post({
+        request.get({
         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + acesstoken},
-        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
+        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//automation/v1/queries/',
         body:    
         {
-          "query":
-             {
-                 "leftOperand":
-                 {
-                    "property":"assetType.displayName",
-                     "simpleOperator":"equal",
-                     "value":assetTypeAll   
-                 },
-                 "logicalOperator":"OR",
-                 "rightOperand":
-                 {
-                     "leftOperand":
-                 {
-                    "property":"assetType.name",
-                     "simpleOperator":"equal",
-                     "value":assetTypeLayout   
-                 },
-                 "logicalOperator":"OR",
-                 "rightOperand":
-                 {
-                     "property":"assetType.name",
-                     "simpleOperator":"equal",
-                     "value":assetTypeSmartcapture
-                 }
-         
-                 }
-             }
-         },
+        },
          json: true
          }, 
          function(error, response, body)
           {
-            console.log("yeh aagaya hai email fetch ke response me");
+            console.log("yeh aagaya hai query fetch ke response me");
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
             myobject=  response.body.items; 
             console.log(JSON.stringify(myobject));
