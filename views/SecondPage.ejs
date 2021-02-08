@@ -577,7 +577,7 @@ function templatebutton()
 
         var $Queryiframe = $('#queryiframe');
 
-        var url="/asset";
+        var url="/asset?assetType=query";
         fetch(url, {  //provide URL of the processing page
                       method: "POST",
                       headers: 
@@ -596,14 +596,14 @@ function templatebutton()
                         var map=body.map;
                        
                           var assetType=body.assetType;
-                          if (assetType=='block') 
+                          if (assetType=='query') 
                             {
                               for (const [keyimage, value] of Object.entries(map)) 
                                 {
                                   var radiobox = document.createElement('input');
                                   radiobox.type = 'checkbox';
-                                  radiobox.id = keyimage;
-                                  radiobox.name = value;
+                                  radiobox.id = value;
+                                  radiobox.name = keyimage;
                                   console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
                                   console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
                                                           
@@ -640,9 +640,10 @@ function yesbutton()
     var checkedValue = null; 
     var frame = document.getElementById('Templateiframe');
     var frameEmail = document.getElementById('Emailiframe');
+    var frameQuery = document.getElementById('queryiframe');
     // getting all checked Templates checkbox  
   //  var checkboxes = frame.contentWindow.document.getElementsByTagName('input');
-    var checkboxes = frameEmail.contentWindow.document.getElementsByTagName('input');
+    var checkboxes = frameQuery.contentWindow.document.getElementsByTagName('input');
   //  var imagejsonarray = [];
       var emailjsonarray = [];
   //  var imagejson={};

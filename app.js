@@ -62,12 +62,13 @@ app.post("/accesstoken", async (req, res) => {
 app.post("/asset", async (req, res) => {
                                             
         console.log("Entered app.post for Query");
-    //    var url = require('url');
-    //    var address =  req.url;
-    //    var q = url.parse(address, true);
-    //    var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
+        var url = require('url');
+        var address =  req.url;
+        var q = url.parse(address, true);
+        var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
         //returns 'page'
-    //    var assetType = "demo";
+        var assetType = qdata.assetType;
+        console.log("yeh hai asset type : " + assetType);
     //    var assetTypeAll = qdata.assetTypeAll;
     //    var assetTypeLayout = qdata.assetTypelayout;
     //    var assetTypeSmartcapture = qdata.assetTypesmartcapture;
@@ -96,21 +97,22 @@ app.post("/asset", async (req, res) => {
             console.log(JSON.stringify(myobject));
           //  array.push(assetType);  
 
-            var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
+          //  var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
             for(var attributename in myobject)
               { 
-                console.log("yeh hai display name" + myobject[attributename].assetType.displayName);
-                console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
-                if(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName)== true)
+                console.log("yeh hai display name" + myobject[attributename].name);
+                console.log("yeh hai display name" + myobject[attributename].key);
+              //  console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
+                if(assetType = 'query')
                   {       
-                    console.log("Loop me aagya jahan displayName check krwainge content ka ");
+                    console.log("Loop me aagya query wala ");
                   //  var emailName=myobject[attributename].name;
                   //  console.log("Yeh Email name hai");
                   //  emailName = path.parse(emailName).name;
-                    console.log("yeh email ki id hai" + myobject[attributename].id) ;
-                    map[myobject[attributename].id] = myobject[attributename].name;
+                    console.log("yeh query ka name hai : " + myobject[attributename].name) ;
+                    map[myobject[attributename].key] = myobject[attributename].name;
                     
-                    var asset ='block' ;
+                    var asset ='query' ;
                     
                   }
                 else if(myobject[attributename].assetType.displayName =='Template')
