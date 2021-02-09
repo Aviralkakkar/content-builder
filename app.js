@@ -95,9 +95,10 @@ app.post("/asset", async (req, res) => {
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
             myobject=  response.body.items; 
             console.log(JSON.stringify(myobject));
-          //  array.push(assetType);  
+           //  array.push(assetType);  
+            
 
-          //  var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
+           //  var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
             for(var attributename in myobject)
               { 
                 console.log("yeh hai display name" + myobject[attributename].name);
@@ -105,6 +106,22 @@ app.post("/asset", async (req, res) => {
               //  console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
                 if(assetType = 'query')
                   {       
+                    var queryJSON = {
+                      queryDefinitionId : myobject[attributename].queryDefinitionId,
+                      name : myobject[attributename].name,
+                      key : myobject[attributename].key,
+                      description : myobject[attributename].description,
+                      queryText : myobject[attributename].queryText,
+                      targetName : myobject[attributename].targetName,
+                      targetKey : myobject[attributename].targetKey,
+                      targetId : myobject[attributename].targetId,
+                      targetDescription : myobject[attributename].targetDescription,
+                      targetUpdateTypeId : myobject[attributename].targetUpdateTypeId,
+                      targetUpdateTypeName : myobject[attributename].targetUpdateTypeName,
+                      categoryId : myobject[attributename].categoryId,
+                      isFrozen : myobject[attributename].isFrozen
+
+                    };
                     
                     console.log("Yeh hai queryDefinitionId" + myobject[attributename].queryDefinitionId);
                     console.log("Yeh hai description" + myobject[attributename].description);
@@ -117,13 +134,14 @@ app.post("/asset", async (req, res) => {
                     console.log("Yeh hai targetUpdateTypeName" + myobject[attributename].targetUpdateTypeName);
                     console.log("Yeh hai categoryId" + myobject[attributename].categoryId);
                     console.log("Yeh hai isFrozen" + myobject[attributename].isFrozen);
+
                    
                     console.log("Loop me aagya query wala ");
                   //  var emailName=myobject[attributename].name;
                   //  console.log("Yeh Email name hai");
                   //  emailName = path.parse(emailName).name;
-                    console.log("yeh query ka name hai : " + myobject[attributename].name) ;
-                    map[myobject[attributename].key] = myobject[attributename].name;
+                    console.log("yeh query ka name hai : " + queryJSON) ;
+                    map[myobject[attributename].key] = queryJSON;
                     
                     var asset ='query' ;
                     
