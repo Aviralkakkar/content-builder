@@ -193,17 +193,17 @@ app.post("/convertintobase64", (reqYes, resYes) => {
   var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
   var button=qdata.button;
 //  var assetType = qdata.assetType; // Fetching assetType from the passed url from the client
-        var assetTypeAll = qdata.assetTypeAll;
-        var assetTypeLayout = qdata.assetTypelayout;
-        var assetTypeSmartcapture = qdata.assetTypesmartcapture;
-        console.log("yeh hai asset type all : " + assetTypeAll); 
-        console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
-        console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
+      //  var assetTypeAll = qdata.assetTypeAll;
+      //  var assetTypeLayout = qdata.assetTypelayout;
+      //  var assetTypeSmartcapture = qdata.assetTypesmartcapture;
+      //  console.log("yeh hai asset type all : " + assetTypeAll); 
+      //  console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
+      //  console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
   console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
         
   images=reqYes.body;
-  console.log("yeh images ka first element id" + images.id);
-  console.log("yeh images ka first element value" + images.value);
+  console.log("yeh images hai "  + JSON.stringify(images));
+  console.log("yeh images ka first element value" + images);
       
   if(button=='Yes')
     {
@@ -262,10 +262,10 @@ app.post("/call", async (reqCall,resCall)=>
     }, 
       async function(error, response, body)
         {
-          console.log("yeh body hai----------> " + JSON.stringify(body));
+      //    console.log("yeh body hai----------> " + JSON.stringify(body));
           myobjectBody=  response.body.items; 
-          console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
-          console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL withoit stringify --> " + myobjectBody);
+      //    console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
+      //    console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL withoit stringify --> " + myobjectBody);
 
           var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
           var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
@@ -364,6 +364,7 @@ app.post("/call", async (reqCall,resCall)=>
         });
                                        
     });
+    
 });
 
 
