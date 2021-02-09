@@ -221,7 +221,13 @@ app.post("/call", async (reqCall,resCall)=>
       {
         templateIdArray.push(myobject); // Putting Id of all the selected queries in template array
       }
-    console.log("This is template Array ----> " + templateIdArray);
+
+    for (const [keyimage, value] of Object.entries(images)) 
+    {
+      console.log("yeh hai images ka target data extension" + value.targetName);
+      console.log("This is template Array ----> " + value);
+    }
+  //  console.log("This is template Array ----> " + templateIdArray);
 
     // Fetching all the DE in the Destination org 
     var request = require('request');
