@@ -226,7 +226,8 @@ app.post("/call", async (reqCall,resCall)=>
     {
       console.log("yeh hai images ka target data extension" + value.targetName);
       console.log("This is template Array ----> " + JSON.stringify(value.name));
-      console.log("This is template  ----> " + JSON.stringify(value.id.name));
+    //  console.log("This is template  ----> " + JSON.stringify(value.id.name));
+      console.log("This is template Array ----> " + JSON.stringify(value));
       console.log("This is template  ----> " + value.id.name);
     }
   //  console.log("This is template Array ----> " + templateIdArray);
