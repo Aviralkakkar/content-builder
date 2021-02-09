@@ -222,12 +222,12 @@ app.post("/call", async (reqCall,resCall)=>
         console.log("images logs");
         templateIdArray.push(myobject);
       //  console.log(images[myobject].name);// Putting Id of all the selected queries in template array
-       console.log(images[myobject]);
+       console.log(images[myobject]); 
        var a=images[myobject];
        for(var i in a)
         {
-          console.log(i);
-          console.log(a[i]);
+        //  console.log(i);
+          console.log(a[i].id.name);
         }
         console.log(images[myobject].id.name);
         console.log(images[myobject].id.targetName);
