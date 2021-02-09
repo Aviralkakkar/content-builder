@@ -227,16 +227,16 @@ app.post("/call", async (reqCall,resCall)=>
        for(var i in a)
         {
         //  console.log(i);
-          console.log(a[i].id.name);
+        //  console.log(a[i].id.name);
         }
-        console.log(images[myobject].id.name);
-        console.log(images[myobject].id.targetName);
+       // console.log(images[myobject].id.name);
+        //console.log(images[myobject].id.targetName);
       }
 
     for (const [keyimage, value] of Object.entries(images)) 
     {
-      console.log("yeh hai images ka target data extension" + keyimage.targetName);
-      console.log("This is template Array ----> " + JSON.stringify(keyimage.imagejson.targetName));
+      console.log("yeh hai images ka target data extension" + keyimage);
+      console.log("This is template Array ----> " + JSON.stringify(value.name));
     //  console.log("This is template  ----> " + JSON.stringify(keyimage.id.name));
       console.log("This is template Array ----> " + JSON.stringify(keyimage));
       console.log("This is template  ----> " + keyimage.name);
