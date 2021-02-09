@@ -160,7 +160,7 @@ app.post("/asset", async (req, res) => {
                         name : {templateName},
                         content : {contentJSON},
                         slots: {slotsJSON}, 
-                        assetId: {assetId}      
+                        assetI: {assetId}      
                       } 
 		    var asset='template';
 
@@ -223,6 +223,12 @@ app.post("/call", async (reqCall,resCall)=>
         templateIdArray.push(myobject);
       //  console.log(images[myobject].name);// Putting Id of all the selected queries in template array
        console.log(images[myobject]);
+       var a=images[myobject];
+       for(var i in a)
+        {
+          console.log(i);
+          console.log(a[i]);
+        }
         console.log(images[myobject].id.name);
         console.log(images[myobject].id.targetName);
       }
