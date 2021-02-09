@@ -105,6 +105,19 @@ app.post("/asset", async (req, res) => {
               //  console.log(assetTypeDisplayNameArray.includes(myobject[attributename].assetType.displayName));
                 if(assetType = 'query')
                   {       
+                    
+                    console.log("Yeh hai queryDefinitionId" + myobject[attributename].queryDefinitionId);
+                    console.log("Yeh hai description" + myobject[attributename].description);
+                    console.log("Yeh hai queryText" + myobject[attributename].queryText);
+                    console.log("Yeh hai targetName" + myobject[attributename].targetName);
+                    console.log("Yeh hai targetKey" + myobject[attributename].targetKey);
+                    console.log("Yeh hai targetId" + myobject[attributename].targetId);
+                    console.log("Yeh hai targetDescription" + myobject[attributename].targetDescription);
+                    console.log("Yeh hai targetUpdateTypeId" + myobject[attributename].targetUpdateTypeId);
+                    console.log("Yeh hai targetUpdateTypeName" + myobject[attributename].targetUpdateTypeName);
+                    console.log("Yeh hai categoryId" + myobject[attributename].categoryId);
+                    console.log("Yeh hai isFrozen" + myobject[attributename].isFrozen);
+                   
                     console.log("Loop me aagya query wala ");
                   //  var emailName=myobject[attributename].name;
                   //  console.log("Yeh Email name hai");
@@ -188,11 +201,11 @@ app.post("/call", async (reqCall,resCall)=>
     var templateIdArray = [];
     for(var myobject in images)
       {
-        templateIdArray.push(myobject); // Putting Id of all the selected templates in template array
+        templateIdArray.push(myobject); // Putting Id of all the selected queries in template array
       }
     console.log("This is template Array ----> " + templateIdArray);
 
-    // Fetching all the templates in an org
+    // Fetching all the DE in the Destination org 
     var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
