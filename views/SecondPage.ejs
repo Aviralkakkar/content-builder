@@ -600,6 +600,9 @@ function templatebutton()
                             {
                               for (const [keyimage, value] of Object.entries(map)) 
                                 {
+                                  console.log("yeh api name " + value.name);
+                                  console.log("yeh query text hai" + value.queryText);
+
                                   var radiobox = document.createElement('input');
                                   radiobox.type = 'checkbox';
                                   radiobox.id = keyimage;
