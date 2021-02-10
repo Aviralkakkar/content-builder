@@ -653,6 +653,7 @@ function yesbutton()
       var emailjson ={};
   //    var checkedTemplateArray = [];
       var checkedEmailArray = [];
+
      
       for (var i = 0; i < checkboxes.length; i++)
       {
@@ -671,7 +672,9 @@ function yesbutton()
             console.log(emailjsonarray) ;
 
           }
-      };  
+      }; 
+      
+      var queryMap={};
 
       var url="/asset?assetType=query";
         fetch(url, {  //provide URL of the processing page
@@ -690,7 +693,7 @@ function yesbutton()
                        {
                         console.log("Response aaya jisse ab query ka data bhejenge app.js me");
                         var map=body.map;
-                        var queryMap={};
+                       
                        
                           var assetType=body.assetType;
                         
@@ -721,7 +724,7 @@ function yesbutton()
             console.log("yeh hai checked checkboxes ki array ka first element:" + checkedEmailArray[0]);
 
             // method is called with selected elements to send the information to the server side 
-            getDataUrl(emailjson);                                
+            getDataUrl(queryMap);                                
   }
   
 function getDataUrl(imagejson) 
