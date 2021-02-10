@@ -45,7 +45,7 @@ app.post("/accesstoken", async (req, res) => {
 
         var access_token= await getacesstoken(clientidSource,clientsecretSource,granttypeSource,accountidSource);
         var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
-
+        console.log("yeh destination acess token : " +access_tokenDestination);
         
         if(access_token!= undefined && access_tokenDestination!=undefined)
         
