@@ -255,6 +255,9 @@ app.post("/call", async (reqCall,resCall)=>
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log("yeh hai de ki response body" + response.body);
+    SourceListDEResult = response.body ; 
+    SourceListDEResult = xmlParser.toJson(SourceListDEResult);
+    console.log("yeh hai de ki response ki json body" +SourceListDEResult);
   });
   
     
