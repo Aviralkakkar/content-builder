@@ -667,11 +667,56 @@ function yesbutton()
             var id=checkboxes[i].id;
             var url=checkboxes[i].name;
             emailjson[id]=checkboxes[i].name;
-            emailjsonarray.push(emailjson.id);     
+            emailjsonarray.push(checkboxes[i].id);     
             console.log(emailjsonarray) ;
 
           }
       };  
+
+      var url="/asset?assetType=query";
+        fetch(url, {  //provide URL of the processing page
+                      method: "POST",
+                      headers: 
+                       {
+                         "Content-Type": "application/json"
+                       },
+                      body: 
+                       {
+                         "assetType":"query",
+                       }
+                    })
+                    .then(response => response.json())
+                    .then((body) => 
+                       {
+                        console.log("Response aaya jisse ab query ka data bhejenge app.js me");
+                        var map=body.map;
+                        var queryMap={};
+                       
+                          var assetType=body.assetType;
+                          if (assetType=='query') 
+                            {
+                              for (const [keyimage, value] of Object.entries(map)) 
+                                {
+                                  console.log("yeh api name " + value.name);
+                                  console.log("yeh query text hai" + value.queryText);
+                                  if(emailjsonarray.includes(keyimage) == true)
+                                  {
+                                    queryMap[value.targetKey]= value;                                 
+
+                                  }
+                                  
+                                  console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
+                                  console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
+                               
+                                }; 
+                            }
+                          console.log("yeh hai query map  : " + queryMap);
+                        });
+
+
+
+
+
             console.log("yeh hai checked checkboxes ki array :" + checkedEmailArray);
             console.log("yeh hai checked checkboxes ki array ka first element:" + checkedEmailArray[0]);
 
