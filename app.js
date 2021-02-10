@@ -226,21 +226,13 @@ app.post("/call", async (reqCall,resCall)=>
     for(var myobject in images)
       {
         console.log("images logs");
-        console.log("YEH HAI NAME : " + images[myobject].name)
+        console.log("YEH HAI NAME : " + images[myobject].targetKey)
         console.log("YEH HAI obj : " + images[myobject])
         console.log("YEH HAI stringify name : " + JSON.stringify(images[myobject]))
-        templateIdArray.push(myobject);
-      //  console.log(images[myobject].name);// Putting Id of all the selected queries in template array
-       console.log(images[myobject]); 
-       var a=images[myobject];
-       for(var i in a)
-        {
-        //  console.log(i);
-        //  console.log(a[i].id.name);
-        }
-        // console.log(images[myobject].id.name);
-        //console.log(images[myobject].id.targetName);
+        templateIdArray.push(images[myobject].targetKey);
+      // console.log(images[myobject].name);// Putting Id of all the selected queries in template array    
       }
+      console.log("YEH HAI TEMPLATE ARRAY : " + templateIdArray); 
 
     for (const [keyimage, value] of Object.entries(images)) 
     {
