@@ -203,7 +203,8 @@ app.post("/convertintobase64", (reqYes, resYes) => {
         
   images=reqYes.body;
   console.log("yeh images hai "  + JSON.stringify(images));
-  console.log("yeh images ka first element value" + images);
+  var key = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
+  console.log("yeh images ka first element value" + images.key.name);
       
   if(button=='Yes')
     {
