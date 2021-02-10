@@ -606,7 +606,7 @@ function templatebutton()
                                   var radiobox = document.createElement('input');
                                   radiobox.type = 'checkbox';
                                   radiobox.id = keyimage;
-                                  radiobox.name = value;
+                                  radiobox.name = value.name;
                                   console.log("yeh hai radiobox ki id --->" + JSON.stringify(radiobox.id));
                                   console.log("yeh hai radiobox ki value --->" + JSON.stringify(radiobox.name));
                                                           
@@ -617,7 +617,7 @@ function templatebutton()
                                   ul.setAttribute('id', 'theList');
                                                                       
                                   var li = document.createElement('li');     // create li element.
-                                  li.innerHTML = keyimage;      // assigning text to li using array value.
+                                  li.innerHTML = value.name;      // assigning text to li using array value.
                                   li.setAttribute('style', 'display: block;');    // remove the bullets.
                                   $Queryiframe.contents().find("body").append(radiobox);
                                   console.log(ul);
@@ -653,7 +653,9 @@ function yesbutton()
       var emailjson ={};
   //    var checkedTemplateArray = [];
       var checkedEmailArray = [];
-    for (var i = 0; i < checkboxes.length; i++)
+     
+    
+      for (var i = 0; i < checkboxes.length; i++)
       {
         if( checkboxes[i].checked == true)
           {

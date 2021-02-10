@@ -229,7 +229,7 @@ app.post("/call", async (reqCall,resCall)=>
         //  console.log(i);
         //  console.log(a[i].id.name);
         }
-       // console.log(images[myobject].id.name);
+        // console.log(images[myobject].id.name);
         //console.log(images[myobject].id.targetName);
       }
 
