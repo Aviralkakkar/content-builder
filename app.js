@@ -244,7 +244,24 @@ app.post("/call", async (reqCall,resCall)=>
     }
   //  console.log("This is template Array ----> " + templateIdArray);
 
-    // Fetching all the DE in the Destination org 
+    var request = require('request');
+    var options = {
+    'method': 'POST',
+    'url': 'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx',
+    'headers': {'content-type' : 'application/json','Authorization': 'Bearer ' + access_tokenDestination},
+    body: '<?xml version="1.0" encoding="UTF-8"?>\r\n<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">\r\n   <s:Header>\r\n      <a:Action s:mustUnderstand="1">Retrieve</a:Action>\r\n      <a:MessageID>urn:uuid:7e0cca04-57bd-4481-864c-6ea8039d2ea0</a:MessageID>\r\n      <a:ReplyTo>\r\n         <a:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</a:Address>\r\n      </a:ReplyTo>\r\n      <a:To s:mustUnderstand="1">https://mc6vgk-sxj9p08pqwxqz9hw9-4my.soap.marketingcloudapis.com/Service.asmx</a:To>\r\n      <fueloauth xmlns="http://exacttarget.com">eyJhbGciOiJIUzI1NiIsImtpZCI6IjEiLCJ2ZXIiOiIxIiwidHlwIjoiSldUIn0.eyJhY2Nlc3NfdG9rZW4iOiJZWmlReHA0SWhOb2Q4VTVtaTBVS1ZmNWMiLCJjbGllbnRfaWQiOiJzcjdpZDd6aHQ4NTRid2Rjbzh0OXFkeW0iLCJlaWQiOjExMDAwNTY5MCwic3RhY2tfa2V5IjoiUzExIiwicGxhdGZvcm1fdmVyc2lvbiI6MiwiY2xpZW50X3R5cGUiOiJTZXJ2ZXJUb1NlcnZlciJ9.-hKEwMyu6RNyksecOqJdK3sMYclsJEex_0Qz8-a3MgA.GMcYJAcv1pv-xKL-5kS6Ps-yLmd5pRNwGGX9fTebAcCoO53tf9_YJNpoianaGCt8GU6fewOq1XKzqAyhMllkYsLiVaumzL_v2gmMERxqlf85gGPp_Ia9_WYrOtfTNvKBBCbn-MKA1k2Pr6D5HcRVSBIMaLH1emY8JFhEepHoHKQXCw32g50</fueloauth>\r\n   </s:Header>\r\n   <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\r\n      <RetrieveRequestMsg xmlns="http://exacttarget.com/wsdl/partnerAPI">\r\n         <RetrieveRequest>\r\n             <ObjectType>DataExtension</ObjectType>\r\n        <Properties>CustomerKey</Properties>\r\n        <Properties>Name</Properties>\r\n        <Properties>DataExtension.ObjectID</Properties>\r\n        <Properties>DataExtension.CustomerKey</Properties>\r\n        <Properties>IsSendable</Properties>\r\n        <Properties>SendableSubscriberField.Name</Properties>\r\n        <Properties>SendableDataExtensionField.Name</Properties>\r\n        <Properties>CategoryID</Properties>  \r\n        \r\n            </RetrieveRequest>\r\n      </RetrieveRequestMsg>\r\n   </s:Body>\r\n</s:Envelope>'
+  
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log("yeh hai de ki response body" + response.body);
+  });
+  
+    
+  
+  
+  
+  // Fetching all the DE in the Destination org 
   /*  var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
