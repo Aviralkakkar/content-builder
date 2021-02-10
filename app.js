@@ -175,7 +175,7 @@ app.post("/asset", async (req, res) => {
                     array.push(myobject[attributename].fileProperties.publishedURL);
                   }
               }
-            console.log("MAP : " + JSON.stringify(map));
+          //  console.log("MAP : " + JSON.stringify(map));
             // Returned map and assetType as a response to the client
             res.json({map:map,assetType:asset});
 
