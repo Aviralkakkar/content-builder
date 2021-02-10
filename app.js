@@ -175,7 +175,7 @@ app.post("/asset", async (req, res) => {
                     array.push(myobject[attributename].fileProperties.publishedURL);
                   }
               }
-            console.log("MAP : " + JSON.stringify(map));
+          //  console.log("MAP : " + JSON.stringify(map));
             // Returned map and assetType as a response to the client
             res.json({map:map,assetType:asset});
 
@@ -218,6 +218,10 @@ app.post("/call", async (reqCall,resCall)=>
     var access_tokenDestination= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination);
   //  console.log("yeh destination access token hai " + access_tokenDestination );
     var templateIdArray = [];
+    console.log(images);
+    console.log(JSON.stringify(images));
+
+
     for(var myobject in images)
       {
         console.log("images logs");
