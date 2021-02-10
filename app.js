@@ -4,7 +4,7 @@ const path = require('path');
 var fs = require('fs');
 const axios = require('axios');
 const util = require('util');
-const xmlParser = require('xml2json');
+let xmlParser = require('xml2json');
 
 
 
