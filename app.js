@@ -175,7 +175,7 @@ app.post("/asset", async (req, res) => {
                     array.push(myobject[attributename].fileProperties.publishedURL);
                   }
               }
-          //  console.log("MAP : " + JSON.stringify(map));
+            console.log("MAP : " + JSON.stringify(map));
             // Returned map and assetType as a response to the client
             res.json({map:map,assetType:asset});
 
@@ -225,7 +225,7 @@ app.post("/call", async (reqCall,resCall)=>
         console.log("YEH HAI stringify name : " + JSON.stringify(images[myobject]))
         templateIdArray.push(myobject);
       //  console.log(images[myobject].name);// Putting Id of all the selected queries in template array
-    //   console.log(images[myobject]); 
+       console.log(images[myobject]); 
        var a=images[myobject];
        for(var i in a)
         {
@@ -247,7 +247,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("This is template Array ----> " + templateIdArray);
 
     // Fetching all the DE in the Destination org 
-    var request = require('request');
+  /*  var request = require('request');
         request.post({
         headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
         url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
@@ -378,7 +378,7 @@ app.post("/call", async (reqCall,resCall)=>
                 }
             await resCall.end();
             });
-           
+           */
             var countkey = Object.keys(images).length;
             console.log("Size"+countkey);                                
             var progressStatus=(100/countkey);                          
