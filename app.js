@@ -291,7 +291,7 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka name : --- >  " + name);
           var key = images[QueryKey].key ; 
          console.log("query ka key : --- >  " + key);
-         var description = images[ResultList[key].Name].description ; 
+         var description = images[QueryKey].description ; 
          console.log("query ka description : --- >  " + description);
           var queryText = images[QueryKey].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
@@ -299,15 +299,15 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka targetName : --- >  " + targetName);
           var targetKey = images[QueryKey].targetKey ; 
           console.log("query ka targetKey : --- >  " + targetKey);
-          var targetId = images[ResultList[key].Name].targetId ; 
+          var targetId = images[QueryKey].targetId ; 
           console.log("query ka targetId : --- >  " + targetId);
-          var targetDescription = images[ResultList[key].Name].targetDescription ; 
+          var targetDescription = images[QueryKey].targetDescription ; 
           console.log("query ka targetDescription : --- >  " + targetDescription);
-          var targetUpdateTypeId = images[ResultList[key].Name].targetUpdateTypeId ; 
+          var targetUpdateTypeId = images[QueryKey].targetUpdateTypeId ; 
           console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
-          var targetUpdateTypeName = images[ResultList[key].Name].targetUpdateTypeName ; 
+          var targetUpdateTypeName = images[QueryKey].targetUpdateTypeName ; 
           console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
-          var categoryId = images[ResultList[key].Name].categoryId ; 
+          var categoryId = images[QueryKey].categoryId ; 
           console.log("query ka categoryId : --- >  " + categoryId);
 
       }
