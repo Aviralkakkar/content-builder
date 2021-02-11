@@ -262,16 +262,21 @@ app.post("/call", async (reqCall,resCall)=>
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
     console.log("yeh hai de ki response ki json body" +SourceListDEResult);
     
-    console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
+  //  console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
     SourceListDEResult = JSON.parse(SourceListDEResult);
-    console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
+  //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
     console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
-    console.log(ResultList); 
+  //  console.log(ResultList); 
 
     for (var key in ResultList) 
     {
       console.log(ResultList[key].CustomerKey);
+      if ( templateIdArray.includes(ResultList[key]) == true )
+      {
+          console.log(templateIdArray);
+      }
+
     }
     
   });
