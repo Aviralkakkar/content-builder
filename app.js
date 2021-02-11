@@ -285,19 +285,19 @@ app.post("/call", async (reqCall,resCall)=>
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
         //  var dataKey = '"' + ResultList[key].CustomerKey + '"';
-          
+          var QueryKey = ResultList[key].Name;
         //  console.log("this is customer key : " + dataKey);
-          var name =  images[ResultList[key].Name].name ; 
-          console.log("query ka name : --- >  " + name);
-          var key = images[ResultList[key].Name].key ; 
-          console.log("query ka key : --- >  " + key);
+          var name =  images[QueryKey].name ; 
+        //  console.log("query ka name : --- >  " + name);
+          var key = images[QueryKey].key ; 
+        // console.log("query ka key : --- >  " + key);
         //  var description = images[ResultList[key].Name].description ; 
         // console.log("query ka description : --- >  " + description);
-          var queryText = images[ResultList[key].Name].queryText ; 
+          var queryText = images[QueryKey].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
-          var targetName = images[ResultList[key].Name].targetName ; 
+          var targetName = images[QueryKey].targetName ; 
           console.log("query ka targetName : --- >  " + targetName);
-          var targetKey = images[ResultList[key].Name].targetKey ; 
+          var targetKey = images[QueryKey].targetKey ; 
           console.log("query ka targetKey : --- >  " + targetKey);
           var targetId = images[ResultList[key].Name].targetId ; 
           console.log("query ka targetId : --- >  " + targetId);
