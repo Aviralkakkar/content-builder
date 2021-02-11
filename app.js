@@ -312,8 +312,48 @@ app.post("/call", async (reqCall,resCall)=>
 
       }
 
+      if(access_tokenDestination!=null)
+      {
+        // invoked method to insert the template in destination org
+      //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
+  //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
+  //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
+      var queryinsert=await getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
+      console.log("yeh imageinsert.message" + queryinsert.message);
+        if(queryinsert.message=='Failed')
+          {
+            var dataToWrite=
+              {
+                "queryname":name,
+                "message":queryinsert.message,
+                "status code":"400",
+                "progressStatus":progressStatus       
+              }
+        await resCall.write(JSON.stringify({
+          dataToWrite            
+        }));
+        await resCall.write("+");
+        console.log("Response Written"); 
+      }
+    else
+      {
+        var dataToWrite=
+          {
+            "imagename":contentBlockName,
+            "message":imageinsert.message,
+            "statuscode":"200",
+            "progressStatus":progressStatus
+          }
+        await  resCall.write(JSON.stringify({
+          dataToWrite
+        }));
+        await resCall.write("+");
+        console.log("Response Written");
+      }
+
     }
-    
+  }
+  await resCall.end();
   });
   
     
@@ -498,36 +538,31 @@ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTy
 
 // method to insert the template
 //async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
-async function getcontentblockinserted(contentBlockName,contentBlockContent,contentBlockslots,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
+async function getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination)
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
-    console.log("Inside Image Insert ");
-    console.log("template name ---> " + contentBlockName);
-    console.log("acess token---> " + acesstoken);
-    console.log("assetTypeID ---> " + assetTypeID);
+   
  
     var  data=
       {
-        "name": contentBlockName,
-      //  "views": views,
-
-      //  "content": templateContent,
-      //  "slots" : templateSlots,
-        "assetType": 
-          {     
-            "id": assetTypeID,
-            "name": assetTypeName,
-            "displayName": assetTypedisplayName
-          },
-          "content": contentBlockContent,
-          "slots" : contentBlockslots
+        "name":name,
+        "key":key,
+        "description":description,
+        "queryText": queryText,
+        "targetName":targetName,
+        "targetKey":targetKey,
+        "targetId":targetId,
+        "targetDescription":targetDescription,
+        "targetUpdateTypeId":targetUpdateTypeId,
+        "targetUpdateTypeName":targetUpdateTypeName,
+        "categoryId":categoryId
 
       }
   
     var headers = 
       {
         withCredentials: true,
-        headers: { 'Content-Type': 'application/json','Authorization': 'Bearer ' + acesstoken }
+        headers: { 'Content-Type': 'application/json','Authorization': 'Bearer ' + access_tokenDestination }
       }
   console.log("Headers"+headers);
   var req;
