@@ -268,7 +268,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
     SourceListDEResult = JSON.parse(SourceListDEResult);
   //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
-    console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
+  //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
   //  console.log(ResultList); 
 
@@ -278,7 +278,7 @@ app.post("/call", async (reqCall,resCall)=>
     // console.log("2. -- " + ResultList[key].Name);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
-          var dataKey = ResultList[key].CustomerKey;
+          var dataKey = '"' + ResultList[key].CustomerKey + '"';
           
           console.log("this is customer key : " + dataKey);
           var name =  images[dataKey].targetName ; 
