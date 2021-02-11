@@ -277,22 +277,22 @@ app.post("/call", async (reqCall,resCall)=>
       console.log("1. -- " + templateIdArray);
      console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
-     console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
-     console.log("IMAGES  with key " + images[QueryKey].queryText);
-     console.log("IMAGES" + JSON.stringify(images[QueryKey]));
+  //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
+  //   console.log("IMAGES  with key " + images[QueryKey].queryText);
+  //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
      
      console.log("yeh hai images ki key" + images[ResultList[key].Name]);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
-        //  var dataKey = '"' + ResultList[key].CustomerKey + '"';
+          var dataKey = '"' + ResultList[key].CustomerKey + '"';
           var QueryKey = ResultList[key].Name;
-        //  console.log("this is customer key : " + dataKey);
+          console.log("this is customer key : " + dataKey);
           var name =  images[QueryKey].name ; 
-        //  console.log("query ka name : --- >  " + name);
+          console.log("query ka name : --- >  " + name);
           var key = images[QueryKey].key ; 
-        // console.log("query ka key : --- >  " + key);
-        //  var description = images[ResultList[key].Name].description ; 
-        // console.log("query ka description : --- >  " + description);
+         console.log("query ka key : --- >  " + key);
+         var description = images[ResultList[key].Name].description ; 
+         console.log("query ka description : --- >  " + description);
           var queryText = images[QueryKey].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[QueryKey].targetName ; 
