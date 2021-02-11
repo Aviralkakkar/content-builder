@@ -204,12 +204,12 @@ app.post("/convertintobase64", (reqYes, resYes) => {
   console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
         
   images=reqYes.body;
-  var deKey = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
-  console.log("yeh hai key : " + images[deKey]);
-  console.log("yeh hai key ka target name : " + images[deKey].targetName);
+ // var deKey = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
+ // console.log("yeh hai key : " + images[deKey]);
+ // console.log("yeh hai key ka target name : " + images[deKey].targetName);
   console.log("yeh images hai "  + JSON.stringify(images));
-  var key = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
-  console.log("yeh images ka first element value" + images[key].name);
+ // var key = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
+ // console.log("yeh images ka first element value" + images[key].name);
       
   if(button=='Yes')
     {
@@ -270,7 +270,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
   //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
-  //  console.log(ResultList); 
+    console.log(ResultList); 
 
     for (var key in ResultList) 
     {
@@ -278,10 +278,10 @@ app.post("/call", async (reqCall,resCall)=>
     // console.log("2. -- " + ResultList[key].Name);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
-          var dataKey = '"' + ResultList[key].CustomerKey + '"';
+        //  var dataKey = '"' + ResultList[key].CustomerKey + '"';
           
-          console.log("this is customer key : " + dataKey);
-          var name =  images[dataKey].targetName ; 
+        //  console.log("this is customer key : " + dataKey);
+          var name =  images[ResultList[key].Name].targetName ; 
           console.log("query ka name : --- >  " + name);
       }
 
