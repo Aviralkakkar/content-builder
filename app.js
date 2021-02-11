@@ -231,7 +231,7 @@ app.post("/call", async (reqCall,resCall)=>
         console.log("YEH HAI NAME : " + images[myobject].targetKey)
         console.log("YEH HAI obj : " + images[myobject])
         console.log("YEH HAI stringify name : " + JSON.stringify(images[myobject]))
-        templateIdArray.push(images[myobject].Name);
+        templateIdArray.push(images[myobject].targetName);
       // console.log(images[myobject].name);// Putting Id of all the selected queries in template array    
       }
       console.log("YEH HAI TEMPLATE ARRAY : " + templateIdArray); 
