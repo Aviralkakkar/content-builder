@@ -271,8 +271,8 @@ app.post("/call", async (reqCall,resCall)=>
 
     for (var key in ResultList) 
     {
-    //  console.log(templateIdArray);
-    // console.log(ResultList[key].CustomerKey);
+      console.log("1. -- " + templateIdArray);
+     console.log("2. -- " + ResultList[key].CustomerKey);
       if ( templateIdArray.includes(ResultList[key].CustomerKey) == true )
       {
           console.log("loop templte array : " + templateIdArray);
