@@ -204,6 +204,9 @@ app.post("/convertintobase64", (reqYes, resYes) => {
   console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
         
   images=reqYes.body;
+  var deKey = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
+  console.log("yeh hai key : " + images[deKey]);
+  console.log("yeh hai key ka target name : " + images[deKey].targetName);
   console.log("yeh images hai "  + JSON.stringify(images));
   var key = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
   console.log("yeh images ka first element value" + images[key].name);
@@ -277,7 +280,7 @@ app.post("/call", async (reqCall,resCall)=>
       {
           console.log("loop templte array : " + templateIdArray);
           var name =  images[ResultList[key].CustomerKey].name ; 
-          console.log("query ka name : --- >  " + CustomerKey);
+          console.log("query ka name : --- >  " + name);
       }
 
     }
