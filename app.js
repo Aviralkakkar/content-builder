@@ -260,6 +260,12 @@ app.post("/call", async (reqCall,resCall)=>
     SourceListDEResult = response.body ; 
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
     console.log("yeh hai de ki response ki json body" +SourceListDEResult);
+    SourceListDEResult = SourceListDEResult.replace(/:/g, "");
+    console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
+    SourceListDEResult = JSON.parse(SourceListDEResult);
+    console.log("yeh hai de ki response ki json body after parse--->" +SourceListDEResult);
+    console.log("yeh hai name" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.CustomerKey);
+    
   });
   
     
