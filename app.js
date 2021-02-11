@@ -276,6 +276,7 @@ app.post("/call", async (reqCall,resCall)=>
     {
       console.log("1. -- " + templateIdArray);
      console.log("2. -- " + ResultList[key].Name);
+     console.log("yeh hai images ki key" + images[ResultList[key].Name]);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
         //  var dataKey = '"' + ResultList[key].CustomerKey + '"';
