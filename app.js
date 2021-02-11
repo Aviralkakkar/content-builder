@@ -271,7 +271,7 @@ app.post("/call", async (reqCall,resCall)=>
 
     for (var key in ResultList) 
     {
-      console.log(key.CustomerKey);
+      console.log(ResultList[key].CustomerKey);
     }
     
   });
