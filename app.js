@@ -281,8 +281,29 @@ app.post("/call", async (reqCall,resCall)=>
         //  var dataKey = '"' + ResultList[key].CustomerKey + '"';
           
         //  console.log("this is customer key : " + dataKey);
-          var name =  images[ResultList[key].Name].targetName ; 
+          var name =  images[ResultList[key].Name].name ; 
           console.log("query ka name : --- >  " + name);
+          var key = images[ResultList[key].Name].key ; 
+          console.log("query ka key : --- >  " + key);
+          var description = images[ResultList[key].Name].description ; 
+          console.log("query ka description : --- >  " + description);
+          var queryText = images[ResultList[key].Name].queryText ; 
+          console.log("query ka queryText : --- >  " + queryText);
+          var targetName = images[ResultList[key].Name].targetName ; 
+          console.log("query ka targetName : --- >  " + targetName);
+          var targetKey = images[ResultList[key].Name].targetKey ; 
+          console.log("query ka targetKey : --- >  " + targetKey);
+          var targetId = images[ResultList[key].Name].targetId ; 
+          console.log("query ka targetId : --- >  " + targetId);
+          var targetDescription = images[ResultList[key].Name].targetDescription ; 
+          console.log("query ka targetDescription : --- >  " + targetDescription);
+          var targetUpdateTypeId = images[ResultList[key].Name].targetUpdateTypeId ; 
+          console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
+          var targetUpdateTypeName = images[ResultList[key].Name].targetUpdateTypeName ; 
+          console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
+          var categoryId = images[ResultList[key].Name].categoryId ; 
+          console.log("query ka categoryId : --- >  " + categoryId);
+
       }
 
     }
