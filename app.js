@@ -258,9 +258,10 @@ app.post("/call", async (reqCall,resCall)=>
     if (error) throw new Error(error);
     console.log("yeh hai de ki response body" + response.body);
     SourceListDEResult = response.body ; 
+    SourceListDEResult = SourceListDEResult.replace(/:/g, "");
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
     console.log("yeh hai de ki response ki json body" +SourceListDEResult);
-    SourceListDEResult = SourceListDEResult.replace(/:/g, "");
+    
     console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
     SourceListDEResult = JSON.parse(SourceListDEResult);
     console.log("yeh hai de ki response ki json body after parse--->" +SourceListDEResult);
