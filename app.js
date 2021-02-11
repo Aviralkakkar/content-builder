@@ -278,8 +278,10 @@ app.post("/call", async (reqCall,resCall)=>
     // console.log("2. -- " + ResultList[key].Name);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
-          console.log("loop templte array : " + templateIdArray);
-          var name =  images[ResultList[key].CustomerKey].name ; 
+          var dataKey = ResultList[key].CustomerKey;
+          
+          console.log("this is customer key : " + dataKey);
+          var name =  images[dataKey].targetName ; 
           console.log("query ka name : --- >  " + name);
       }
 
