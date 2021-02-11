@@ -268,6 +268,12 @@ app.post("/call", async (reqCall,resCall)=>
     console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
     console.log(ResultList); 
+
+    for (var key in ResultList) 
+    {
+      console.log(key.CustomerKey);
+    }
+    
   });
   
     
