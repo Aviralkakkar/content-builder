@@ -285,8 +285,8 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka name : --- >  " + name);
           var key = images[ResultList[key].Name].key ; 
           console.log("query ka key : --- >  " + key);
-          var description = images[ResultList[key].Name].description ; 
-          console.log("query ka description : --- >  " + description);
+        //  var description = images[ResultList[key].Name].description ; 
+        // console.log("query ka description : --- >  " + description);
           var queryText = images[ResultList[key].Name].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[ResultList[key].Name].targetName ; 
