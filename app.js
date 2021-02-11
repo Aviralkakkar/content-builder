@@ -256,11 +256,11 @@ app.post("/call", async (reqCall,resCall)=>
   };
     request(options, function (error, response) {
     if (error) throw new Error(error);
-    console.log("yeh hai de ki response body" + response.body);
+  //  console.log("yeh hai de ki response body" + response.body);
     SourceListDEResult = response.body ; 
     SourceListDEResult = SourceListDEResult.replace(/:/g, "");
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
-    console.log("yeh hai de ki response ki json body" +SourceListDEResult);
+  //  console.log("yeh hai de ki response ki json body" +SourceListDEResult);
     
   //  console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
     SourceListDEResult = JSON.parse(SourceListDEResult);
@@ -271,10 +271,10 @@ app.post("/call", async (reqCall,resCall)=>
 
     for (var key in ResultList) 
     {
-      console.log(ResultList[key].CustomerKey);
+    //  console.log(ResultList[key].CustomerKey);
       if ( templateIdArray.includes(ResultList[key]) == true )
       {
-          console.log(templateIdArray);
+          console.log("loop templte array : " + templateIdArray);
       }
 
     }
