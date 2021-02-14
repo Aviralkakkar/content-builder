@@ -310,7 +310,7 @@ app.post("/call", async (reqCall,resCall)=>
           var categoryId = images[QueryKey].categoryId ; 
           console.log("query ka categoryId : --- >  " + categoryId);
 
-      }
+     
 
       if(access_tokenDestination!=null)
       {
@@ -354,7 +354,9 @@ app.post("/call", async (reqCall,resCall)=>
     }
   }
   await resCall.end();
+}
   });
+
   
     
   
