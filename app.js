@@ -356,10 +356,10 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
-    var name = images[QueryKey].name;
+    var qname = images[QueryKey].name;
     var dataToWrite=
     {
-    "queryName":name,
+    "queryName":qname,
     "message": "Failed" ,
     "statuscode":"400",
     "description":"Target Data Extension does not exist in Destination Org"
