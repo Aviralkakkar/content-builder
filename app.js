@@ -278,6 +278,7 @@ app.post("/call", async (reqCall,resCall)=>
     //  console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
       console.log("This is query Key   " + QueryKey);
+      console.log("Query Name   ",images[QueryKey].name);
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
@@ -357,6 +358,7 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
+    console.log("Query Name   ",images[QueryKey].name);
     var QKey = ResultList[key].Name;
     console.log("QKey is : " + QKey);
     console.log("img qKey : " + images[QKey]);
