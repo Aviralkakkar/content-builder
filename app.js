@@ -312,8 +312,8 @@ app.post("/call", async (reqCall,resCall)=>
 
      
 
-      if(access_tokenDestination!=null)
-      {
+    //  if(access_tokenDestination!=null)
+    //  {
         // invoked method to insert the template in destination org
       //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
   //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
@@ -352,9 +352,15 @@ app.post("/call", async (reqCall,resCall)=>
       }
 
     }
+  
+  else
+  {
+    alert ("Data Extension is not present in destination org ");
+
   }
   await resCall.end();
-}
+    }
+
   });
 
   
