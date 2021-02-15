@@ -274,7 +274,7 @@ app.post("/call", async (reqCall,resCall)=>
 
     for (var key in ResultList) 
     {
-      console.log("1. -- " + c);
+      console.log("1. -- " + templateIdArray);
      console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
