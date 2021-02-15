@@ -605,36 +605,49 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
       .then(
         (response)=>
         {
-            console.log("yeh response hai insert ke baad" + response);
-          //    console.log(response.data);
-              console.log("Processing Image Insertion" );
-            //  var sucess="sucess";
-             // var res=response.data;
+          console.log(response);
+         // console.log(response);
               var data=
               {
-                message:"success",
+                message:"Success",
                 res:response.data,
-                status:response.statusCode,
-                hi:"hii"
+                status:response.status,
+                description:'-'
               }
               resolve(data);
         },
         (error)=>
         {
-         // reject(error);
-          console.log("Err-------------->"+error);
+         // console.log(error);
+        var errordescription;
+          console.log("res "+error.response.data.validationErrors);
+          console.log("sttaus"+error.response.status);
+          var res=error.response.data.validationErrors;
+          if(res!=null)
+          {
+            for (var i in res)
+            {
+              console.log(i);
+              console.log(res[i].message);
+              errordescription=res[i].message;
+            }
+          }
+          else
+          {
+            errordescription='-';
+          }
           //var err="error";
          // var errres=error.data;
           var data=
           {
             message:"Failed",
-            errres:error.data,
-            status:error.ErrorCode,
-            hi:"hii"
+            res:error.data,
+            status:error.response.status,
+            description:errordescription
           }
           resolve(data);
-   
         },
+
         (body) =>
         {
         //  console.log("Body"+body);
