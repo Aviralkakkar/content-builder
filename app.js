@@ -358,15 +358,15 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
-    console.log("Query Name   ",images[QueryKey].name);
-    var QKey = ResultList[key].Name;
-    console.log("QKey is : " + QKey);
-    console.log("img qKey : " + images[QKey]);
-    console.log("img qKey : " + JSON.stringify(images[QKey]));
-    var qname = images[QKey].name;
+  //  console.log("Query Name   ",images[QueryKey].name);
+  //  var QKey = ResultList[key].Name;
+  //  console.log("QKey is : " + QKey);
+  //  console.log("img qKey : " + images[QKey]);
+  //  console.log("img qKey : " + JSON.stringify(images[QKey]));
+  //  var qname = images[QKey].name;
     var dataToWrite=
     {
-    "queryName":qname,
+  //  "queryName":qname,
     "message": "Failed" ,
     "statuscode":"400",
     "description":"Target Data Extension does not exist in Destination Org"
