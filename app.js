@@ -289,8 +289,8 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("this is customer key : " + dataKey);
           var name =  images[QueryKey].name ; 
           console.log("query ka name : --- >  " + name);
-          var key = images[QueryKey].key ; 
-         console.log("query ka key : --- >  " + key);
+        //  var key = images[QueryKey].key ; 
+        // console.log("query ka key : --- >  " + key);
          var description = images[QueryKey].description ; 
          console.log("query ka description : --- >  " + description);
           var queryText = images[QueryKey].queryText ; 
