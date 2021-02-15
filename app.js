@@ -624,7 +624,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
           var errordescription;
           console.log("res "+error.response.data.validationErrors);
           console.log("sttaus"+error.response.status);
-          var res=error.response.data.validationErrors;
+          var res=error.response.data.errors;
           if(res!=null)
           {
             for (var i in res)
