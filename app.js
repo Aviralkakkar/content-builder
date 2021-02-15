@@ -320,7 +320,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
   //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
       var queryinsert=await getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
-      console.log("yeh imageinsert.message" + queryinsert.message);
+      console.log("yeh query.message" + queryinsert.message);
         if(queryinsert.message=='Failed')
           {
             var dataToWrite=
@@ -601,7 +601,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
   var req;
    try{
     return new Promise(function (resolve, reject) {
-      req=axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/asset/v1/content/assets',data,headers)
+      req=axios.post('https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//automation/v1/queries/',data,headers)
       .then(
         (response)=>
         {
