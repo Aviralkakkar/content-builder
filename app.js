@@ -270,13 +270,14 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
   //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
-    console.log("yeh hai result list " + JSON.stringify(ResultList)); 
+  //  console.log("yeh hai result list " + JSON.stringify(ResultList)); 
 
     for (var key in ResultList) 
     {
     //  console.log("1. -- " + templateIdArray);
     //  console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
+      console.log("This is query Key   " + QueryKey);
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
