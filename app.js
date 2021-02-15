@@ -356,7 +356,7 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
-    name = images[QueryKey].name;
+    var name = images[QueryKey].name;
     var dataToWrite=
     {
     "queryName":name,
