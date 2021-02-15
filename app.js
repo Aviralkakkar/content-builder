@@ -355,7 +355,7 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
-    alert ("Data Extension is not present in destination org ");
+    console.log ("Data Extension is not present in destination org ");
 
   }
   await resCall.end();
