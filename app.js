@@ -356,10 +356,24 @@ app.post("/call", async (reqCall,resCall)=>
   
   else
   {
+    name = images[QueryKey].name;
+    var dataToWrite=
+    {
+    "queryName":name,
+    "message": "Failed" ,
+    "statuscode":"400",
+    "description":"Target Data Extension does not exist in Destination Org"
+    }
+  await resCall.write(JSON.stringify({
+   dataToWrite            
+  }));
+  await resCall.write("+");
+    console.log("Response Written");
+
     console.log ("Data Extension is not present in destination org ");
 
   }
-   // await resCall.end();
+    // await resCall.end();
     }
     await resCall.end();
   });
