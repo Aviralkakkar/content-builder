@@ -297,18 +297,19 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[QueryKey].targetName ; 
           console.log("query ka targetName : --- >  " + targetName);
-          var targetKey = images[QueryKey].targetKey ; 
+          var targetKey = ResultList[key].targetKey ; 
           console.log("query ka targetKey : --- >  " + targetKey);
-          var targetId = images[QueryKey].targetId ; 
+          var targetId = ResultList[key].targetId ; 
           console.log("query ka targetId : --- >  " + targetId);
-          var targetDescription = images[QueryKey].targetDescription ; 
+          var targetDescription = ResultList[key].targetDescription ; 
           console.log("query ka targetDescription : --- >  " + targetDescription);
-          var targetUpdateTypeId = images[QueryKey].targetUpdateTypeId ; 
+          var targetUpdateTypeId = ResultList[key].targetUpdateTypeId ; 
           console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
-          var targetUpdateTypeName = images[QueryKey].targetUpdateTypeName ; 
+          var targetUpdateTypeName =ResultList[key].targetUpdateTypeName ; 
           console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
-          var categoryId = images[QueryKey].categoryId ; 
+          var categoryId = ResultList[key].categoryId ; 
           console.log("query ka categoryId : --- >  " + categoryId);
+          
 
      
 
@@ -549,8 +550,32 @@ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTy
 async function getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination)
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
-   
     console.log("Query Insertion wale function me aaya ");
+    console.log("query name : --- >  " + name);
+    
+   console.log("query key : --- >  " + key);
+  
+   console.log("query description : --- >  " + description);
+    
+    console.log("query  queryText : --- >  " + queryText);
+   
+    console.log("query targetName : --- >  " + targetName);
+    
+    console.log("query  targetKey : --- >  " + targetKey);
+    
+    console.log("query targetId : --- >  " + targetId);
+   
+    console.log("query targetDescription : --- >  " + targetDescription);
+   
+    console.log("query targetUpdateTypeId : --- >  " + targetUpdateTypeId);
+  
+    console.log("query targetUpdateTypeName : --- >  " + targetUpdateTypeName);
+  
+    console.log("query  categoryId : --- >  " + categoryId);
+
+
+   
+ 
     var  data=
       {
         "name":name,
