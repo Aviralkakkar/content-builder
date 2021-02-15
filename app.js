@@ -550,7 +550,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
    
- 
+    console.log("Query Insertion wale function me aaya ");
     var  data=
       {
         "name":name,
