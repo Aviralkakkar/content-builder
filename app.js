@@ -620,7 +620,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
         },
         (error)=>
         {
-         // console.log(error);
+          console.log(error);
           var errordescription;
           console.log("res "+error.response.data.validationErrors);
           console.log("sttaus"+error.response.status);
