@@ -551,21 +551,21 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
     console.log("Query Insertion wale function me aaya ");
- //   console.log("query name : --- >  " + name);
+    console.log("query name : --- >  " + name);
     
- //  console.log("query key : --- >  " + key);
+   console.log("query key : --- >  " + key);
   
- //  console.log("query description : --- >  " + description);
+   console.log("query description : --- >  " + description);
     
-  //  console.log("query  queryText : --- >  " + queryText);
+    console.log("query  queryText : --- >  " + queryText);
    
-  //  console.log("query targetName : --- >  " + targetName);
+    console.log("query targetName : --- >  " + targetName);
     
     console.log("query  targetKey : --- >  " + targetKey);
     
     console.log("query targetId : --- >  " + targetId);
    
- //   console.log("query targetDescription : --- >  " + targetDescription);
+    console.log("query targetDescription : --- >  " + targetDescription);
    
     console.log("query targetUpdateTypeId : --- >  " + targetUpdateTypeId);
   
@@ -580,16 +580,16 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
  
     var  data=
       {
-        "name":"REST_API Field Error checkoooooooo",
-        "key":"REST_API Yo",
-        "description":"description",
-        "queryText": "SELECT c.SubscriberKey\nFROM [_sent] s\nRIGHT JOIN [_bounce] c\nON s.SubscriberKey = c.SubscriberKey\nWHERE s.SubscriberKey IS NULL",
-        "targetName":"Contact_Sent Target DE",
-        "targetKey":"275E407B-BE05-4572-9017-F0A5DD4B8113",
-        "targetId": "050642cb-4f6f-eb11-a301-98f2b32bc563",
-        "targetDescription":"targetDescription",
-        "targetUpdateTypeId":0,
-        "targetUpdateTypeName":"Overwrite",
+        "name": name ,
+        "key":key,
+        "description":description,
+        "queryText": queryText,
+        "targetName":targetName,
+        "targetKey":targetKey,
+        "targetId": targetId,
+        "targetDescription":targetDescription,
+        "targetUpdateTypeId":targetUpdateTypeId,
+        "targetUpdateTypeName":targetUpdateTypeName,
         "categoryId":10922
 
       }
