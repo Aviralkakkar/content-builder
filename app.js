@@ -274,14 +274,14 @@ app.post("/call", async (reqCall,resCall)=>
 
     for (var key in ResultList) 
     {
-      console.log("1. -- " + templateIdArray);
+      console.log("1. -- " + c);
      console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
      
-     console.log("yeh hai images ki key" + images[ResultList[key].Name]);
+    // console.log("yeh hai images ki key" + images[ResultList[key].Name]);
       if ( templateIdArray.includes(ResultList[key].Name) == true )
       {
           var dataKey = '"' + ResultList[key].CustomerKey + '"';
