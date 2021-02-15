@@ -573,22 +573,24 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
   
     console.log("query  categoryId : --- >  " + categoryId);
 
+    console.log("Yeh destination access token hai " + access_tokenDestination);
+
 
    
  
     var  data=
       {
-        "name":name,
-        "key":key,
-        "description":description,
-        "queryText": queryText,
-        "targetName":targetName,
-        "targetKey":targetKey,
-        "targetId":targetId,
-        "targetDescription":targetDescription,
-        "targetUpdateTypeId":targetUpdateTypeId,
-        "targetUpdateTypeName":targetUpdateTypeName,
-        "categoryId":categoryId
+        "name":"REST_API Field Error checkoooooooo",
+        "key":"REST_API Yo",
+        "description":"description",
+        "queryText": "SELECT c.SubscriberKey\nFROM [_sent] s\nRIGHT JOIN [First Send] c\nON s.SubscriberKey = c.SubscriberKey\nWHERE s.SubscriberKey IS NULL",
+        "targetName":"Contact_Sent Target DE",
+        "targetKey":"275E407B-BE05-4572-9017-F0A5DD4B8113",
+        "targetId": "050642cb-4f6f-eb11-a301-98f2b32bc563",
+        "targetDescription":"targetDescription",
+        "targetUpdateTypeId":0,
+        "targetUpdateTypeName":"Overwrite",
+        "categoryId":10922
 
       }
   
@@ -619,7 +621,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
         (error)=>
         {
          // console.log(error);
-        var errordescription;
+          var errordescription;
           console.log("res "+error.response.data.validationErrors);
           console.log("sttaus"+error.response.status);
           var res=error.response.data.validationErrors;
