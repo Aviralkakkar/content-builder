@@ -297,17 +297,17 @@ app.post("/call", async (reqCall,resCall)=>
     //      console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[QueryKey].targetName ; 
     //      console.log("query ka targetName : --- >  " + targetName);
-          var targetKey = ResultList[key].targetKey ; 
-    //      console.log("query ka targetKey : --- >  " + targetKey);
-          var targetId = ResultList[key].targetId ; 
-    //      console.log("query ka targetId : --- >  " + targetId);
-          var targetDescription = ResultList[key].targetDescription ; 
+          var targetKey = ResultList[key].CustomerKey ; 
+          console.log("query ka targetKey : --- >  " + targetKey);
+          var targetId = ResultList[key].ObjectID ; 
+          console.log("query ka targetId : --- >  " + targetId);
+          var targetDescription = images[QueryKey].targetDescription ; 
     //      console.log("query ka targetDescription : --- >  " + targetDescription);
-          var targetUpdateTypeId = ResultList[key].targetUpdateTypeId ; 
+          var targetUpdateTypeId = images[QueryKey].targetUpdateTypeId ; 
     //      console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
-          var targetUpdateTypeName =ResultList[key].targetUpdateTypeName ; 
+          var targetUpdateTypeName =images[QueryKey].targetUpdateTypeName ; 
     //      console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
-          var categoryId = ResultList[key].categoryId ; 
+          var categoryId = ResultList[key].CategoryID ; 
     //      console.log("query ka categoryId : --- >  " + categoryId);
           
 
