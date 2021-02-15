@@ -72,7 +72,7 @@ table.Resulttable {
                 
                 document.getElementById('progressheading').innerHTML='Transferr Completed';
                 console.log("yeh fourth page ka response hai" + response);
-                var html=('<table id="Resulttable" class="slds-table slds-table--bordered slds-max-medium-table--stacked"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th></tr></thead></table>');
+                var html=('<table id="Resulttable" class="slds-table slds-table--bordered slds-max-medium-table--stacked"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th></tr><th class="" scope="col"><div class="slds-truncate" title="Close Date">Description</div></th></thead></table>');
                 document.getElementById("table").innerHTML=html; 
                 var dataTrimmed = response.split("+");
                      
@@ -86,7 +86,7 @@ table.Resulttable {
                          // var getProgressBar=document.getElementById('progress');
                          // var getProgressBarSize=getProgressBar.style.width;
                           //getProgressBarSize = getProgressBarSize.substring(0, getProgressBarSize.length - 1);
-                          var tablerow=('<tr class="slds-line-height_reset"><td style="padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.imagename+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.statuscode+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.message+'</td></tr>');
+                          var tablerow=('<tr class="slds-line-height_reset"><td style="padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.queryName+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.statuscode+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.message+'</td> <td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.description+'</td></tr>');
                           $('#Resulttable').append(tablerow);
                           
                           //getProgressBarSize=getProgressBarSize+dataParsed.dataToWrite.progressStatus;

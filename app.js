@@ -324,12 +324,12 @@ app.post("/call", async (reqCall,resCall)=>
         if(queryinsert.message=='Failed')
           {
             var dataToWrite=
-              {
-                "queryname":name,
-                "message":queryinsert.message,
-                "status code":"400",
-                "progressStatus":progressStatus       
-              }
+            {
+            "queryName":name,
+            "message":queryinsert.message,
+            "statuscode":queryinsert.status,
+            "description":queryinsert.description
+            }
         await resCall.write(JSON.stringify({
           dataToWrite            
         }));
@@ -339,12 +339,12 @@ app.post("/call", async (reqCall,resCall)=>
     else
       {
         var dataToWrite=
-          {
-            "imagename":name,
-            "message":queryinsert.message,
-            "statuscode":"200",
-            "progressStatus":progressStatus
-          }
+                            {
+                            "queryName":name,
+                            "message":queryinsert.message,
+                            "statuscode":queryinsert.status,
+                            "description":queryinsert.description
+                            }
         await  resCall.write(JSON.stringify({
           dataToWrite
         }));
