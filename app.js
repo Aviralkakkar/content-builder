@@ -583,7 +583,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
         "name":"REST_API Field Error checkoooooooo",
         "key":"REST_API Yo",
         "description":"description",
-        "queryText": "SELECT c.SubscriberKey\nFROM [_sent] s\nRIGHT JOIN [First Send] c\nON s.SubscriberKey = c.SubscriberKey\nWHERE s.SubscriberKey IS NULL",
+        "queryText": "SELECT c.SubscriberKey\nFROM [_sent] s\nRIGHT JOIN [_bounce] c\nON s.SubscriberKey = c.SubscriberKey\nWHERE s.SubscriberKey IS NULL",
         "targetName":"Contact_Sent Target DE",
         "targetKey":"275E407B-BE05-4572-9017-F0A5DD4B8113",
         "targetId": "050642cb-4f6f-eb11-a301-98f2b32bc563",
