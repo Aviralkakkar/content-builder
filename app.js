@@ -278,7 +278,7 @@ app.post("/call", async (reqCall,resCall)=>
     //  console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
       console.log("This is query Key   " + QueryKey);
-      console.log("Query Name   ",images[QueryKey].name);
+  //    console.log("Query Name   ",images[QueryKey].name);
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
@@ -288,15 +288,15 @@ app.post("/call", async (reqCall,resCall)=>
       {
           var dataKey = '"' + ResultList[key].CustomerKey + '"';
           var QueryKey = ResultList[key].Name;
-    //      console.log("this is customer key : " + dataKey);
+          console.log("this is customer key : " + dataKey);
           var name =  images[QueryKey].name ; 
-    //      console.log("query ka name : --- >  " + name);
+          console.log("query ka name : --- >  " + name);
         //  var key = images[QueryKey].key ; 
         // console.log("query ka key : --- >  " + key);
          var description = images[QueryKey].description ; 
-    //     console.log("query ka description : --- >  " + description);
+         console.log("query ka description : --- >  " + description);
           var queryText = images[QueryKey].queryText ; 
-    //      console.log("query ka queryText : --- >  " + queryText);
+          console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[QueryKey].targetName ; 
     //      console.log("query ka targetName : --- >  " + targetName);
           var targetKey = ResultList[key].CustomerKey ; 
