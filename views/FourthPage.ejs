@@ -85,8 +85,8 @@ table.Resulttable {
                           var dataParsed=JSON.parse(dataTrimmed[i]);
                          // var getProgressBar=document.getElementById('progress');
                          // var getProgressBarSize=getProgressBar.style.width;
-                          //getProgressBarSize = getProgressBarSize.substring(0, getProgressBarSize.length - 1);
-                          var tablerow=('<tr class="slds-line-height_reset"><td style="padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.queryName+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.statuscode+'</td><td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.message+'</td> <td padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.description+'</td></tr>');
+                         // getProgressBarSize = getProgressBarSize.substring(0, getProgressBarSize.length - 1);
+                          var tablerow=('<tr class="slds-line-height_reset"><td class="slds-cell-wrap" style="padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.queryName+'</td><td class="slds-cell-wrap" padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.statuscode+'</td><td class="slds-cell-wrap" padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.message+'</td> <td class="slds-cell-wrap" padding: 12px 12px 12px 12px;">'+dataParsed.dataToWrite.description+'</td></tr>');
                           $('#Resulttable').append(tablerow);
                           
                           //getProgressBarSize=getProgressBarSize+dataParsed.dataToWrite.progressStatus;
