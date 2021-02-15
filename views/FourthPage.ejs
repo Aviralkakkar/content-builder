@@ -72,7 +72,7 @@ table.Resulttable {
                 
                 document.getElementById('progressheading').innerHTML='Transferr Completed';
                 console.log("yeh fourth page ka response hai" + response);
-                var html=('<table id="Resulttable" class="slds-table slds-table--bordered slds-max-medium-table--stacked"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th></tr><th class="" scope="col"><div class="slds-truncate" title="Close Date">Description</div></th></thead></table>');
+                var html=('<table id="Resulttable" class="slds-table slds-table_cell-buffer slds-table_fixed-layout slds-max-medium-table_stacked-horizontal slds-table_bordered"><thead><tr class="slds-line-height_reset"><th class="" scope="col"><div class="slds-truncate" title="Opportunity Name">Asset Name</div></th><th class="" scope="col"><div class="slds-truncate" title="Account Name">Status</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Result</div></th><th class="" scope="col"><div class="slds-truncate" title="Close Date">Description</div></th></tr></thead></table>');
                 document.getElementById("table").innerHTML=html; 
                 var dataTrimmed = response.split("+");
                      
