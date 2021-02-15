@@ -358,6 +358,9 @@ app.post("/call", async (reqCall,resCall)=>
   else
   {
     var QKey = ResultList[key].Name;
+    console.log("QKey is : " + QKey);
+    console.log("img qKey : " + images[QKey]);
+    console.log("img qKey : " + JSON.stringify(images[QKey]));
     var qname = images[QKey].name;
     var dataToWrite=
     {
