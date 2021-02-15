@@ -286,29 +286,29 @@ app.post("/call", async (reqCall,resCall)=>
       {
           var dataKey = '"' + ResultList[key].CustomerKey + '"';
           var QueryKey = ResultList[key].Name;
-          console.log("this is customer key : " + dataKey);
+    //      console.log("this is customer key : " + dataKey);
           var name =  images[QueryKey].name ; 
-          console.log("query ka name : --- >  " + name);
+    //      console.log("query ka name : --- >  " + name);
         //  var key = images[QueryKey].key ; 
         // console.log("query ka key : --- >  " + key);
-         var description = images[QueryKey].description ; 
-         console.log("query ka description : --- >  " + description);
+    //     var description = images[QueryKey].description ; 
+    //     console.log("query ka description : --- >  " + description);
           var queryText = images[QueryKey].queryText ; 
-          console.log("query ka queryText : --- >  " + queryText);
+    //      console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[QueryKey].targetName ; 
-          console.log("query ka targetName : --- >  " + targetName);
+    //      console.log("query ka targetName : --- >  " + targetName);
           var targetKey = ResultList[key].targetKey ; 
-          console.log("query ka targetKey : --- >  " + targetKey);
+    //      console.log("query ka targetKey : --- >  " + targetKey);
           var targetId = ResultList[key].targetId ; 
-          console.log("query ka targetId : --- >  " + targetId);
+    //      console.log("query ka targetId : --- >  " + targetId);
           var targetDescription = ResultList[key].targetDescription ; 
-          console.log("query ka targetDescription : --- >  " + targetDescription);
+    //      console.log("query ka targetDescription : --- >  " + targetDescription);
           var targetUpdateTypeId = ResultList[key].targetUpdateTypeId ; 
-          console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
+    //      console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
           var targetUpdateTypeName =ResultList[key].targetUpdateTypeName ; 
-          console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
+    //      console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
           var categoryId = ResultList[key].categoryId ; 
-          console.log("query ka categoryId : --- >  " + categoryId);
+    //      console.log("query ka categoryId : --- >  " + categoryId);
           
 
      
@@ -551,21 +551,21 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
 //async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
   {
     console.log("Query Insertion wale function me aaya ");
-    console.log("query name : --- >  " + name);
+ //   console.log("query name : --- >  " + name);
     
-   console.log("query key : --- >  " + key);
+ //  console.log("query key : --- >  " + key);
   
-   console.log("query description : --- >  " + description);
+ //  console.log("query description : --- >  " + description);
     
-    console.log("query  queryText : --- >  " + queryText);
+  //  console.log("query  queryText : --- >  " + queryText);
    
-    console.log("query targetName : --- >  " + targetName);
+  //  console.log("query targetName : --- >  " + targetName);
     
     console.log("query  targetKey : --- >  " + targetKey);
     
     console.log("query targetId : --- >  " + targetId);
    
-    console.log("query targetDescription : --- >  " + targetDescription);
+ //   console.log("query targetDescription : --- >  " + targetDescription);
    
     console.log("query targetUpdateTypeId : --- >  " + targetUpdateTypeId);
   
