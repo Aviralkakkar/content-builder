@@ -360,7 +360,7 @@ app.post("/call", async (reqCall,resCall)=>
   {
     console.log('this is else query part' + QueryKey) ; 
     var name =  images[QueryKey].name ; 
-          console.log("query ka name in else part : --- >  " + name);
+    console.log("query ka name in else part : --- >  " + name);
   //  console.log("Query Name   ",images[QueryKey].name);
   //  var QKey = ResultList[key].Name;
   //  console.log("QKey is : " + QKey);
