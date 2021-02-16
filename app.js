@@ -359,6 +359,8 @@ app.post("/call", async (reqCall,resCall)=>
   else
   {
     console.log('this is else query part' + QueryKey) ; 
+    if(images[QueryKey] != undefined)
+   { 
     var name =  images[QueryKey].name ; 
     console.log("query ka name in else part : --- >  " + name);
   //  console.log("Query Name   ",images[QueryKey].name);
@@ -384,6 +386,7 @@ app.post("/call", async (reqCall,resCall)=>
 
   }
     // await resCall.end();
+    }
     }
     await resCall.end();
   });
