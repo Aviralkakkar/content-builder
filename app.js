@@ -276,6 +276,7 @@ app.post("/call", async (reqCall,resCall)=>
     {
       console.log("yeh hai target data extension" + ResultList[key].Name)   
       targetDEArray.push(ResultList[key].Name);
+     console.log( "yeh hai images me se target de ka name " + images[ResultList[key].Name].targetName );
 
     }
     console.log( "yo   :      "  + targetDEArray ); 
@@ -284,7 +285,7 @@ app.post("/call", async (reqCall,resCall)=>
     //  console.log("1. -- " + templateIdArray);
     //  console.log("2. -- " + ResultList[key].Name);
      var QueryKey = ResultList[key].Name;
-      console.log("This is query Key   " + QueryKey);
+   //   console.log("This is query Key   " + QueryKey);
   //    console.log("Query Name   ",images[QueryKey].name);
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
