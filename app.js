@@ -276,7 +276,8 @@ app.post("/call", async (reqCall,resCall)=>
     {
       console.log("yeh hai target data extension" + ResultList[key].Name)   
       targetDEArray.push(ResultList[key].Name);
-     console.log( "yeh hai images me se target de ka name " + images[ResultList[key].Name].targetName );
+     console.log( "yeh hai images me se target de ka name " + images[ResultList[key].Name] );
+     console.log( "yeh hai images me se target de ka name " + JSON.stringify(images[ResultList[key].Name]) );
 
     }
     console.log( "yo   :      "  + targetDEArray ); 
