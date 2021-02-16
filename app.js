@@ -628,7 +628,7 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
       .then(
         (response)=>
         {
-          console.log(response);
+      //    console.log(response);
          // console.log(response);
               var data=
               {
@@ -641,16 +641,16 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
         },
         (error)=>
         {
-          console.log(error);
+        //  console.log(error);
           var errordescription;
-          console.log("res "+error.response.data.validationErrors);
-          console.log("sttaus"+error.response.status);
+        //  console.log("res "+error.response.data.validationErrors);
+        //  console.log("sttaus"+error.response.status);
           var res=error.response.data.errors;
           if(res!=null)
           {
             for (var i in res)
             {
-              console.log(i);
+         //     console.log(i);
               console.log(res[i].message);
               errordescription=res[i].message;
             }
@@ -679,9 +679,9 @@ async function getqueryinserted(name,key,description,queryText,targetName,target
    
       )  
       .catch((error) => {
-        console.log("yeh promise ki Error hai", error);
+       // console.log("yeh promise ki Error hai", error);
     })                 
-      console.log("Req"+req) 
+     // console.log("Req"+req) 
   });
  
 }
