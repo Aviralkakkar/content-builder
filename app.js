@@ -271,7 +271,14 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
   //  console.log("yeh hai result list " + JSON.stringify(ResultList)); 
+     var targetDEArray = [];
+    for (var key in ResultList) 
+    {
+      console.log("yeh hai target data extension" + ResultList[key].Name)   
+      targetDEArray.push(ResultList[key].Name);
 
+    }
+    console.log( "yo   :      "  + targetDEArray ); 
     for (var key in ResultList) 
     {
     //  console.log("1. -- " + templateIdArray);
@@ -356,13 +363,13 @@ app.post("/call", async (reqCall,resCall)=>
 
     }
   
-  else
+  else if (templateIdArray.includes == true )
   {
     console.log('this is else query part' + QueryKey) ; 
     if(images[QueryKey] != undefined)
    { 
-    var name =  images[QueryKey].name ; 
-    console.log("query ka name in else part : --- >  " + name);
+  //  var name =  images[QueryKey].name ; 
+  //  console.log("query ka name in else part : --- >  " + name);
   //  console.log("Query Name   ",images[QueryKey].name);
   //  var QKey = ResultList[key].Name;
   //  console.log("QKey is : " + QKey);
@@ -371,7 +378,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  var qname = images[QKey].name;
     var dataToWrite=
     {
-  //  "queryName":qname,
+  //"queryName":qname,
     "message": "Failed" ,
     "statuscode":"400",
     "description":"Target Data Extension does not exist in Destination Org"
@@ -384,9 +391,9 @@ app.post("/call", async (reqCall,resCall)=>
 
     console.log ("Data Extension is not present in destination org ");
 
-  }
-    // await resCall.end();
     }
+    // await resCall.end();
+  }
     }
     await resCall.end();
   });
