@@ -270,7 +270,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
   //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
-    console.log("yeh hai result list " + JSON.stringify(ResultList)); 
+  //  console.log("yeh hai result list " + JSON.stringify(ResultList)); 
      var targetDEArray = [];
      ResultListMap = {};
      for (var key in ResultList) 
@@ -285,7 +285,7 @@ app.post("/call", async (reqCall,resCall)=>
     // console.log( "yeh hai images me se target de ka name " + JSON.stringify(images[ResultList[key].Name].targetKey) );
      }
     }
-    console.log("RESULTLISTMAP  : "  +  ResultListMap);
+    console.log("RESULTLISTMAP  : "  +  JSON.stringify(ResultListMap));
 //    console.log( "yo   :      "  + targetDEArray ); 
    // for (var key in ResultList) 
     for ( key in images )
