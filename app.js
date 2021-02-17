@@ -285,7 +285,8 @@ app.post("/call", async (reqCall,resCall)=>
      }
     }
     console.log( "yo   :      "  + targetDEArray ); 
-    for (var key in ResultList) 
+   // for (var key in ResultList) 
+    for ( key in images )
     {
     //  console.log("1. -- " + templateIdArray);
     //  console.log("2. -- " + ResultList[key].Name);
@@ -295,9 +296,10 @@ app.post("/call", async (reqCall,resCall)=>
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
-     
+     console.log("images[myobject].targetName  check --->  " + images[myobject].targetName);
     // console.log("yeh hai images ki key" + images[ResultList[key].Name]);
-      if ( templateIdArray.includes(ResultList[key].Name) == true )
+    // if ( templateIdArray.includes(ResultList[key].Name) == true )
+      if ( targetDEArray.includes(images[myobject].targetName) == true )
       {
           var dataKey = '"' + ResultList[key].CustomerKey + '"';
           var QueryKey = ResultList[key].Name;
