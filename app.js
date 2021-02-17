@@ -281,7 +281,7 @@ app.post("/call", async (reqCall,resCall)=>
      if( images[ResultList[key].Name] != undefined)
      {
     // console.log( "yeh hai images me se target de ka key" + images[ResultList[key].Name].targetKey );
-     console.log( "yeh hai images me se target de ka name " + JSON.stringify(images[ResultList[key].Name]) );
+     console.log( "yeh hai images me se target de ka name " + JSON.stringify(images[ResultList[key].Name].targetKey) );
      }
     }
     console.log( "yo   :      "  + targetDEArray ); 
