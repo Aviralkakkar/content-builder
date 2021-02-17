@@ -313,8 +313,10 @@ app.post("/call", async (reqCall,resCall)=>
       //    var dataKey = '"' + ResultList[key].CustomerKey + '"';
       //    var QueryKey = ResultList[key].Name;
       //    console.log("this is customer key : " + dataKey);
+      console.log("JSON----> ",JSON.stringify(images[key]));
           var name =  images[key].name ; 
           console.log("query ka name : --- >  " + name);
+          console.log("JSON----> ",JSON.stringify(images[key]));
           var key = images[key].key ; 
           console.log("query ka key : --- >  " + key);
         //  var description = images[key].description ; 
