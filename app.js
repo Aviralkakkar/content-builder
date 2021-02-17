@@ -296,10 +296,10 @@ app.post("/call", async (reqCall,resCall)=>
   //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
-     console.log("images[myobject].targetName  check --->  " + images[myobject].targetName);
+     console.log("images[myobject].targetName  check --->  " + images[key].targetName);
     // console.log("yeh hai images ki key" + images[ResultList[key].Name]);
     // if ( templateIdArray.includes(ResultList[key].Name) == true )
-      if ( targetDEArray.includes(images[myobject].targetName) == true )
+      if ( targetDEArray.includes(images[key].targetName) == true )
       {
           var dataKey = '"' + ResultList[key].CustomerKey + '"';
           var QueryKey = ResultList[key].Name;
