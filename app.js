@@ -264,7 +264,7 @@ app.post("/call", async (reqCall,resCall)=>
     SourceListDEResult = SourceListDEResult.replace(/:/g, "");
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
   //  console.log("yeh hai de ki response ki json body" +SourceListDEResult);
-    
+
   //  console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
     SourceListDEResult = JSON.parse(SourceListDEResult);
   //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
@@ -275,7 +275,7 @@ app.post("/call", async (reqCall,resCall)=>
      ResultListMap = {};
      for (var key in ResultList) 
     {
-//      console.log("yeh hai target data extension" + ResultList[key].Name)   
+//    console.log("yeh hai target data extension" + ResultList[key].Name)   
       targetDEArray.push(ResultList[key].Name);
       ResultListMap[ResultList[key].Name] = ResultList[key] ; 
     // console.log( "yeh hai images me se target de ka name " + images[ResultList[key].Name.targetKey] );
