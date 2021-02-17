@@ -379,11 +379,11 @@ app.post("/call", async (reqCall,resCall)=>
 
     }
   
-  else if (templateIdArray.includes == true )
+  else 
   {
-    console.log('this is else query part' + QueryKey) ; 
-    if(images[QueryKey] != undefined)
-   { 
+  //  console.log('this is else query part' + QueryKey) ; 
+    
+  // { 
   //  var name =  images[QueryKey].name ; 
   //  console.log("query ka name in else part : --- >  " + name);
   //  console.log("Query Name   ",images[QueryKey].name);
@@ -394,7 +394,7 @@ app.post("/call", async (reqCall,resCall)=>
   //  var qname = images[QKey].name;
     var dataToWrite=
     {
-  //"queryName":qname,
+    "queryName":images[key].name,
     "message": "Failed" ,
     "statuscode":"400",
     "description":"Target Data Extension does not exist in Destination Org"
@@ -407,7 +407,7 @@ app.post("/call", async (reqCall,resCall)=>
 
     console.log ("Data Extension is not present in destination org ");
 
-    }
+  //  }
     // await resCall.end();
   }
     }
