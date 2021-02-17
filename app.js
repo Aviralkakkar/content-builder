@@ -310,38 +310,30 @@ app.post("/call", async (reqCall,resCall)=>
     // if ( templateIdArray.includes(ResultList[key].Name) == true )
       if ( targetDEArray.includes(images[key].targetName) == true )
       {
-        var key=images[key];
-        console.log(key.name);
-        console.log(key.description);
-        console.log(key.queryText);
-      //    var dataKey = '"' + ResultList[key].CustomerKey + '"';
-      //    var QueryKey = ResultList[key].Name;
-      //    console.log("this is customer key : " + dataKey);
-      console.log("JSON----> ",JSON.stringify(images[key]));
           var name =  images[key].name ; 
           console.log("query ka name : --- >  " + name);
-          console.log("JSON----> ",JSON.stringify(images[key]));
-          var key = images[key].key ; 
-          console.log("query ka key : --- >  " + key);
-        //  var description = images[key].description ; 
-       //   console.log("query ka description : --- >  " + description);
-       console.log("JSON----> ",JSON.stringify(images[key]));
+        //  console.log("JSON----> ",JSON.stringify(images[key]));
+          var queryKey = images[key].key ; 
+          console.log("query ka key : --- >  " + queryKey);
+          var description = images[key].description ; 
+          console.log("query ka description : --- >  " + description);
+        //  console.log("JSON----> ",JSON.stringify(images[key]));
           var queryText = images[key].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[key].targetName ; 
-    //      console.log("query ka targetName : --- >  " + targetName);
+          console.log("query ka targetName : --- >  " + targetName);
           var targetKey = ResultListMap[targetName].CustomerKey ; 
           console.log("query ka targetKey : --- >  " + targetKey);
           var targetId =  ResultListMap[targetName].ObjectID ; 
           console.log("query ka targetId : --- >  " + targetId);
           var targetDescription = images[key].targetDescription ; 
-    //      console.log("query ka targetDescription : --- >  " + targetDescription);
+          console.log("query ka targetDescription : --- >  " + targetDescription);
           var targetUpdateTypeId = images[key].targetUpdateTypeId ; 
     //      console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
           var targetUpdateTypeName =images[key].targetUpdateTypeName ; 
     //      console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
           var categoryId =  ResultListMap[targetName].CategoryID ; 
-    //      console.log("query ka categoryId : --- >  " + categoryId);
+          console.log("query ka categoryId : --- >  " + categoryId);
           
 
      
@@ -352,7 +344,7 @@ app.post("/call", async (reqCall,resCall)=>
       //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
   //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
   //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
-      var queryinsert=await getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
+      var queryinsert=await getqueryinserted(name,queryKey,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
       console.log("yeh query.message" + queryinsert.message);
         if(queryinsert.message=='Failed')
           {
