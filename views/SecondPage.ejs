@@ -619,7 +619,7 @@ function templatebutton()
                                   var li = document.createElement('li');     // create li element.
                                   li.innerHTML = value.name;      // assigning text to li using array value.
                                   li.setAttribute('style', 'display: block;');    // remove the bullets.
-                                  if( ! $Queryiframe.contents().find("body").length)
+                                  if( ! $Queryiframe.contents().find("body"))
                                 {
                                   $Queryiframe.contents().find("body").append(radiobox);
                                   console.log(ul);
