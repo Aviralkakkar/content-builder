@@ -308,30 +308,30 @@ app.post("/call", async (reqCall,resCall)=>
     // if ( templateIdArray.includes(ResultList[key].Name) == true )
       if ( targetDEArray.includes(images[key].targetName) == true )
       {
-          var dataKey = '"' + ResultList[key].CustomerKey + '"';
-          var QueryKey = ResultList[key].Name;
-          console.log("this is customer key : " + dataKey);
-          var name =  images[QueryKey].name ; 
+      //    var dataKey = '"' + ResultList[key].CustomerKey + '"';
+      //    var QueryKey = ResultList[key].Name;
+      //    console.log("this is customer key : " + dataKey);
+          var name =  images[key].name ; 
           console.log("query ka name : --- >  " + name);
-        //  var key = images[QueryKey].key ; 
-        // console.log("query ka key : --- >  " + key);
-         var description = images[QueryKey].description ; 
-         console.log("query ka description : --- >  " + description);
-          var queryText = images[QueryKey].queryText ; 
+          var key = images[key].key ; 
+          console.log("query ka key : --- >  " + key);
+          var description = images[key].description ; 
+          console.log("query ka description : --- >  " + description);
+          var queryText = images[key].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
-          var targetName = images[QueryKey].targetName ; 
+          var targetName = images[key].targetName ; 
     //      console.log("query ka targetName : --- >  " + targetName);
-          var targetKey = ResultList[key].CustomerKey ; 
+          var targetKey = ResultListMap[targetName].CustomerKey ; 
           console.log("query ka targetKey : --- >  " + targetKey);
-          var targetId = ResultList[key].ObjectID ; 
+          var targetId =  ResultListMap[targetName].ObjectID ; 
           console.log("query ka targetId : --- >  " + targetId);
-          var targetDescription = images[QueryKey].targetDescription ; 
+          var targetDescription = images[key].targetDescription ; 
     //      console.log("query ka targetDescription : --- >  " + targetDescription);
-          var targetUpdateTypeId = images[QueryKey].targetUpdateTypeId ; 
+          var targetUpdateTypeId = images[key].targetUpdateTypeId ; 
     //      console.log("query ka targetUpdateTypeId : --- >  " + targetUpdateTypeId);
-          var targetUpdateTypeName =images[QueryKey].targetUpdateTypeName ; 
+          var targetUpdateTypeName =images[key].targetUpdateTypeName ; 
     //      console.log("query ka targetUpdateTypeName : --- >  " + targetUpdateTypeName);
-          var categoryId = ResultList[key].CategoryID ; 
+          var categoryId =  ResultListMap[targetName].CategoryID ; 
     //      console.log("query ka categoryId : --- >  " + categoryId);
           
 
