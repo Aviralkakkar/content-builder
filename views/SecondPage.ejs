@@ -702,10 +702,11 @@ function yesbutton()
                             
                               for (const [keyimage, value] of Object.entries(map)) 
                                 {
-                                  console.log("yeh api name " + value.name);
-                                  console.log("yeh query text hai" + value.queryText);
+                              //    console.log("yeh api name " + value.name);
+                              //    console.log("yeh query text hai" + value.queryText);
                                   if(emailjsonarray.includes(keyimage) == true)
                                   {
+                                    console.log("emailjsonarrayloop " );
                                     queryMap[value.targetName]= value;                                 
 
                                   }
