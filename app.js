@@ -287,8 +287,8 @@ app.post("/call", async (reqCall,resCall)=>
     }
     console.log("RESULTLISTMAP  : "  +  JSON.stringify(ResultListMap));
 
-    console.log(ResultListMap.get('Contact_Sent Target DE')) ;
-    console.log(ResultListMap.get('Contact_Sent Target DE').ObjectID) ;
+    console.log(ResultListMap.get(0)) ;
+    console.log(ResultListMap.get(1) );
     console.log(ResultListMap.get('Contact_Sent Target DE').CustomerKey) ;
 
 //    console.log( "yo   :      "  + targetDEArray ); 
