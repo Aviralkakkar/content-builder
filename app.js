@@ -346,8 +346,8 @@ app.post("/call", async (reqCall,resCall)=>
   //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
       var queryinsert=await getqueryinserted(name,queryKey,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
       console.log("yeh query.message" + queryinsert.message);
-        if(queryinsert.message=='Failed')
-          {
+        
+          
             var dataToWrite=
             {
             "queryName":name,
@@ -360,23 +360,7 @@ app.post("/call", async (reqCall,resCall)=>
         }));
         await resCall.write("+");
         console.log("Response Written"); 
-      }
-    else
-      {
-        var dataToWrite=
-                            {
-                            "queryName":name,
-                            "message":queryinsert.message,
-                            "statuscode":queryinsert.status,
-                            "description":queryinsert.description
-                            }
-        await  resCall.write(JSON.stringify({
-          dataToWrite
-        }));
-        await resCall.write("+");
-        console.log("Response Written");
-      }
-
+      
     }
   
   else 
