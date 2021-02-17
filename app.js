@@ -310,6 +310,10 @@ app.post("/call", async (reqCall,resCall)=>
     // if ( templateIdArray.includes(ResultList[key].Name) == true )
       if ( targetDEArray.includes(images[key].targetName) == true )
       {
+        var key=images[key];
+        console.log(key.name);
+        console.log(key.description);
+        console.log(key.queryText);
       //    var dataKey = '"' + ResultList[key].CustomerKey + '"';
       //    var QueryKey = ResultList[key].Name;
       //    console.log("this is customer key : " + dataKey);
