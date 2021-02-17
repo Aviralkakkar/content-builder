@@ -287,7 +287,7 @@ app.post("/call", async (reqCall,resCall)=>
     }
     console.log("RESULTLISTMAP  : "  +  JSON.stringify(ResultListMap));
 
-    console.log(ResultListMap['ExpressionBuilderAttributes']) ;
+    console.log(ResultListMap['ExpressionBuilderAttributes'].CustomerKey) ;
   //  console.log(ResultListMap.get(1) );
    // console.log(ResultListMap.get('Contact_Sent Target DE').CustomerKey) ;
 
