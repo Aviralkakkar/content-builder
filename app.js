@@ -304,7 +304,7 @@ app.post("/call", async (reqCall,resCall)=>
   //   console.log("IMAGES  with key " + images[QueryKey].queryText);
   //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
      console.log("images[myobject].targetName  check --->  " + images[key].targetName);
-     console.log("images descrpition" + images[key].description
+     console.log("images description" + images[key].description
      );
     // console.log("yeh hai images ki key" + images[ResultList[key].Name]);
     // if ( templateIdArray.includes(ResultList[key].Name) == true )
@@ -317,8 +317,8 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka name : --- >  " + name);
           var key = images[key].key ; 
           console.log("query ka key : --- >  " + key);
-          var description = images[key].description ; 
-          console.log("query ka description : --- >  " + description);
+        //  var description = images[key].description ; 
+       //   console.log("query ka description : --- >  " + description);
           var queryText = images[key].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[key].targetName ; 
