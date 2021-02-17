@@ -93,7 +93,7 @@ app.post("/asset", async (req, res) => {
          }, 
          function(error, response, body)
           {
-            console.log("RESPONSE " + response);
+            console.log("RESPONSE " + JSON.stringify(response));
             console.log("QUERY ERROR --->  " + error);
             console.log("yeh aagaya hai query fetch ke response me");
             //  console.log("yeh response body hai :" +JSON.stringify(response.body));                            
