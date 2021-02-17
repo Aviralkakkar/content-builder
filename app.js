@@ -319,6 +319,7 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka key : --- >  " + key);
         //  var description = images[key].description ; 
        //   console.log("query ka description : --- >  " + description);
+       console.log("JSON----> ",JSON.stringify(images[key]));
           var queryText = images[key].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[key].targetName ; 
