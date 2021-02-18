@@ -71,12 +71,7 @@ app.post("/asset", async (req, res) => {
         //returns 'page'
         var assetType = qdata.assetType;
         console.log("yeh hai asset type : " + assetType);
-    //    var assetTypeAll = qdata.assetTypeAll;
-    //    var assetTypeLayout = qdata.assetTypelayout;
-    //    var assetTypeSmartcapture = qdata.assetTypesmartcapture;
-    //    console.log("yeh hai asset type all : " + assetTypeAll); 
-    //    console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
-    //    console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
+
         var array = [];
         var map={};
         // get access token and fetch all the templates through post api
@@ -141,9 +136,7 @@ app.post("/asset", async (req, res) => {
 
                    
                     console.log("Loop me aagya query wala ");
-                  //  var emailName=myobject[attributename].name;
-                  //  console.log("Yeh Email name hai");
-                  //  emailName = path.parse(emailName).name;
+             
                     console.log("yeh query ka name hai : " + queryJSON) ;
                     map[myobject[attributename].key] = queryJSON;
                     
@@ -196,22 +189,12 @@ app.post("/convertintobase64", (reqYes, resYes) => {
   var q = url.parse(address, true);
   var qdata = q.query; // returns an object: { type: page, action: 'update',id='5221' }
   var button=qdata.button;
-//  var assetType = qdata.assetType; // Fetching assetType from the passed url from the client
-      //  var assetTypeAll = qdata.assetTypeAll;
-      //  var assetTypeLayout = qdata.assetTypelayout;
-      //  var assetTypeSmartcapture = qdata.assetTypesmartcapture;
-      //  console.log("yeh hai asset type all : " + assetTypeAll); 
-      //  console.log("yeh hai asset type assetTypeLayout : " + assetTypeLayout); 
-      //  console.log("yeh hai asset type assetTypeSmartcapture : " + assetTypeSmartcapture); 
+
   console.log("This is request body ----> " + JSON.stringify(reqYes.body));  
         
   images=reqYes.body;
- // var deKey = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
- // console.log("yeh hai key : " + images[deKey]);
- // console.log("yeh hai key ka target name : " + images[deKey].targetName);
+ 
   console.log("yeh images hai "  + JSON.stringify(images));
- // var key = "BEE63092-0ECA-456C-B4AE-3E042E407C4D";
- // console.log("yeh images ka first element value" + images[key].name);
       
   if(button=='Yes')
     {
@@ -228,18 +211,6 @@ app.post("/call", async (reqCall,resCall)=>
     var templateIdArray = [];
     console.log(images);
     console.log(JSON.stringify(images));
-
-
-    for(var myobject in images)
-      {
-        console.log("images logs");
-        console.log("YEH HAI NAME : " + images[myobject].targetKey)
-        console.log("YEH HAI obj : " + images[myobject])
-        console.log("YEH HAI stringify name : " + JSON.stringify(images[myobject]))
-        templateIdArray.push(images[myobject].targetName);
-      // console.log(images[myobject].name);// Putting Id of all the selected queries in template array    
-      }
-      console.log("YEH HAI TEMPLATE ARRAY : " + templateIdArray); 
 
     for (const [keyimage, value] of Object.entries(images)) 
     {
@@ -267,10 +238,9 @@ app.post("/call", async (reqCall,resCall)=>
     SourceListDEResult = xmlParser.toJson(SourceListDEResult);
   //  console.log("yeh hai de ki response ki json body" +SourceListDEResult);
 
-  //  console.log("yeh hai de ki response ki json body after : removal --->" +SourceListDEResult);
+  
     SourceListDEResult = JSON.parse(SourceListDEResult);
-  //  console.log("yeh hai de ki response ki json body after parse--->" +JSON.stringify(SourceListDEResult));
-  //  console.log("yeh hai key --------->" + SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results.CustomerKey);
+  
     var ResultList  = SourceListDEResult.soapEnvelope.soapBody.RetrieveResponseMsg.Results;
   //  console.log("yeh hai result list " + JSON.stringify(ResultList)); 
      var targetDEArray = [];
@@ -280,31 +250,14 @@ app.post("/call", async (reqCall,resCall)=>
 //    console.log("yeh hai target data extension" + ResultList[key].Name)   
       targetDEArray.push(ResultList[key].Name);
       ResultListMap[ResultList[key].Name] = ResultList[key] ; 
-    // console.log( "yeh hai images me se target de ka name " + images[ResultList[key].Name.targetKey] );
-     if( images[ResultList[key].Name] != undefined)
-     {
-    // console.log( "yeh hai images me se target de ka key" + images[ResultList[key].Name].targetKey );
-    // console.log( "yeh hai images me se target de ka name " + JSON.stringify(images[ResultList[key].Name].targetKey) );
-     }
+         
     }
-    console.log("RESULTLISTMAP  : "  +  JSON.stringify(ResultListMap));
+  //  console.log("RESULTLISTMAP  : "  +  JSON.stringify(ResultListMap));
 
-    console.log(ResultListMap['ExpressionBuilderAttributes'].CustomerKey) ;
-  //  console.log(ResultListMap.get(1) );
-   // console.log(ResultListMap.get('Contact_Sent Target DE').CustomerKey) ;
 
-//    console.log( "yo   :      "  + targetDEArray ); 
-   // for (var key in ResultList) 
     for ( key in images )
     {
-    //  console.log("1. -- " + templateIdArray);
-    //  console.log("2. -- " + ResultList[key].Name);
-  //   var QueryKey = ResultList[key].Name;
-   //   console.log("This is query Key   " + QueryKey);
-  //    console.log("Query Name   ",images[QueryKey].name);
-  //   console.log("IMAGES  STRINGIFY" + JSON.stringify(images));
-  //   console.log("IMAGES  with key " + images[QueryKey].queryText);
-  //   console.log("IMAGES" + JSON.stringify(images[QueryKey]));
+   
      console.log("images[myobject].targetName  check --->  " + images[key].targetName);
      console.log("images key" + JSON.stringify(images[key])
      );
@@ -314,12 +267,12 @@ app.post("/call", async (reqCall,resCall)=>
       {
           var name =  images[key].name ; 
           console.log("query ka name : --- >  " + name);
-        //  console.log("JSON----> ",JSON.stringify(images[key]));
+      //  console.log("JSON----> ",JSON.stringify(images[key]));
           var queryKey = images[key].key ; 
           console.log("query ka key : --- >  " + queryKey);
           var description = images[key].description ; 
           console.log("query ka description : --- >  " + description);
-        //  console.log("JSON----> ",JSON.stringify(images[key]));
+      //  console.log("JSON----> ",JSON.stringify(images[key]));
           var queryText = images[key].queryText ; 
           console.log("query ka queryText : --- >  " + queryText);
           var targetName = images[key].targetName ; 
@@ -338,14 +291,6 @@ app.post("/call", async (reqCall,resCall)=>
           console.log("query ka categoryId : --- >  " + categoryId);
           
 
-     
-
-    //  if(access_tokenDestination!=null)
-    //  {
-        // invoked method to insert the template in destination org
-      //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
-  //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
-  //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
       var queryinsert=await getqueryinserted(name,queryKey,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination); 
       console.log("yeh query.message" + queryinsert.message);
         
@@ -367,17 +312,6 @@ app.post("/call", async (reqCall,resCall)=>
   
   else 
   {
-  //  console.log('this is else query part' + QueryKey) ; 
-    
-  // { 
-  //  var name =  images[QueryKey].name ; 
-  //  console.log("query ka name in else part : --- >  " + name);
-  //  console.log("Query Name   ",images[QueryKey].name);
-  //  var QKey = ResultList[key].Name;
-  //  console.log("QKey is : " + QKey);
-  //  console.log("img qKey : " + images[QKey]);
-  //  console.log("img qKey : " + JSON.stringify(images[QKey]));
-  //  var qname = images[QKey].name;
     var dataToWrite=
     {
     "queryName":images[key].name,
@@ -393,151 +327,11 @@ app.post("/call", async (reqCall,resCall)=>
 
     console.log ("Data Extension is not present in destination org ");
 
-  //  }
-    // await resCall.end();
   }
     }
     await resCall.end();
   });
 
-  
-    
-  
-  
-  
-  // Fetching all the DE in the Destination org 
-  /*  var request = require('request');
-        request.post({
-        headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accesstoken},
-        url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com//asset/v1/content/assets/query',
-        body:    
-        {
-          "query":
-             {
-                 "leftOperand":
-                 {
-                    "property":"assetType.displayName",
-                     "simpleOperator":"equal",
-                     "value":assetTypeAll   
-                 },
-                 "logicalOperator":"OR",
-                 "rightOperand":
-                 {
-                     "leftOperand":
-                 {
-                    "property":"assetType.name",
-                     "simpleOperator":"equal",
-                     "value":assetTypeLayout   
-                 },
-                 "logicalOperator":"OR",
-                 "rightOperand":
-                 {
-                     "property":"assetType.name",
-                     "simpleOperator":"equal",
-                     "value":assetTypeSmartcapture
-                 }
-         
-                 }
-             }
-         },
-    json: true
-    }, 
-      async function(error, response, body)
-        {
-      //    console.log("yeh body hai----------> " + JSON.stringify(body));
-          myobjectBody=  response.body.items; 
-      //    console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL --> " + JSON.stringify(myobjectBody));
-      //    console.log("YEH HAI RESPONSE BODY BOLE TOH EMAIL withoit stringify --> " + myobjectBody);
-
-          var acesstoken= await getacesstoken(clientIdDestination,clientSecretDestination,grantTypeDestination,accountIdDestination); 
-          var assetTypeDisplayNameArray = ["Smart Capture","Layout","Free Form Block", "Text Block", "Dynamic Block", "Image Carousel Block","Social Follow Block", "Social Share Block", "External Content Block","Code Snippet Block","Enhanced Dynamic Content Block","Button Block","Image Block","HTML Block"];
-          // iterating over the templates in an org
-          for(var attributename in myobjectBody)
-            {
-              console.log("yeh hai display name" + myobjectBody[attributename].assetType.displayName);
-              if(assetTypeDisplayNameArray.includes(myobjectBody[attributename].assetType.displayName)== true)
-                {
-                  var temp = 0;
-                  console.log("yeh myobjectbody ki id : " + myobjectBody[attributename].id);
-                  console.log("templateIdArray ki id 1 : " + templateIdArray[0]);
-                  console.log("templateIdArray ki id 2 : " + templateIdArray[1]);
-                  
-                  // checking condition for selected array 
-                  while(templateIdArray[temp])
-                    {
-                      // comparing selected template id and templates present in an org to fetch all its detail
-                      if( templateIdArray[temp] == myobjectBody[attributename].id )
-                      {
-                        console.log( "while if ke andar aagya" + templateIdArray[temp]);
-                        console.log( "while if ke andar aagya" + myobjectBody[attributename].id);
-                        var contentBlockName = myobjectBody[attributename].name;
-                        console.log("Email Name----> " + contentBlockName);
-                        var contentBlockContent = myobjectBody[attributename].content;
-
-                        var contentBlockslots= myobjectBody[attributename].slots;
-                      //  var views =  myobjectBody[attributename].views;
-                      //  var contentJSON = myobjectBody[attributename].content;
-                        var assetTypeID = myobjectBody[attributename].assetType.id;
-                        var assetTypeName = myobjectBody[attributename].assetType.name;
-                        console.log("Yeh hai assetTypeName" + assetTypeName);
-                        var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
- 
-                        if(acesstoken!=null)
-                          {
-                            // invoked method to insert the template in destination org
-                          //  var imageinsert=await getimageinserted(templateName,contentJSON,slotsJSON,access_tokenDestination,assetTypeID); 
-                      //  var assetTypedisplayName = myobjectBody[attributename].assetType.displayName;
-                      //  var imageinsert=await getemailinserted(templateName,views,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName);       
-                          var imageinsert=await getcontentblockinserted(contentBlockName,contentBlockContent,contentBlockslots,access_tokenDestination,assetTypeID,assetTypeName,assetTypedisplayName); 
-                          console.log("yeh imageinsert.message" + imageinsert.message);
-                            if(imageinsert.message=='Failed')
-                              {
-                                var dataToWrite=
-                                  {
-                                    "imagename":contentBlockName,
-                                    "message":imageinsert.message,
-                                    "status code":"400",
-                                    "progressStatus":progressStatus       
-                                  }
-                            await resCall.write(JSON.stringify({
-                              dataToWrite            
-                            }));
-                            await resCall.write("+");
-                            console.log("Response Written"); 
-                          }
-                        else
-                          {
-                            var dataToWrite=
-                              {
-                                "imagename":contentBlockName,
-                                "message":imageinsert.message,
-                                "statuscode":"200",
-                                "progressStatus":progressStatus
-                              }
-                            await  resCall.write(JSON.stringify({
-                              dataToWrite
-                            }));
-                            await resCall.write("+");
-                            console.log("Response Written");
-                          }
-                        }
-                        temp++;
-                        console.log("yeh temp hai----> " +temp);
-                        console.log("status 200");
-                        // res.send(200);         
-                       }
-                       
-                       else 
-                       {
-                         temp++;
-                       }
-  
-                     }      
-                   }
-                }
-            await resCall.end();
-            });
-           */
             var countkey = Object.keys(images).length;
             console.log("Size"+countkey);                                
             var progressStatus=(100/countkey);                          
@@ -581,39 +375,11 @@ async function getacesstoken(ClientIdDestination,ClientSecretDestination,GrantTy
     catch(err){}    
   }
 
-// method to insert the template
-//async function getimageinserted(templateName,templateContent,templateSlots,acesstoken,assetTypeID)
+
 async function getqueryinserted(name,key,description,queryText,targetName,targetKey,targetId,targetDescription,targetUpdateTypeId,targetUpdateTypeName,categoryId,access_tokenDestination)
-//async function getemailinserted(templateName,views,acesstoken,assetTypeID,assetTypeName,assetTypedisplayName)
+
   {
-    console.log("Query Insertion wale function me aaya ");
-    console.log("query name : --- >  " + name);
-    
-   console.log("query key : --- >  " + key);
-  
-   console.log("query description : --- >  " + description);
-    
-    console.log("query  queryText : --- >  " + queryText);
    
-    console.log("query targetName : --- >  " + targetName);
-    
-    console.log("query  targetKey : --- >  " + targetKey);
-    
-    console.log("query targetId : --- >  " + targetId);
-   
-    console.log("query targetDescription : --- >  " + targetDescription);
-   
-    console.log("query targetUpdateTypeId : --- >  " + targetUpdateTypeId);
-  
-    console.log("query targetUpdateTypeName : --- >  " + targetUpdateTypeName);
-  
-    console.log("query  categoryId : --- >  " + categoryId);
-
-    console.log("Yeh destination access token hai " + access_tokenDestination);
-
-
-   
- 
     var  data=
       {
         "name": name ,
